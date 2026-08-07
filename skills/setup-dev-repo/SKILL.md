@@ -191,7 +191,7 @@ launch.
 
 ## Done when
 
-- [ ] Dependencies install cleanly from a fresh clone
+- [ ] A fresh clone can install everything without manual fixes
 - [ ] The format, lint/type-check and test commands exist and were **run**, not read
 - [ ] The commit gate was seen blocking a bad commit and passing a clean one
 - [ ] CI runs the same checks as the gate

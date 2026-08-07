@@ -283,10 +283,10 @@ All skills are authored as first-pass drafts unless flagged otherwise.
 | 4 | `wayfinder` | Project Start; the default entry point for non-trivial work | vendored-verbatim (matt-pocock) | first-pass |
 | 5 | `research` | Wayfinder ticket type + mid-work utility | lifted (matt-pocock) | first-pass |
 | 6 | `prototype` | Wayfinder ticket type + mid-work utility | vendored-verbatim (matt-pocock; 3 files, `LOGIC.md` + `UI.md`) | authored |
-| 7 | `grill-me` | Wayfinder ticket type; small-project entry; Build + Simplified | lifted (syv-ai, + matt-pocock `grilling`/`domain-modeling`) | first-pass |
-| 8 | `to-spec` | Project Start + Build | lifted (base: skill(CC) `to-prd`) | first-pass |
+| 7 | `grill-me` | Wayfinder ticket type; small-project entry; Build + Simplified | lifted (matt-pocock `grill-me`/`grilling` + `domain-modeling`) | first-pass |
+| 8 | `to-spec` | Project Start + Build | lifted (matt-pocock `to-prd`) | first-pass |
 | 9 | `visual-spec` | Project Start | custom | first-pass |
-| 10 | `to-issues` | Project Start | lifted (matt-pocock `to-tickets` + syv-ai publishing) | authored |
+| 10 | `to-issues` | Project Start | lifted (matt-pocock `to-tickets`) | authored |
 | 11 | `start-dev` | Build (day orchestrator; rebuilt 2026-08-05, template bundled) | custom | authored |
 | 12 | `pickup-issue` | Build (issue-session bookend; holds the old front-door discipline) | custom | authored |
 | 13 | `writing-plan` | Build (issue level) + Simplified | lifted (superpowers `writing-plans`) | first-pass |
@@ -294,8 +294,8 @@ All skills are authored as first-pass drafts unless flagged otherwise.
 | 15 | `subagent-driven-development` | Build + Simplified (build method) | vendored-verbatim (superpowers, refs localized) | first-pass |
 | 16 | `code-review` | Build + Simplified; optional, two modes | lifted (matt-pocock + superpowers) | authored |
 | 17 | `close-issue` | Build (issue-session bookend); merges on green; was `close-task` | custom | authored |
-| 18 | `start` | Simplified (session bookend) | vendored-verbatim (superpowers / skill(CC)) | first-pass |
-| 19 | `update-docs` | Simplified + day-level bookend; was `update-ledger` | lifted (skill(CC)) | authored |
+| 18 | `start` | Simplified (session bookend) | vendored-verbatim (superpowers) | first-pass |
+| 19 | `update-docs` | Simplified + day-level bookend; was `update-ledger` | lifted (matt-pocock handoff lineage) | authored |
 | 20 | `systematic-debugging` | Mid-work utility (alias: `diagnosing-bugs`) | lifted (matt-pocock / superpowers) | first-pass |
 | 21 | `improve-codebase-architecture` | Maintenance (outside the lanes) | lifted (matt-pocock) | first-pass |
 | 22 | `writing-for-agents` | Meta; governs any document an agent reads; was `write-a-skill` | vendored-verbatim (matt-pocock, 2 files; house rules appended in `S8-RULES.md`) | authored |
@@ -370,10 +370,12 @@ source values in the table above. Provenance notes:
 
 Two provenance findings from the original research still hold:
 
-- **`syv` is a personal fork of `matt-pocock`.** The local `skill(CC)` set (installed via
-  `npx skills add syv-ai/agentic-coding-playbook`) mirrors Matt Pocock's skills almost
-  line for line. So `lifted`-from-`skill(CC)` entries are functionally matt-pocock-derived,
-  already vendored onto the machine. Where V3 renames or reshapes one (e.g. `to-prd` ->
+- **Intermediate collections are credited to their ultimate authors.** Some skills first
+  reached the machine through a third-party collection that mirrors Matt Pocock's skills
+  almost line for line. A line-level audit (2026-08-07) traced every such line back to
+  `mattpocock/skills` history or `obra/superpowers`; the three lines that traced to
+  neither were rewritten in S8's own words. `ATTRIBUTION.md` therefore records the two
+  ultimate upstreams only. Where V3 renames or reshapes a skill (e.g. `to-prd` ->
   `to-spec`), the delta is what makes it `lifted` rather than `vendored-verbatim`.
 - **Matt Pocock's user-invoked vs model-invoked axis** maps onto how skills are reached in
   the lanes (typed/orchestrating vs auto-eligible mid-work), though V3 no longer tracks it

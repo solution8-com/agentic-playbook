@@ -42,7 +42,7 @@ Count rounds, not questions: many questions across a few rounds is an ordinary s
 
 Ask questions as plain text in the conversation. If the user asks for the pop-up UI (the AskUserQuestion tool), switch to it for the rest of the session - it is theirs to opt into, not the default.
 
-## Sharpen the language as you go
+## Make terms precise the moment they appear
 
 - **Challenge fuzzy terms.** When a vague or overloaded word shows up, propose a precise canonical term and confirm it. ("You said 'account': do you mean the Customer or the User? Those aren't the same thing here.")
 - **Stress-test with scenarios.** When a domain relationship comes up, invent a concrete edge case that forces precision about where the boundary actually sits.

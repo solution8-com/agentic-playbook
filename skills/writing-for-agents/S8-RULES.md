@@ -104,7 +104,7 @@ For discipline-enforcing skills (hard rules, like TDD's "no code before a test")
 - [ ] A no-op pass has run on the final draft: delete any line that doesn't change behaviour versus the default
 - [ ] Steering is positive, not by prohibition, except hard guardrails
 - [ ] Tested against a real scenario, not just read back
-- [ ] No narrative, no time-sensitive info, consistent terminology
+- [ ] Timeless wording, one name per concept, zero storytelling
 
 ## Related skills
 

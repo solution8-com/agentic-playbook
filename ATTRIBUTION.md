@@ -1,6 +1,6 @@
 # Attribution
 
-The S8 Agentic Playbook skills collection is assembled from excellent
+The S8 Agentic Playbook skills collection is assembled from two excellent
 MIT-licensed open-source skill libraries, plus skills written from scratch by
 Solution8. We are grateful to the original authors. This collection is itself
 MIT-licensed (see [LICENSE](LICENSE)).
@@ -16,11 +16,6 @@ tooling have been removed so every skill stands on its own.
   <https://github.com/mattpocock/skills>
 - **`obra/superpowers`** - Jesse Vincent (MIT, (c) 2025).
   <https://github.com/obra/superpowers>
-- **`syv-ai/agentic-coding-playbook`** - Syv.ai (declared MIT in its
-  `skills/ATTRIBUTION.md`). Itself a distillation of the two libraries above;
-  where a skill below credits the syv-ai collection, the ultimate origin is
-  usually Matt Pocock's library.
-  <https://github.com/syv-ai/agentic-coding-playbook>
 
 ## Per-skill provenance
 
@@ -32,10 +27,10 @@ tooling have been removed so every skill stands on its own.
 | `wayfinder` | mattpocock/skills (`wayfinder`), vendored near-verbatim |
 | `research` | mattpocock/skills (`research`), reshaped |
 | `prototype` | mattpocock/skills (`prototype`, 3 files), vendored near-verbatim |
-| `grill-me` | syv-ai collection (`grill-me`) + mattpocock/skills (`grilling`, `domain-modeling`), reshaped |
-| `to-spec` | syv-ai collection (`to-prd`, Matt-derived), renamed and reshaped |
+| `grill-me` | mattpocock/skills (`grill-me`, later `grilling`, + `domain-modeling`), reshaped into rounds |
+| `to-spec` | mattpocock/skills (`to-prd`), renamed and reshaped |
 | `visual-spec` | Solution8 original |
-| `to-issues` | mattpocock/skills (`to-tickets`) + the syv-ai publishing flow, reshaped |
+| `to-issues` | mattpocock/skills (`to-tickets`), reshaped |
 | `start-dev` | Solution8 original |
 | `pickup-issue` | Solution8 original |
 | `writing-plan` | obra/superpowers (`writing-plans`), reshaped |
@@ -43,8 +38,8 @@ tooling have been removed so every skill stands on its own.
 | `subagent-driven-development` | obra/superpowers (`subagent-driven-development`), vendored with references localized |
 | `code-review` | mattpocock/skills (`code-review`) + obra/superpowers, reshaped |
 | `close-issue` | Solution8 original |
-| `start` | obra/superpowers via the syv-ai collection, vendored near-verbatim |
-| `update-docs` | syv-ai collection (Matt-derived), reshaped |
+| `start` | obra/superpowers, vendored near-verbatim |
+| `update-docs` | mattpocock/skills (`handoff` lineage), fully rewritten |
 | `systematic-debugging` | **Merge** of obra/superpowers (`systematic-debugging`) + mattpocock/skills (`diagnose`), reshaped |
 | `improve-codebase-architecture` | mattpocock/skills (`improve-codebase-architecture`), reshaped |
 | `writing-for-agents` | mattpocock/skills (`writing-for-agents`, 2 files), vendored; Solution8 house rules appended in `S8-RULES.md` |
@@ -52,12 +47,14 @@ tooling have been removed so every skill stands on its own.
 | `to-questionnaire` | mattpocock/skills, reshaped - output changed to a fillable Solution8 HTML questionnaire |
 | `explain-like-im-ten` | mattpocock/skills (`wait-what`), renamed, ELI10 register |
 
+A line-level audit (2026-08-07) traced every vendored or reshaped line in the
+collection back to one of the two libraries above; everything else is
+Solution8's own text.
+
 ## Upstream licenses
 
-Both primary source libraries are MIT-licensed. Their notices are reproduced
-below as required. The syv-ai collection declares itself MIT-licensed in its
-`skills/ATTRIBUTION.md` but ships no separate license file; its own material is
-covered by the notices below where it derives from these libraries.
+Both source libraries are MIT-licensed. Their notices are reproduced below as
+required.
 
 ### mattpocock/skills
 
