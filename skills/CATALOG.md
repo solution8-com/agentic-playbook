@@ -559,8 +559,8 @@ catalog went from 34 to 27:
 app (not a CLI-first flow). Applies the team naming convention to the repo name and initial
 scaffold, baked into the skill rather than read from config. No public precedent.
 
-**`project-setup`** - source: `custom`, patterned after the local `setup` skill and
-`setup-syv-skills`'s onboarding shape. Scaffolds git, installs/points at the repo skills,
+**`project-setup`** - source: `custom`, patterned after the local `setup` skill and a
+third-party installer skill's onboarding shape. Scaffolds git, installs/points at the repo skills,
 and seeds a slim `CLAUDE.md` following the "seed a slim pointer, don't force a fat one"
 pattern. Runs after `create-repo` or when it detects a repo with no skills wired up.
 
@@ -577,7 +577,7 @@ syncs docs when the work has drifted from what was documented. Distinct from
 that also sharpens `CONTEXT.md` and captures decisions as ADRs). The S8 delta is wiring
 into the ledger/ADR memory layer.
 
-**`grill-me`** - source: matt-pocock (via the local `skill(CC)` copy, near-verbatim his
+**`grill-me`** - source: matt-pocock (via the locally installed copy, near-verbatim his
 `grilling`/`grill-me`). Lighter sibling of `grill-with-docs`: same relentless
 one-question-at-a-time loop, but writes nothing to ADRs or a glossary.
 
@@ -605,7 +605,7 @@ relative, `wayfinder`, splits work across sessions, not people, so it is not the
 or tickets, driving `tdd` at pre-agreed seams and closing with `code-review` before
 committing). In V3 this is a thin, standalone-only orchestrator.
 
-**`tdd`** - source: matt-pocock / superpowers (both ship one; the local `skill(CC)` `tdd`
+**`tdd`** - source: matt-pocock / superpowers (both ship one; the locally installed `tdd`
 is present and MP-derived). Red-green-refactor, one vertical slice at a time.
 
 **`code-review`** - source: `lifted`. Base is Matt Pocock's `code-review` (two parallel
@@ -633,14 +633,14 @@ background agent). Narrower than `mega-research`.
 orchestrator answering "has someone already built this?" over `deep-research` + `gh-stars`
 + `deepwiki` + one net-new `gh-search` primitive. Not all underlying tools are built yet.
 
-**`write-a-skill`** - source: `lifted` from the local `skill(CC)` copy (informed by matt-
+**`write-a-skill`** - source: `lifted` from the locally installed copy (informed by matt-
 pocock's `writing-great-skills` and superpowers' `writing-skills`). Meta-skill for
 authoring a `SKILL.md` with proper frontmatter, progressive disclosure, and a discoverable
 description.
 
 ## 8. Sources consulted
 
-- Local skill files under `~/.claude/skills/*/SKILL.md` (the syv/`agentic-coding-playbook`
+- Local skill files under `~/.claude/skills/*/SKILL.md` (a third-party `agentic-coding-playbook`
   collection).
 - The `superpowers` plugin skills present in this environment.
 - `https://github.com/mattpocock/skills` and its raw `README.md` on `main`.
