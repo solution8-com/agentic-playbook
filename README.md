@@ -15,3 +15,8 @@ npx skills add solution8-com/INT-s8-agentic-playbook
 
 - [skills/README.md](skills/README.md) - the set: what each skill is for and how they chain.
 - [skills/CATALOG.md](skills/CATALOG.md) - the full catalog: tags, lanes, settled decisions.
+- [ATTRIBUTION.md](ATTRIBUTION.md) - per-skill provenance and upstream MIT notices.
+
+## License
+
+MIT - see [LICENSE](LICENSE).

@@ -314,7 +314,8 @@ criteria, run before closing), `executing-plans` (superseded by
 positioning blockquotes - a skill file is a prompt, every line of it loads on invocation,
 and metadata kept in two places drifts (it did, twice, in two days). This catalog is the
 sole record: sources in the table above and section 4, the interaction axes below.
-Upstream names appear here and nowhere else.
+Upstream names appear here and in the root `ATTRIBUTION.md` (the licensing record),
+nowhere else.
 
 ### Per-skill interaction axes (moved out of the skill files, 2026-08-05)
 
