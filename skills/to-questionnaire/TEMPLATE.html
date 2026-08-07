@@ -1,0 +1,203 @@
+<!doctype html>
+<!-- TEMPLATE for the to-questionnaire skill. Everything up to the CONTENT marker
+     (styles + the save/export script at the bottom) is fixed library - never hand-edit it.
+     Author only the content between the CONTENT START/END markers: title, purpose,
+     context, themed groups of question cards, and the closing catch-all.
+     The questions and answers below are EXAMPLE content - replace all of it.
+     Each question card needs a unique data-qid. Write in the recipient's language. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Questionnaire - Example Project</title>
+<style>
+  :root{
+    --bg:#ffffff; --body:#0f172a; --muted:#64748b;
+    --accent:#E3241B; --accent-dark:#B81D15; --accent-soft:#FDEEED;
+    --code-bg:#f1f5f9; --subtle:#f8fafc; --border:#e2e8f0;
+    --green:#16a34a; --amber:#d97706; --red:#dc2626;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--body);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:820px; margin:0 auto; padding:56px 28px 96px}
+  .brand{display:flex; align-items:center; gap:12px; margin-bottom:36px}
+  .brand .mark{
+    font-weight:800; letter-spacing:.5px; font-size:15px; color:#fff;
+    background:var(--accent); padding:6px 12px; border-radius:8px;
+  }
+  .brand .sub{font-size:13px; color:var(--muted); font-weight:500}
+  .kicker{text-transform:uppercase; letter-spacing:2px; font-size:12px; font-weight:700; color:var(--accent); margin:0 0 10px}
+  h1{font-size:32px; line-height:1.2; margin:0 0 8px; letter-spacing:-.4px; padding-bottom:12px; border-bottom:2px solid var(--accent); display:inline-block}
+  .purpose{font-size:17px; color:var(--body); margin:18px 0 6px; font-weight:600}
+  .context{color:var(--muted); margin:6px 0 0; max-width:680px}
+  .howto{
+    display:flex; gap:12px; align-items:flex-start;
+    background:var(--accent-soft); border:1px solid #F3CCC9; border-radius:12px;
+    padding:14px 18px; margin:28px 0 8px; font-size:14.5px;
+  }
+  .howto b{color:var(--body)}
+  h2{font-size:21px; margin:44px 0 4px; letter-spacing:-.2px}
+  .group-sub{color:var(--muted); font-size:14.5px; margin:0 0 16px}
+  .q{
+    border:1px solid var(--border); border-radius:12px; padding:18px 20px;
+    margin:0 0 14px; background:#fff;
+  }
+  .q .qhead{display:flex; gap:10px; align-items:baseline; margin-bottom:6px}
+  .q .qnum{
+    flex:none; font-size:12px; font-weight:800; color:var(--accent);
+    background:var(--accent-soft); border-radius:999px; padding:2px 10px;
+  }
+  .q .qtitle{font-weight:700}
+  .q .qbody{margin:0 0 6px; font-size:15.5px}
+  .q .why{font-size:13.5px; color:var(--muted); font-style:italic; margin:0 0 10px}
+  .q textarea{
+    width:100%; min-height:76px; resize:vertical; border:1px solid var(--border);
+    border-radius:8px; padding:10px 12px; font:inherit; font-size:15px; color:var(--body);
+    background:var(--subtle);
+  }
+  .q textarea:focus{outline:2px solid var(--accent); outline-offset:-1px; background:#fff}
+  .footer{
+    margin-top:44px; padding-top:20px; border-top:1px solid var(--border);
+    display:flex; gap:14px; align-items:center; flex-wrap:wrap;
+  }
+  button.export{
+    font:inherit; font-weight:700; font-size:15px; color:#fff; background:var(--accent);
+    border:0; border-radius:10px; padding:12px 22px; cursor:pointer;
+  }
+  button.export:hover{background:var(--accent-dark)}
+  .savenote{font-size:13px; color:var(--muted)}
+  .savenote .ok{color:var(--green); font-weight:700}
+  .toast{
+    position:fixed; bottom:24px; left:50%; transform:translateX(-50%);
+    background:var(--body); color:#fff; font-size:14px; padding:10px 18px;
+    border-radius:10px; opacity:0; transition:opacity .25s; pointer-events:none;
+  }
+  .toast.show{opacity:1}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand"><span class="mark">S8</span><span class="sub">Solution8 · questionnaire</span></div>
+
+  <!-- ======================= CONTENT START ======================= -->
+
+  <p class="kicker">We need your input</p>
+  <h1>Example Project - open decisions</h1>
+  <p class="purpose">Purpose: the decision riding on this is X, and you are the person who knows Y.</p>
+  <p class="context">Two or three sentences of context for a recipient who was never in the
+  conversation: what the project is, where it stands, and why these questions landed with them.</p>
+
+  <div class="howto">
+    <div>💬</div>
+    <div><b>How this works:</b> type your answers directly into the boxes - they are saved on
+    your machine as you type, so you can close this and come back. "I don't know" is a
+    genuinely useful answer; a guess that reads like a fact is not. When you're done, press
+    <b>Export answers</b> at the bottom and send back the file it gives you.</div>
+  </div>
+
+  <h2>Theme one</h2>
+  <p class="group-sub">Most important first - if you only get through one group, make it this one.</p>
+
+  <div class="q" data-qid="q1">
+    <div class="qhead"><span class="qnum">Q1</span><span class="qtitle">One idea, stated as a question</span></div>
+    <p class="qbody">The question body. One idea per question, never compound. Options spelled
+    out where options exist.</p>
+    <p class="why">Why this matters: only present when the question could be misread without it.</p>
+    <textarea placeholder="Your answer... ('I don't know' is fine too)"></textarea>
+  </div>
+
+  <div class="q" data-qid="q2">
+    <div class="qhead"><span class="qnum">Q2</span><span class="qtitle">Second question</span></div>
+    <p class="qbody">Body.</p>
+    <textarea placeholder="Your answer..."></textarea>
+  </div>
+
+  <h2>Theme two</h2>
+
+  <div class="q" data-qid="q3">
+    <div class="qhead"><span class="qnum">Q3</span><span class="qtitle">Third question</span></div>
+    <p class="qbody">Body.</p>
+    <textarea placeholder="Your answer..."></textarea>
+  </div>
+
+  <h2>Anything else?</h2>
+
+  <div class="q" data-qid="catchall">
+    <div class="qhead"><span class="qnum">✳</span><span class="qtitle">Anything we didn't ask that we should know?</span></div>
+    <textarea placeholder="Whatever you think we're missing..."></textarea>
+  </div>
+
+  <!-- ======================== CONTENT END ======================== -->
+
+  <div class="footer">
+    <button class="export" id="export">Export answers</button>
+    <span class="savenote" id="savenote">Answers save locally as you type.</span>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var KEY = 'questionnaire:' + document.title;
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.q'));
+  var note = document.getElementById('savenote');
+  var toast = document.getElementById('toast');
+
+  function load(){
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e){}
+    boxes.forEach(function(q){
+      var ta = q.querySelector('textarea');
+      if (ta && saved[q.dataset.qid]) ta.value = saved[q.dataset.qid];
+    });
+  }
+  function save(){
+    var out = {};
+    boxes.forEach(function(q){
+      var ta = q.querySelector('textarea');
+      if (ta && ta.value.trim()) out[q.dataset.qid] = ta.value;
+    });
+    try { localStorage.setItem(KEY, JSON.stringify(out)); } catch(e){}
+    note.innerHTML = '<span class="ok">✓ Saved locally</span> - export when you\'re done.';
+  }
+  function showToast(msg){
+    toast.textContent = msg; toast.classList.add('show');
+    setTimeout(function(){ toast.classList.remove('show'); }, 2600);
+  }
+  function exportAnswers(){
+    var lines = ['# ' + document.title, '', 'Answered: ' + new Date().toISOString().slice(0,10), ''];
+    boxes.forEach(function(q){
+      var num = q.querySelector('.qnum'), title = q.querySelector('.qtitle'),
+          ta = q.querySelector('textarea');
+      lines.push('## ' + (num ? num.textContent + ' - ' : '') + (title ? title.textContent : q.dataset.qid));
+      lines.push('');
+      lines.push((ta && ta.value.trim()) ? ta.value.trim() : '_(no answer)_');
+      lines.push('');
+    });
+    var md = lines.join('\n');
+    var slug = document.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+    var blob = new Blob([md], {type:'text/markdown'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = slug + '-answers.md';
+    document.body.appendChild(a); a.click(); a.remove();
+    if (navigator.clipboard) navigator.clipboard.writeText(md).catch(function(){});
+    showToast('Answers exported - send the downloaded file back. (Also copied to clipboard.)');
+  }
+
+  boxes.forEach(function(q){
+    var ta = q.querySelector('textarea');
+    if (ta) ta.addEventListener('input', save);
+  });
+  document.getElementById('export').addEventListener('click', exportAnswers);
+  load();
+})();
+</script>
+</body>
+</html>
