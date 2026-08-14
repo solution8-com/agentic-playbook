@@ -1,0 +1,42 @@
+{
+  "name": "s8-playbook",
+  "version": "0.1.0",
+  "description": "Solution8's curated Claude Code skill set. A lean toolbox for planning, building and reviewing software with agents - most of it vendored from Matt Pocock's skills, a handful our own. Suggestions, not a workflow you have to follow.",
+  "author": {
+    "name": "Solution8",
+    "url": "https://solution8.dk"
+  },
+  "repository": "https://github.com/solution8-com/INT-s8-agentic-playbook",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "engineering",
+    "grilling",
+    "tdd",
+    "code-review",
+    "worktrees",
+    "solution8"
+  ],
+  "skills": [
+    "./skills/get-started/setup-dev-repo",
+    "./skills/main-flow/grill-me",
+    "./skills/main-flow/to-spec",
+    "./skills/main-flow/to-issues",
+    "./skills/main-flow/pickup-issue",
+    "./skills/main-flow/implement",
+    "./skills/shape/wayfinder",
+    "./skills/shape/prototype",
+    "./skills/shape/research",
+    "./skills/shape/visual-spec",
+    "./skills/utilities/improve-codebase-architecture",
+    "./skills/utilities/diagnosing-bugs",
+    "./skills/utilities/wait-what",
+    "./skills/utilities/ui-report",
+    "./skills/utilities/review-suite",
+    "./skills/misc/wizard",
+    "./skills/misc/to-questionnaire",
+    "./skills/misc/start",
+    "./skills/misc/update-docs",
+    "./skills/support/tdd"
+  ]
+}
