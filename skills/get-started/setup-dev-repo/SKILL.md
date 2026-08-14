@@ -32,18 +32,18 @@ project**, and the job changes from building to understanding.
 
 ### 1. Name it
 
-Repo names say who the work is for:
+Repo names say whether the work is external or internal:
 
 | Kind | Pattern | Example |
 |---|---|---|
-| Client engagement | `EXT-<client>-<project>` | `EXT-elservice-fakturaflow` |
-| S8's own work | `INT-<project>` | `INT-s8-agentic-playbook` |
+| External project | `EXT-<org>-<project>` | `EXT-elservice-fakturaflow` |
+| Internal project | `INT-<project>` | `INT-s8-agentic-playbook` |
 
-Lower-kebab after the prefix. The client segment exists only on external repos.
+Lower-kebab after the prefix. The org segment exists only on external repos.
 
 **Ask which it is if the user has not said.** It is not inferable - "fakturaflow" does not tell
-you whether a client is behind it - and renaming a repo later breaks every clone and remote.
-This is the cheapest possible moment to be sure.
+you which side it belongs on - and renaming a repo later breaks every clone and remote. This is
+the cheapest possible moment to be sure.
 
 ### 2. Create it
 

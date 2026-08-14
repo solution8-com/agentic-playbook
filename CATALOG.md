@@ -71,7 +71,7 @@ The set went from 25 skills to 21. Cut, with the reason:
 | `writing-plan` | Guardrails on a model that no longer needs them |
 | `subagent-driven-development` | Built for Opus-plans-Sonnet-builds. Agents hold long work now |
 | `code-review` | Claude Code ships `/code-review` with an effort level. Ours would have collided with the built-in of the same name |
-| `writing-for-agents` | How we write skills, not something a client installs. Kept locally |
+| `writing-for-agents` | How we author skills, not something the plugin needs to ship. Kept locally |
 | `verify-task-done` | Cut earlier. CI plus the issue's acceptance criteria are the gate |
 
 ## Pending

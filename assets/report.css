@@ -3,8 +3,7 @@
 
    This is Emil's ui-report house style, kept as-is and extended with the triage
    components review-suite needs. Deliberately unbranded - reports are working
-   documents, not client deliverables. System font stack throughout, so a report
-   renders with no network. */
+   documents. System font stack throughout, so a report renders with no network. */
 
 :root {
   --ivory: #FAF9F5;
