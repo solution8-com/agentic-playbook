@@ -25,16 +25,16 @@ Exactly what changed in each tweaked skill is recorded in
 | Skill | Origin |
 |---|---|
 | `setup-dev-repo` | Solution8 original |
-| `grill-me` | mattpocock/skills (`grill-me`), verbatim |
-| `to-spec` | mattpocock/skills (`to-spec`), verbatim |
+| `grill-me` | mattpocock/skills (`grill-me` + `grilling`), merged into one file |
+| `to-spec` | mattpocock/skills (`to-spec`), tweaked |
 | `to-issues` | mattpocock/skills (`to-tickets`), renamed and tweaked |
 | `pickup-issue` | Solution8 original |
 | `implement` | mattpocock/skills (`implement`), tweaked |
-| `wayfinder` | mattpocock/skills (`wayfinder`), verbatim |
+| `wayfinder` | mattpocock/skills (`wayfinder`), tweaked |
 | `prototype` | mattpocock/skills (`prototype`), verbatim |
 | `research` | mattpocock/skills (`research`), verbatim |
 | `visual-spec` | Solution8 original |
-| `improve-codebase-architecture` | mattpocock/skills (`improve-codebase-architecture`), verbatim |
+| `improve-codebase-architecture` | mattpocock/skills (`improve-codebase-architecture`), tweaked |
 | `diagnosing-bugs` | mattpocock/skills (`diagnosing-bugs`), verbatim |
 | `wait-what` | mattpocock/skills (`wait-what`), tweaked |
 | `ui-report` | Solution8 original - Emil Vladinov |
@@ -43,8 +43,7 @@ Exactly what changed in each tweaked skill is recorded in
 | `to-questionnaire` | mattpocock/skills (`to-questionnaire`), verbatim |
 | `start` | obra/superpowers, verbatim |
 | `update-docs` | mattpocock/skills (`handoff` lineage), rewritten |
-| `tdd` | mattpocock/skills (`tdd`), verbatim |
-| `grilling` | mattpocock/skills (`grilling`), verbatim |
+| `tdd` | mattpocock/skills (`tdd`), tweaked |
 
 A line-level audit (2026-08-07) traced every vendored or reshaped line in the
 collection back to one of the two libraries above; everything else is

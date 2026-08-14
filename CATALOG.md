@@ -26,16 +26,16 @@ precedent.
 | Skill | Group | Source | Upstream path | What we changed |
 |---|---|---|---|---|
 | `setup-dev-repo` | Get Started | ours | - | Two issue labels (`afk`/`hitl`) instead of eight; adds `.claude/reports/` to `.gitignore` |
-| `grill-me` | Main Flow | verbatim | `productivity/grill-me` | none |
-| `to-spec` | Main Flow | verbatim | `engineering/to-spec` | none |
+| `grill-me` | Main Flow | merged | `productivity/grill-me` + `productivity/grilling` | Matt's `grill-me` is a one-line delegator to `grilling`. Merged into one self-contained file rather than shipping a hidden skill nobody invokes. Body is his `grilling` verbatim |
+| `to-spec` | Main Flow | tweaked | `engineering/to-spec` | Tracker-setup sentence removed |
 | `to-issues` | Main Flow | tweaked | `engineering/to-tickets` | Renamed. Tracker note points at `setup-dev-repo` rather than `/setup-matt-pocock-skills`; `ready-for-agent` label replaced by `afk`/`hitl` with `hitl` as default |
 | `pickup-issue` | Main Flow | ours | - | Rewritten 2026-08-14, down from 82 lines. Reads issue + comments, asks only about ambiguity, resolves the worktree, hands to `implement`. No draft PR |
 | `implement` | Main Flow | tweaked | `engineering/implement` | Final `/code-review` replaced by `/code-review low`, with a note that the deep pass belongs in a fresh session. Matt publishes the self-review-bias argument himself |
-| `wayfinder` | Shape | verbatim | `engineering/wayfinder` | none |
+| `wayfinder` | Shape | tweaked | `engineering/wayfinder` | `/grilling` -> `/grill-me`; `/domain-modeling` references dropped (not shipped); tracker-setup sentence removed |
 | `prototype` | Shape | verbatim | `engineering/prototype` | none |
 | `research` | Shape | verbatim | `engineering/research` | none |
 | `visual-spec` | Shape | ours | - | - |
-| `improve-codebase-architecture` | Utilities | verbatim | `engineering/improve-codebase-architecture` | none |
+| `improve-codebase-architecture` | Utilities | tweaked | `engineering/improve-codebase-architecture` | `/grilling` -> `/grill-me`; `/codebase-design` and `/domain-modeling` references dropped (not shipped), vocabulary kept inline |
 | `diagnosing-bugs` | Utilities | verbatim | `engineering/diagnosing-bugs` | none. Kept his name; supersedes our `systematic-debugging` fork |
 | `wait-what` | Utilities | tweaked | `productivity/wait-what` | One clause added: keep the re-pitch short. Supersedes our `explain-like-im-ten` fork |
 | `ui-report` | Utilities | Emil Vladinov | - | Ported off Windows: OS temp working dir, `.claude/reports/` output, cross-platform open. Builder now inlines the shared `assets/report.css`. Emil's palette is unchanged - it just moved out of the script so `review-suite` and `visual-spec` match it |
@@ -44,11 +44,17 @@ precedent.
 | `to-questionnaire` | Misc | verbatim | `productivity/to-questionnaire` | none |
 | `start` | Misc | verbatim | obra/superpowers | none |
 | `update-docs` | Misc | lifted | Matt's handoff lineage | Reshaped for our ledger + handoff model |
-| `tdd` | Support | verbatim | `engineering/tdd` | none. Not listed in the README - `implement` calls it |
-| `grilling` | Support | verbatim | `productivity/grilling` | none. Not listed in the README - `grill-me` is a one-line delegator to it |
+| `tdd` | Support | tweaked | `engineering/tdd` | Reference to `/codebase-design` (not shipped) replaced by the vocabulary inline. Not listed in the README - `implement` calls it |
 
-**Set-wide change:** Matt ships Codex sidecar YAMLs in some skills' `agents/` directories. We do not
-adopt them and they are stripped on vendoring.
+**Set-wide changes:**
+
+- Matt ships Codex sidecar YAMLs in some skills' `agents/` directories. We do not adopt them and
+  they are stripped on vendoring.
+- Several of his skills call `/domain-modeling`, `/codebase-design` and `/setup-matt-pocock-skills`,
+  which we do not ship. Every such reference is removed rather than repointed. Where the reference
+  carried real content (the architecture vocabulary), the content is kept inline.
+- **A reference to a skill that does not exist is the bug class to watch for on every refresh.**
+  Re-run the slash-reference scan after taking anything new from upstream.
 
 ## How to refresh
 

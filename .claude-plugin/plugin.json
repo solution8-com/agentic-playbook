@@ -37,7 +37,6 @@
     "./skills/misc/to-questionnaire",
     "./skills/misc/start",
     "./skills/misc/update-docs",
-    "./skills/support/tdd",
-    "./skills/support/grilling"
+    "./skills/support/tdd"
   ]
 }

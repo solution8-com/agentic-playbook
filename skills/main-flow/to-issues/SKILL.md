@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 Break a plan, spec, or conversation into a set of **tickets** — tracer-bullet vertical slices, each declaring the tickets that **block** it.
 
-The default tracker is GitHub issues via `gh`. `/setup-dev-repo` creates the `afk` and `hitl` labels; create them yourself if they are missing.
+The default tracker is GitHub issues via `gh`. Create the `afk` and `hitl` labels if they are missing.
 
 ## Process
 

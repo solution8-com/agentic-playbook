@@ -81,10 +81,10 @@ Useful, occasional, and nobody has to use them.
 styled with `assets/report.css` so every report looks the same on any machine.
 `setup-dev-repo` adds that folder to `.gitignore`.
 
-## Two skills you will not see listed
+## One skill you will not see listed
 
-`tdd` and `grilling` ship in the plugin but are not in the groups above. They exist because
-`implement` and `grill-me` call them. You are not meant to invoke them directly.
+`tdd` ships in the plugin but is not in the groups above. It exists because `implement` calls it
+at the seams. You are not meant to invoke it directly.
 
 ## License
 
