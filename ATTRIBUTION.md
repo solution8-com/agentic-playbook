@@ -1,14 +1,17 @@
 # Attribution
 
-The S8 Agentic Playbook skills collection is assembled from two excellent
-MIT-licensed open-source skill libraries, plus skills written from scratch by
-Solution8. We are grateful to the original authors. This collection is itself
+The S8 Agentic Playbook is a **curated** collection. Most of it is Matt Pocock's
+work, vendored under MIT with small or no changes. A handful of skills are
+Solution8's own. We are grateful to the original authors, and we would rather
+say plainly what we took than imply we wrote it. This collection is itself
 MIT-licensed (see [LICENSE](LICENSE)).
 
-Each vendored or adapted skill has been reshaped for this collection:
-cross-references point only to other skills in this collection, house
-conventions are applied, and dependencies on the original authors' personal
-tooling have been removed so every skill stands on its own.
+Skills marked **verbatim** below are byte-identical to upstream. The one
+set-wide exception: Matt ships Codex sidecar YAMLs in some skills' `agents/`
+directories, which we do not adopt and strip on vendoring.
+
+Exactly what changed in each tweaked skill is recorded in
+[CATALOG.md](CATALOG.md), along with the upstream commit we are pinned to.
 
 ## Sources
 
@@ -21,35 +24,32 @@ tooling have been removed so every skill stands on its own.
 
 | Skill | Origin |
 |---|---|
-| `setup-skills` | Solution8 original |
 | `setup-dev-repo` | Solution8 original |
-| `update-skills` | Solution8 original |
-| `wayfinder` | mattpocock/skills (`wayfinder`), vendored near-verbatim |
-| `research` | mattpocock/skills (`research`), reshaped |
-| `prototype` | mattpocock/skills (`prototype`, 3 files), vendored near-verbatim |
-| `grill-me` | mattpocock/skills (`grill-me`, later `grilling`, + `domain-modeling`), reshaped into rounds |
-| `to-spec` | mattpocock/skills (`to-prd`), renamed and reshaped |
-| `visual-spec` | Solution8 original |
-| `to-issues` | mattpocock/skills (`to-tickets`), reshaped |
-| `start-dev` | Solution8 original |
+| `grill-me` | mattpocock/skills (`grill-me`), verbatim |
+| `to-spec` | mattpocock/skills (`to-spec`), verbatim |
+| `to-issues` | mattpocock/skills (`to-tickets`), renamed and tweaked |
 | `pickup-issue` | Solution8 original |
-| `writing-plan` | obra/superpowers (`writing-plans`), reshaped |
-| `tdd` | **Merge** of mattpocock/skills (`tdd`) + obra/superpowers (`test-driven-development`), reshaped |
-| `subagent-driven-development` | obra/superpowers (`subagent-driven-development`), vendored with references localized |
-| `code-review` | mattpocock/skills (`code-review`) + obra/superpowers, reshaped |
-| `close-issue` | Solution8 original |
-| `start` | obra/superpowers, vendored near-verbatim |
-| `update-docs` | mattpocock/skills (`handoff` lineage), fully rewritten |
-| `systematic-debugging` | **Merge** of obra/superpowers (`systematic-debugging`) + mattpocock/skills (`diagnose`), reshaped |
-| `improve-codebase-architecture` | mattpocock/skills (`improve-codebase-architecture`), reshaped |
-| `writing-for-agents` | mattpocock/skills (`writing-for-agents`, 2 files), vendored; Solution8 house rules appended in `S8-RULES.md` |
-| `wizard` | mattpocock/skills (`wizard`, incl. `template.sh`), vendored verbatim |
-| `to-questionnaire` | mattpocock/skills, reshaped - output changed to a fillable Solution8 HTML questionnaire |
-| `explain-like-im-ten` | mattpocock/skills (`wait-what`), renamed, ELI10 register |
+| `implement` | mattpocock/skills (`implement`), tweaked |
+| `wayfinder` | mattpocock/skills (`wayfinder`), verbatim |
+| `prototype` | mattpocock/skills (`prototype`), verbatim |
+| `research` | mattpocock/skills (`research`), verbatim |
+| `visual-spec` | Solution8 original |
+| `improve-codebase-architecture` | mattpocock/skills (`improve-codebase-architecture`), verbatim |
+| `diagnosing-bugs` | mattpocock/skills (`diagnosing-bugs`), verbatim |
+| `wait-what` | mattpocock/skills (`wait-what`), tweaked |
+| `ui-report` | Solution8 original - Emil Vladinov |
+| `review-suite` | Solution8 original - Emil Vladinov |
+| `wizard` | mattpocock/skills (`wizard`), verbatim |
+| `to-questionnaire` | mattpocock/skills (`to-questionnaire`), verbatim |
+| `start` | obra/superpowers, verbatim |
+| `update-docs` | mattpocock/skills (`handoff` lineage), rewritten |
+| `tdd` | mattpocock/skills (`tdd`), verbatim |
+| `grilling` | mattpocock/skills (`grilling`), verbatim |
 
 A line-level audit (2026-08-07) traced every vendored or reshaped line in the
 collection back to one of the two libraries above; everything else is
-Solution8's own text.
+Solution8's own text. The 2026-08-14 rescope replaced most reshaped forks with
+verbatim upstream copies, which narrows rather than widens what we claim.
 
 ## Upstream licenses
 

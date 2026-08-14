@@ -1,0 +1,22 @@
+{
+  "name": "solution8",
+  "owner": {
+    "name": "Solution8",
+    "url": "https://solution8.dk"
+  },
+  "description": "Solution8's agentic coding playbook, as an installable Claude Code plugin.",
+  "plugins": [
+    {
+      "name": "s8-playbook",
+      "source": "./",
+      "description": "Lean, curated skill set for agentic engineering at Solution8.",
+      "category": "engineering",
+      "keywords": [
+        "skills",
+        "engineering",
+        "tdd",
+        "grilling"
+      ]
+    }
+  ]
+}
