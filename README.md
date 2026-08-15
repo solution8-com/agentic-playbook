@@ -81,6 +81,12 @@ Useful, occasional, and nobody has to use them.
 styled with `assets/report.css` so every report looks the same on any machine.
 `setup-dev-repo` adds that folder to `.gitignore`.
 
+## Tools
+
+[TOOLS.md](./TOOLS.md) covers what we install alongside the skills - MCPs, CLIs, language
+servers - including the three things the skills actually need (`gh`, Playwright MCP, Python 3)
+and which MCPs are worth keeping disabled until you need them.
+
 ## One skill you will not see listed
 
 `tdd` ships in the plugin but is not in the groups above. It exists because `implement` calls it
