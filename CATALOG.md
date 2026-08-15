@@ -1,7 +1,8 @@
 # Catalog - where each skill came from
 
-This file exists for one job: **make the next refresh against upstream a diff rather than an
-archaeology dig.** It records what we took, from where, and what we changed. Nothing else. The
+> Make the next refresh against upstream a diff rather than an archaeology dig.
+
+That is this file's only job. It records what we took, from where, and what we changed. Nothing else. The
 working index is [README.md](./README.md); the licensing record is
 [ATTRIBUTION.md](./ATTRIBUTION.md).
 

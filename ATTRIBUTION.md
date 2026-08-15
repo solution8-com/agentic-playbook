@@ -1,5 +1,7 @@
 # Attribution
 
+> Most of this is Matt Pocock's work. Here is exactly which parts.
+
 The S8 Agentic Playbook is a **curated** collection. Most of it is Matt Pocock's
 work, vendored under MIT with small or no changes. A handful of skills are
 Solution8's own. We are grateful to the original authors, and we would rather

@@ -1,6 +1,6 @@
 # S8 Agentic Playbook
 
-Solution8's curated Claude Code skill set, as a plugin.
+> Solution8's curated Claude Code skill set, as a plugin.
 
 Most of these are [Matt Pocock's](https://github.com/mattpocock/skills), vendored with small
 tweaks. A handful are ours. We curate rather than author, and
@@ -8,6 +8,14 @@ tweaks. A handful are ours. We curate rather than author, and
 
 **There is no workflow you have to follow.** The Main Flow below is what we usually do, not a
 process anyone is signed up to. Skills are tools; reach for the ones that help.
+
+| Group | Skills | What it's for |
+|---|---|---|
+| [Get Started](#get-started) | 1 | Standing up a repo the rest of this can work in |
+| [Main Flow](#main-flow) | 5 | Idea to code that landed |
+| [Shape](#shape) | 4 | Working out what to build, before there is a spec to write |
+| [Utilities](#utilities) | 5 | Reached for mid-work, in whatever order the work demands |
+| [Misc](#misc) | 4 | Occasional, and nobody has to use them |
 
 ## Install
 
@@ -18,12 +26,14 @@ process anyone is signed up to. Skills are tools; reach for the ones that help.
 
 ## Get Started
 
+> Standing up a repo the rest of this can work in.
+
 - **`setup-dev-repo`** - create a new dev repo or adopt an existing one, then wire the stack, dev
   environment and commit gate, mirror the checks in CI, and prove the gate actually blocks.
 
 ## Main Flow
 
-The usual path from an idea to code that landed.
+> The usual path from an idea to code that landed.
 
 ```
 grill-me  ->  to-spec  ->  to-issues  ->  pickup-issue  ->  implement
@@ -44,7 +54,7 @@ you want a broad quality sweep.
 
 ## Shape
 
-For when you do not know enough yet to write a spec.
+> For when you do not know enough yet to write a spec.
 
 - **`wayfinder`** - charts a map of the decisions a big piece of work needs, then works one per
   session. Start here on anything that runs for weeks. It subsumes the research and prototyping.
@@ -54,6 +64,8 @@ For when you do not know enough yet to write a spec.
 - **`visual-spec`** - render a spec as a self-contained HTML overview for a human to read.
 
 ## Utilities
+
+> Reached for mid-work, in whatever order the work demands.
 
 - **`improve-codebase-architecture`** - find shallow modules worth deepening. Periodic, not per issue.
 - **`diagnosing-bugs`** - disciplined root-cause debugging, reproduce first, fix second.
@@ -65,7 +77,7 @@ For when you do not know enough yet to write a spec.
 
 ## Misc
 
-Useful, occasional, and nobody has to use them.
+> Occasional, and nobody has to use them.
 
 - **`wizard`** - generate a script that walks a human through the steps only they can do:
   provisioning, credentials, one-off migrations. Secrets never touch the model.
@@ -77,15 +89,18 @@ Useful, occasional, and nobody has to use them.
 
 ## Reports
 
+> Every report looks the same on any machine.
+
 `ui-report`, `review-suite` and `visual-spec` write self-contained HTML to `.claude/reports/`,
-styled with `assets/report.css` so every report looks the same on any machine.
-`setup-dev-repo` adds that folder to `.gitignore`.
+styled with `assets/report.css`. `setup-dev-repo` adds that folder to `.gitignore`.
 
 ## Tools
 
-[TOOLS.md](./TOOLS.md) covers what we install alongside the skills - MCPs, CLIs, language
-servers - including the three things the skills actually need (`gh`, Playwright MCP, Python 3)
-and which MCPs are worth keeping disabled until you need them.
+> What to install alongside the skills.
+
+[TOOLS.md](./TOOLS.md) covers the MCPs, CLIs and plugins worth having - including the three things
+the skills actually need (`gh`, Playwright MCP, Python 3) and which MCPs are worth keeping
+switched off until you need them.
 
 ## One skill you will not see listed
 
