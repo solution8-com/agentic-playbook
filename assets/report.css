@@ -1,5 +1,5 @@
 /* Shared report stylesheet for the skills that emit HTML:
-   ui-report, review-suite, visual-spec.
+   verify-feature, review-suite, visual-spec.
 
    This is Emil's ui-report house style, kept as-is and extended with the triage
    components review-suite needs. Deliberately unbranded - reports are working
@@ -10,6 +10,7 @@
   --slate: #141413;
   --clay: #D97757;
   --oat: #E3DACC;
+  --oat-deep: #A89A82;
   --olive: #788C5D;
   --gray-light: #F0EEE6;
   --gray-dark: #3D3D3A;
@@ -77,10 +78,11 @@ h3 { font-size: 1.05rem; margin: 0; }
   padding: 3px 12px;
   white-space: nowrap;
 }
-/* ui-report verdicts */
+/* verify-feature verdicts */
 .badge.ok     { background: var(--olive); }
 .badge.bad    { background: var(--clay); }
 .badge.muted  { background: var(--gray-dark); }
+.badge.na     { background: var(--oat-deep); }
 /* review-suite severities */
 .badge.blocker { background: var(--clay); }
 .badge.high    { background: #fff; color: var(--clay); border: 1.5px solid var(--clay); }
@@ -107,6 +109,42 @@ h3 { font-size: 1.05rem; margin: 0; }
   font-size: 0.76rem;
   color: var(--gray-dark);
 }
+
+/* Result tables (verify-feature: endpoints, database, behavioral) */
+.tablewrap { overflow-x: auto; }
+table.results {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0 6px;
+  font-size: 0.88rem;
+}
+table.results th {
+  font-family: ui-monospace, Consolas, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.68rem;
+  color: var(--gray-dark);
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1.5px solid var(--oat);
+}
+table.results td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--gray-light);
+  vertical-align: top;
+}
+
+code {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.82em;
+  background: var(--gray-light);
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+/* Inline verdict marks inside table cells and notes */
+.ok   { color: var(--olive); font-weight: 600; }
+.warn { color: var(--clay); font-weight: 600; }
 
 .shots {
   display: grid;

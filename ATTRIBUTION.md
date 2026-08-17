@@ -39,7 +39,7 @@ Exactly what changed in each tweaked skill is recorded in
 | `improve-codebase-architecture` | mattpocock/skills (`improve-codebase-architecture`), tweaked |
 | `diagnosing-bugs` | mattpocock/skills (`diagnosing-bugs`), verbatim |
 | `wait-what` | mattpocock/skills (`wait-what`), tweaked |
-| `ui-report` | Solution8 original - Emil Vladinov |
+| `verify-feature` | Solution8 original - Emil Vladinov |
 | `review-suite` | Solution8 original - Emil Vladinov |
 | `wizard` | mattpocock/skills (`wizard`), verbatim |
 | `to-questionnaire` | mattpocock/skills (`to-questionnaire`), verbatim |

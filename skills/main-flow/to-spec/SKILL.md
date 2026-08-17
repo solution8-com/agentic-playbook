@@ -14,7 +14,9 @@ This skill takes the current conversation context and codebase understanding and
 
 Check with the user that these seams match their expectations.
 
-3. Write the spec using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.
+3. Write the spec using the template below, then publish it to the project issue tracker. Apply one autonomy label: `afk` for a small, decision-free slice, `hitl` where a decision is still plausible. Default to `hitl`.
+
+4. Offer `/visual-spec` if seeing the spec's shape would help the user review it. Skip it when it would not - a short spec with two seams does not need a diagram.
 
 <spec-template>
 

@@ -170,6 +170,10 @@ what you **verified**, not what you intended:
 | How the commit gate works and what it runs | So nobody re-derives it or works around it |
 | Repo-specific conventions that are not guessable from the code | The only part a human has to supply |
 
+**`CONTEXT.md` is deliberately not seeded.** Several skills read the domain glossary, but an
+empty one is clutter the agent reads past every session, and the vocabulary does not exist yet on
+day one. `update-docs` creates it the first time a term is worth recording.
+
 **Slim pointer, not a fat template.** Every line here is re-read at the start of every session
 forever, so it is the most expensive prose in the repo. Aphorisms, restated best practice and
 anything the agent could learn by reading one file are pure cost. If a section would be true of
@@ -213,6 +217,4 @@ launch.
 
 ## Related skills
 
-- **setup-skills** - the global bootstrap that installs the skills and checks the environment.
-  Runs before this.
 - **wayfinder** / **grill-me** - the planning stages that follow, once the project runs.

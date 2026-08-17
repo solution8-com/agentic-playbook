@@ -49,7 +49,7 @@ Gives Claude a real browser it can drive: open a page, click through a flow, fil
 screenshots, read the console. It matters most on frontend changes, where a passing typecheck
 proves very little.
 
-The `ui-report` skill runs on this one. Worth configuring it to omit image responses - Claude
+The `verify-feature` skill runs on this one. Worth configuring it to omit image responses - Claude
 asserts against the accessibility tree, and the screenshots are there for you to look at rather
 than for the model to read.
 
@@ -118,7 +118,7 @@ you are not using it.
 
 Issues, pull requests, CI runs, releases, all without leaving the terminal. `pickup-issue` reads
 an issue and its comments through it, `review-suite` files its findings as new issues, and
-`ui-report` waits on CI with it.
+`verify-feature` waits on CI with it.
 
 Run `gh auth login` after installing, or none of that works.
 

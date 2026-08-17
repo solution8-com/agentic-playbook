@@ -35,11 +35,11 @@ precedent.
 | `wayfinder` | Shape | tweaked | `engineering/wayfinder` | `/grilling` -> `/grill-me`; `/domain-modeling` references dropped (not shipped); tracker-setup sentence removed |
 | `prototype` | Shape | verbatim | `engineering/prototype` | none |
 | `research` | Shape | verbatim | `engineering/research` | none |
-| `visual-spec` | Shape | ours | - | - |
+| `visual-spec` | Shape | ours | - | Restyled 2026-08-17 off the S8 white/red house palette onto the shared `assets/report.css`, matching `verify-feature` and `review-suite`. Reports are working documents, so they carry no branding. Output moved to `.claude/reports/` |
 | `improve-codebase-architecture` | Utilities | tweaked | `engineering/improve-codebase-architecture` | `/grilling` -> `/grill-me`; `/codebase-design` and `/domain-modeling` references dropped (not shipped), vocabulary kept inline |
 | `diagnosing-bugs` | Utilities | verbatim | `engineering/diagnosing-bugs` | none. Kept his name; supersedes our `systematic-debugging` fork |
 | `wait-what` | Utilities | tweaked | `productivity/wait-what` | One clause added: keep the re-pitch short. Supersedes our `explain-like-im-ten` fork |
-| `ui-report` | Utilities | Emil Vladinov | - | Ported off Windows: OS temp working dir, `.claude/reports/` output, cross-platform open. Builder now inlines the shared `assets/report.css`. Emil's palette is unchanged - it just moved out of the script so `review-suite` and `visual-spec` match it |
+| `verify-feature` | Utilities | Emil Vladinov | - | Was `ui-report` until 2026-08-17, when Emil widened it from UI screenshots to full runtime verification: four fixed categories (UI, endpoints, database, behavioral), a cached `verify-recipe` of project facts, six behavioral archetypes scanned off the diff, required negative cases, and an artifact ledger that reverts everything the run created. Kept from our earlier port, which his new copy had reverted: OS temp working dir, `.claude/reports/` output, cross-platform open, and the shared `assets/report.css`. Builder gained `sections` - tables, evidence blocks, notes - plus `na`/`notes` statuses, and stays backwards compatible with `ui-report` manifests |
 | `review-suite` | Utilities | Emil Vladinov | - | Same porting. Seven passes unchanged |
 | `wizard` | Misc | verbatim | `engineering/wizard` | none |
 | `to-questionnaire` | Misc | verbatim | `productivity/to-questionnaire` | none |
@@ -68,7 +68,7 @@ Rows marked `ours` and Emil's two never need this.
 
 ## Cut in the 2026-08-14 rescope
 
-The set went from 25 skills to 21. Cut, with the reason:
+The set went from 25 skills to 20. Cut, with the reason:
 
 | Cut | Why |
 |---|---|

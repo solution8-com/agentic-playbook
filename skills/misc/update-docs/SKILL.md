@@ -79,8 +79,8 @@ people to skim doc changes.
    |---|---|
    | An architectural or convention change | `CLAUDE.md`, `AGENTS.md`; if it is a durable decision, the ADR row below |
    | A system-design change, in a repo that already keeps `docs/architecture.md` | That file (never create it) |
-   | New or sharpened domain terms | `CONTEXT.md`, unless `grill-me` already handled it |
-   | A decision passing grill-me's three ADR locks: hard to reverse, surprising without context, a real trade-off | An ADR under `docs/adr/` |
+   | New or sharpened domain terms | `CONTEXT.md` at the repo root - create it here if it does not exist yet; this is the skill that brings it into being |
+   | A decision that is hard to reverse, surprising without context, and a real trade-off - all three | An ADR under `docs/adr/` |
 
 3. **On an ADR, check first.** List the existing ADRs in `docs/adr/` and read their titles.
    If the decision is already captured, skip. If you are unsure whether it matches an
@@ -141,6 +141,4 @@ Tell the user:
 ## Related skills
 
 - **start** - the read-side counterpart; loads these docs at the start of a session, which is what makes keeping them honest worth the effort.
-- **start-dev** - the day plan whose orchestrator session this closes; issue sessions do
-  not update docs (parallel writes to one ledger conflict), the day does.
 - **grill-me** - when a decision needs interrogating before it is written to an ADR.

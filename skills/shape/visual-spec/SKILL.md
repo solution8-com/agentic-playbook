@@ -24,27 +24,46 @@ Skip it on a small or linear spec. An overview of four bullet points is not wort
 
 1. **Read the spec.** Take the published spec (issue or markdown file) as input.
 2. **Build the overview.** Produce one self-contained HTML file: the spec's problem and goals, the key decisions, the scope, and a simple structural diagram of the pieces and how they relate. Summary-level, not a full re-render of every line.
-3. **Style it to the playbook's visual system** (see below). Self-contained: inline everything, no external assets.
-4. **Surface it.** Report the file path so the human can open it. Do NOT block anything waiting for them to look.
+3. **Style it with the shared stylesheet** (see below). Self-contained: inline everything, no
+   external assets and no network requests.
+4. **Surface it.** Write it to `.claude/reports/<YYYY-MM-DD>-spec-<slug>.html` and report the
+   file path so the human can open it. Do NOT block anything waiting for them to look.
 
 ## Visual style
 
-Style it as a **Solution8 document: white and red**, the S8 house palette (the same one
-the `to-questionnaire` template uses):
+**Inline the plugin's shared `assets/report.css`** — the same stylesheet `verify-feature` and
+`review-suite` use, so every report this set produces reads as one family. Read it from the
+plugin root and paste it into a `<style>` block; the file must render with no network.
 
-- **Background** white (`#FFFFFF`); ink near-black (`#0A0A0A`); secondary text warm grey
-  (`#6E6A68`); card fills `#F7F6F5`; hairlines `#E7E3E0`.
-- **Primary accent red `#E3241B`**, used sparingly: the title underline, badges,
-  highlights. Soft tint `#FDEEED` for callout backgrounds.
-- Inside a structural diagram, where one accent is not enough for categories and states,
-  the S8 diagram accents are available: orange `#FF6A1A`, amber `#FFBF00`, green
-  `#16C784`, violet `#8B3DFF`, magenta `#FF2E88`.
+Reports are working documents, not client deliverables, so they carry **no branding** - no house
+palette, no logo, no accent colours borrowed from anywhere else. Use the classes the stylesheet
+already defines rather than inventing new ones:
+
+| Need | Class |
+|---|---|
+| Page frame | `.wrap` |
+| Header line above the title | `.eyebrow`, then `.meta` for the subline |
+| Lead paragraph | `.summary` |
+| A section | `.flow`, with `.flow-head` for its heading row |
+| A compact item | `.card` |
+| Status marker | `.badge` plus `.ok` / `.bad` / `.muted` / `.na` |
+| Inline verdict in prose or a table cell | `.ok` / `.warn` |
+| Tables | `.tablewrap` around `table.results` |
+| Literal output that is itself the evidence | `.evidence` |
+
+For a structural diagram, hand-build it with inline SVG or divs using the stylesheet's existing
+variables (`--clay`, `--olive`, `--oat`, `--gray-dark`). Do not pull in a diagram library.
+
+Anything the stylesheet genuinely does not cover goes in a short extra `<style>` block below the
+inlined sheet - but if it is a component the other report skills would also want, add it to
+`assets/report.css` instead so all three stay in step.
 
 No accented Danish characters.
 
 ## Output
 
-- One self-contained HTML file in the Solution8 white/red document style.
+- One self-contained HTML file in `.claude/reports/`, styled by the shared stylesheet, rendering
+  with no network.
 - Summary depth: overview plus structural diagram, not a line-by-line walkthrough.
 
 ## Related skills

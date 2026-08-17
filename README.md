@@ -70,8 +70,8 @@ you want a broad quality sweep.
 - **`improve-codebase-architecture`** - find shallow modules worth deepening. Periodic, not per issue.
 - **`diagnosing-bugs`** - disciplined root-cause debugging, reproduce first, fix second.
 - **`wait-what`** - re-pitch the last message in plain language when it did not land.
-- **`ui-report`** - drive Playwright through the flows this session changed, screenshot each state,
-  and hand back one self-contained HTML report.
+- **`verify-feature`** - drive the real app through the diff: UI flows, endpoints, database and
+  behavioral side effects, handed back as one self-contained HTML report with screenshots.
 - **`review-suite`** - seven quality passes (dead code, duplication, security, authz, docs drift,
   error handling, over-engineering) run in parallel, merged into one triage board with issue export.
 
@@ -91,7 +91,7 @@ you want a broad quality sweep.
 
 > Every report looks the same on any machine.
 
-`ui-report`, `review-suite` and `visual-spec` write self-contained HTML to `.claude/reports/`,
+`verify-feature`, `review-suite` and `visual-spec` write self-contained HTML to `.claude/reports/`,
 styled with `assets/report.css`. `setup-dev-repo` adds that folder to `.gitignore`.
 
 ## Tools

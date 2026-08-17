@@ -12,7 +12,7 @@ Continue working from where you left off by reading project state first, then ac
 1. **Read project context (read all in parallel):**
    - `docs/handoff.md` - current state, active work, immediate context. The primary one.
    - `docs/ledger.md` - session history, key details, milestones. Read it even when a handoff exists.
-   - `CONTEXT.md` - the domain glossary, if the project keeps one (see **grill-me**). Many projects will not have one; that is fine.
+   - `CONTEXT.md` - the domain glossary, if the project keeps one. Many projects will not have one; that is fine.
    - `docs/adr/` - architecture decision records. If the directory exists, count the files. Under 10, read them all. 10 or more, read just the title line of each and open only the bodies whose titles look relevant to the task at hand.
    - If none of these exist, say so plainly and carry on with the task.
 
@@ -54,4 +54,3 @@ start fix the auth bug    # read state, then work on that task
 ## Related skills
 
 - **update-docs** - the other half of the pair; writes the handoff this skill reads.
-- **start-dev** - the day-level equivalent, for the Build lane.
