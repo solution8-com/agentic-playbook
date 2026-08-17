@@ -10,10 +10,11 @@ Run this at the end of a session, or when the context window is running low.
 
 ## When context runs low
 
-When the context window is close to full:
+Around **40%** of the window, or whenever the session has learned something worth keeping.
+The number is a house habit, not a measurement - pick your own.
 
 1. Pause current work
-2. Tell the user the context is nearly full and that you are saving session state
+2. Tell the user the context is filling and that you are saving session state
 3. Run this skill
 4. Tell the user to clear the session and say where they left off - `start` fires on it
 

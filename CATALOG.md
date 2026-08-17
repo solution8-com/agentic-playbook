@@ -26,7 +26,7 @@ precedent.
 
 | Skill | Group | Source | Upstream path | What we changed |
 |---|---|---|---|---|
-| `setup-dev-repo` | Get Started | ours | - | Two issue labels (`afk`/`hitl`) instead of eight; adds `.claude/reports/` to `.gitignore` |
+| `setup-dev-repo` | Get Started | ours | - | Two issue labels (`afk`/`hitl`) instead of eight; adds `.claude/reports/` to `.gitignore`. 2026-08-17: the complex/simple fork and the five-question stack interview were cut - this runs after planning, so the stack is already decided and re-asking boxes the user in before the grill has happened. `CONTEXT.md` deliberately not seeded, with the reason written in |
 | `grill-me` | Main Flow | merged | `productivity/grill-me` + `productivity/grilling` | Matt's `grill-me` is a one-line delegator to `grilling`. Merged into one self-contained file rather than shipping a hidden skill nobody invokes. Body is his `grilling` verbatim |
 | `to-spec` | Main Flow | tweaked | `engineering/to-spec` | Tracker-setup sentence removed |
 | `to-issues` | Main Flow | tweaked | `engineering/to-tickets` | Renamed. Tracker note points at `setup-dev-repo` rather than `/setup-matt-pocock-skills`; `ready-for-agent` label replaced by `afk`/`hitl` with `hitl` as default |
@@ -38,12 +38,12 @@ precedent.
 | `visual-spec` | Shape | ours | - | Restyled 2026-08-17 off the S8 white/red house palette onto the shared `assets/report.css`, matching `verify-feature` and `review-suite`. Reports are working documents, so they carry no branding. Output moved to `.claude/reports/` |
 | `improve-codebase-architecture` | Utilities | tweaked | `engineering/improve-codebase-architecture` | `/grilling` -> `/grill-me`; `/codebase-design` and `/domain-modeling` references dropped (not shipped), vocabulary kept inline |
 | `diagnosing-bugs` | Utilities | verbatim | `engineering/diagnosing-bugs` | none. Kept his name; supersedes our `systematic-debugging` fork |
-| `wait-what` | Utilities | tweaked | `productivity/wait-what` | One clause added: keep the re-pitch short. Supersedes our `explain-like-im-ten` fork |
+| `wait-what` | Utilities | tweaked | `productivity/wait-what` | One clause added: keep the re-pitch short. Note: it does **not** supersede an explain-from-scratch skill, as previously recorded here - `wait-what` re-pitches *the last message* when it did not land, which is a different job from explaining a topic cold |
 | `verify-feature` | Utilities | Emil Vladinov | - | Was `ui-report` until 2026-08-17, when Emil widened it from UI screenshots to full runtime verification: four fixed categories (UI, endpoints, database, behavioral), a cached `verify-recipe` of project facts, six behavioral archetypes scanned off the diff, required negative cases, and an artifact ledger that reverts everything the run created. Kept from our earlier port, which his new copy had reverted: OS temp working dir, `.claude/reports/` output, cross-platform open, and the shared `assets/report.css`. Builder gained `sections` - tables, evidence blocks, notes - plus `na`/`notes` statuses, and stays backwards compatible with `ui-report` manifests |
 | `review-suite` | Utilities | Emil Vladinov | - | Same porting. Seven passes unchanged |
 | `wizard` | Misc | verbatim | `engineering/wizard` | none |
 | `to-questionnaire` | Misc | verbatim | `productivity/to-questionnaire` | none |
-| `start` | Misc | verbatim | obra/superpowers | none |
+| `start` | Misc | tweaked | obra/superpowers | Dangling `start-dev` reference removed, and the claim that `grill-me` maintains `CONTEXT.md` dropped - the shipped `grill-me` does no such thing |
 | `update-docs` | Misc | lifted | Matt's handoff lineage | Reshaped for our ledger + handoff model |
 | `tdd` | Support | tweaked | `engineering/tdd` | Reference to `/codebase-design` (not shipped) replaced by the vocabulary inline. Not listed in the README - `implement` calls it |
 

@@ -61,33 +61,20 @@ reads past every session - add it the day a real PR template exists), and not br
 protection (those rules need per-project thought, and a rule set too tight silently blocks the
 agent's own pull requests).
 
-### 3. Ask what kind of project
+### 3. Take the stack from the plan
 
-One question, with the recommendation shown:
+By the time this runs the stack is usually already settled - `grill-me` or `wayfinder` decided it,
+or the user named it in the same breath as the repo. Read it off what you have and confirm in one
+line rather than re-asking.
 
-- **Complex** - a full application: framework, database, auth, the usual stack.
-- **Simple** - a script or small tool: a language, a test runner, a commit gate. No framework,
-  no database.
+Ask only about what is genuinely still open, and only where the answer changes what you build. The
+two that are rarely inferable are the **package manager** (`uv` vs `pip`, `bun` vs `npm`) and
+**what kind of thing this is** - CLI, library, web service - because that shapes the layout.
+Everything else: take the ecosystem standard and say which one you took.
 
-**If complex, interview the stack** - five questions, each with a recommended default the
-user can simply take:
-
-1. Language and runtime (and version)?
-2. Package manager - the non-obvious one (`uv` vs `pip`, `bun` vs `npm`)?
-3. What kind of thing is it - CLI, library, web service? It shapes the layout.
-4. Test runner (recommend the ecosystem standard)?
-5. Formatter and linter (recommend the ecosystem standard)?
-
-**If simple**, skip the interview: pick the ecosystem standards for the language at hand and
-confirm them in one line.
-
-**Skip anything already answered.** If the user said "set up a python cli", do not ask about
-language or project shape - confirm what is left and move on. Only ask questions whose answer
-changes what you build.
-
-**Match the question to the person.** Someone who names a stack should be answered in those
-terms, not walked through a beginner's interview. Someone who does not know should be able to
-take the recommendation without having to bluff. Both paths end in a working project.
+**Match the question to the person.** Someone who names a stack should be answered in those terms,
+not walked through an interview. Someone who does not know should be able to take the
+recommendation without having to bluff. Both end in a working project.
 
 ### 4. Scaffold
 
@@ -139,8 +126,8 @@ on every commit, block on failure, and auto-format so all output meets the proje
    subset. Keep it quick; slow and end-to-end tests belong in CI.
 3. **Mirror the same checks in CI.** A local gate can be walked past with `git commit
    --no-verify`, so a gate that exists only locally is a suggestion. CI is where it becomes a
-   rule. Both complex and simple projects get this; on a simple project it is one workflow
-   running the same commands, nothing more.
+   rule. Every project gets this; on a small one it is a single workflow running the same commands,
+   nothing more.
 
    **This step is load-bearing, not hygiene.** Work merges once its checks are
    green, so CI is the last thing standing between a change and trunk. A project whose CI
@@ -157,7 +144,8 @@ sails through months later. Installing it is not evidence; watching it block is.
 ## Seed `CLAUDE.md` (both paths)
 
 Write a slim `CLAUDE.md` at the repo root. Other skills read it as the conventions file -
-`pickup-issue` sessions read it at the head of every issue, `code-review` checks the diff against it - so
+`pickup-issue` sessions read it at the head of every issue, and the built-in `/code-review`
+checks the diff against it - so
 a repo without one leaves both of them guessing.
 
 Do this last, because by now you know things that were only assumptions at the start. Record

@@ -11,7 +11,7 @@
 | [GitHub](#github-gh) | CLI | Issues, PRs and CI from the terminal |
 | [Azure](#azure-az) | CLI | Azure resources and deployments |
 | [Postgres](#postgres-psql) | CLI | Direct database queries |
-| [context-mode](#context-mode) | Plugin | Big output kept out of the conversation |
+| [context-mode](#context-mode) | Plugin + MCP | Big output kept out of the conversation |
 | [Caveman](#caveman) | Plugin | Shorter replies |
 | [Language servers](#language-servers) | Plugin | Real types instead of grep |
 
