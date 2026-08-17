@@ -1,6 +1,5 @@
 ---
 name: pickup-issue
-disable-model-invocation: true
 description: Load one issue's context and set up its workspace, then hand to /implement. Use when the user names an issue to work on ("pick up #12", "let's do issue 40", "start on the auth one"), or points at an issue URL and wants work to begin.
 ---
 

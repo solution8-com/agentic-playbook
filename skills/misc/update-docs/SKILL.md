@@ -1,7 +1,6 @@
 ---
 name: update-docs
 description: Save session progress to the ledger, refresh any project docs the work drifted from, and write the handoff for the next session.
-disable-model-invocation: true
 ---
 
 # Update Docs

@@ -1,7 +1,6 @@
 ---
 name: setup-dev-repo
 description: Set up a dev project - create the repo or adopt an existing one, then wire the stack, dev environment and commit gate. Dev projects only, never context repos.
-disable-model-invocation: true
 ---
 
 # Setup Dev Repo
