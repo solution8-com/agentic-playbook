@@ -1,0 +1,12 @@
+# OS / editor cruft
+.DS_Store
+*.log
+
+# Skill output - verify-feature, review-suite and visual-spec write here
+.claude/reports/
+
+# dependencies / build (future-proofing)
+node_modules/
+dist/
+build/
+.playwright-mcp/
