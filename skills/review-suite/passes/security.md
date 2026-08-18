@@ -22,3 +22,5 @@ Blocker: exploitable now by an unauthenticated or ordinary user (injection with 
 ## Report
 
 Return the JSON findings array per the schema in your dispatch prompt. `evidence` contains the traced input→sink path; `recommendation` is the concrete fix (parameterise, validate with X, move secret to Y).
+
+An empty findings array is a valid result - a weak finding costs more than a missing one. Do not pad.

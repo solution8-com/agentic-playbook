@@ -27,3 +27,5 @@ High: three-plus sites, or two sites already diverged (a bug fixed in one, not t
 ## Report
 
 Return the JSON findings array per the schema in your dispatch prompt. `location` lists every occurrence; `recommendation` names the shared component/helper/hook, its proposed home, and its parameters.
+
+An empty findings array is a valid result - a weak finding costs more than a missing one. Do not pad.

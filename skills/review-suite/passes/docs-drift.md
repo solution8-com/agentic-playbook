@@ -19,3 +19,5 @@ High: a claim that sends a follower down a broken path (wrong command, wrong por
 ## Report
 
 Return the JSON findings array per the schema in your dispatch prompt. `evidence` quotes the doc line and the contradicting code; `recommendation` is "update to say X" or "delete (policy: current-state docs stay true or go)".
+
+An empty findings array is a valid result - a weak finding costs more than a missing one. Do not pad.

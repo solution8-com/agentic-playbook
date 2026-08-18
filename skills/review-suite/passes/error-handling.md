@@ -22,3 +22,5 @@ Blocker: silent data loss or corruption (failed write reported as success, missi
 ## Report
 
 Return the JSON findings array per the schema in your dispatch prompt. `evidence` states the traced consequence; `recommendation` names the handling that belongs there (surface, retry, rollback, error state) — matching how the repo's healthy paths already do it.
+
+An empty findings array is a valid result - a weak finding costs more than a missing one. Do not pad.

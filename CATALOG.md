@@ -69,6 +69,12 @@ precedent.
   `improve-codebase-architecture` (a long analysis run you ask for).
 - **On refresh, do not restore the flag.** A `verbatim`/`tweaked` diff will show upstream carrying
   `disable-model-invocation` where we do not. That is this decision, not drift.
+- **2026-08-18, from Kasper's read-through:** `assets/report.css` v2 - the report family went dark,
+  layout language adopted from Syv AI's `visual-plan` output (rebuilt from scratch, not copied;
+  still unbranded and network-free). `review-suite` gained an adversarial verify stage before the
+  report and every pass file states that an empty result is valid. `pickup-issue` compressed to
+  four paragraphs. `skills/` flattened to one directory per skill - grouping lives in the README
+  only.
 
 ## How to refresh
 

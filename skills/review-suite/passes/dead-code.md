@@ -37,3 +37,5 @@ High: whole dead files/endpoints/dependencies that readers keep encountering. Me
 ## Report
 
 Return the JSON findings array per the schema in your dispatch prompt. `evidence` names the searches that came back empty; `recommendation` is the deletion, plus anything that must move first.
+
+An empty findings array is a valid result - a weak finding costs more than a missing one. Do not pad.

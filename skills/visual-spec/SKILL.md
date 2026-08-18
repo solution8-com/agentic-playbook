@@ -50,9 +50,16 @@ already defines rather than inventing new ones:
 | Inline verdict in prose or a table cell | `.ok` / `.warn` |
 | Tables | `.tablewrap` around `table.results` |
 | Literal output that is itself the evidence | `.evidence` |
+| Settled decision or accepted risk | `.callout` / `.callout.risk` |
+| Module map (create / modify / test rows) | `.modmap` with `.verb create\|modify\|test` |
+| Code walked through with margin notes | `.annotated` with `.anno-notes`, `.note`, `.ln` |
+| Before / after comparison | `.cols` with `.col` / `.col.after` |
+| Closing verification checklist | `.checks` |
+| In / out scope pills | `.pill.in` / `.pill.out` |
 
 For a structural diagram, hand-build it with inline SVG or divs using the stylesheet's existing
-variables (`--clay`, `--olive`, `--oat`, `--gray-dark`). Do not pull in a diagram library.
+variables (`--amber`, `--green`, `--red`, `--blue`, `--line`, `--muted`, `--panel`). Do not pull
+in a diagram library.
 
 Anything the stylesheet genuinely does not cover goes in a short extra `<style>` block below the
 inlined sheet - but if it is a component the other report skills would also want, add it to

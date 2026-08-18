@@ -22,3 +22,5 @@ Blocker: entry point with data access and no gate, or object-level check missing
 ## Report
 
 Return the JSON findings array per the schema in your dispatch prompt — one finding per gap. Then append, after the JSON array, a markdown table of the FULL enumeration (`entry point | gate location | verdict: ok/partial/missing`) so the controller can show coverage, not just gaps.
+
+An empty findings array is a valid result - a weak finding costs more than a missing one. Do not pad.

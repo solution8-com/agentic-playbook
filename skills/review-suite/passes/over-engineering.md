@@ -28,3 +28,5 @@ Blocker: never applies here. High: the indirection misleads readers about what a
 ## Report
 
 Return the JSON findings array per the schema in your dispatch prompt. `recommendation` names what to inline or delete and where the surviving logic lands.
+
+An empty findings array is a valid result - a weak finding costs more than a missing one. Do not pad.

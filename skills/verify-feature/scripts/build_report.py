@@ -22,12 +22,12 @@ import json
 import sys
 from pathlib import Path
 
-# skills/utilities/verify-feature/scripts/build_report.py -> plugin root is 4 up
-CSS_PATH = Path(__file__).resolve().parents[4] / "assets" / "report.css"
+# skills/verify-feature/scripts/build_report.py -> plugin root is 3 up
+CSS_PATH = Path(__file__).resolve().parents[3] / "assets" / "report.css"
 
 FALLBACK_CSS = """
-:root { --ivory:#FAF9F5; --slate:#141413; --clay:#D97757; --oat:#E3DACC;
-        --oat-deep:#A89A82; --olive:#788C5D; --gray-light:#F0EEE6; --gray-dark:#3D3D3A; }
+:root { --ivory:#101418; --slate:#e8e5df; --clay:#D97757; --oat:#2a323c;
+        --oat-deep:#98a1ab; --olive:#8fb573; --gray-light:#1d242c; --gray-dark:#98a1ab; }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--ivory); color:var(--slate);
        font-family:system-ui,-apple-system,sans-serif; line-height:1.55; }
@@ -37,10 +37,10 @@ h1,h2 { font-family:ui-serif,Georgia,serif; font-weight:600; }
            letter-spacing:.08em; font-size:.72rem; color:var(--gray-dark); }
 .meta { font-family:ui-monospace,monospace; font-size:.8rem;
         color:var(--gray-dark); margin-bottom:28px; }
-.flow,.summary { border:1.5px solid var(--oat); border-radius:14px; background:#fff;
+.flow,.summary { border:1px solid var(--oat); border-radius:14px; background:#171d24;
                  padding:24px 28px; margin-bottom:36px; }
 .flow-head { display:flex; align-items:baseline; gap:14px; }
-.badge { font-family:ui-monospace,monospace; font-size:.7rem; color:#fff;
+.badge { font-family:ui-monospace,monospace; font-size:.7rem; color:#10151a;
          border-radius:999px; padding:3px 12px; }
 .badge.ok { background:var(--olive); } .badge.bad { background:var(--clay); }
 .badge.muted { background:var(--gray-dark); } .badge.na { background:var(--oat-deep); }

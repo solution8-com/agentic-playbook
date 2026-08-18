@@ -56,14 +56,27 @@ One `general-purpose` subagent per selected pass, all Agent calls in a single me
 
 Collect the arrays. Findings from two passes that describe the same underlying issue at the same location (`duplication` and `over-engineering` overlap often) collapse into one card: keep the higher severity, credit both passes. Order by severity, then by pass.
 
-## 4. Report
+## 4. Verify the blockers and highs
+
+Findings are candidates until they survive a skeptic. For every `blocker` and `high` finding,
+dispatch one adversarial subagent - all in a single message, in parallel - briefed to **refute**
+it: re-read the evidence in the repo, hunt for the reference, test, guard, or configuration that
+would make the finding wrong, and return `confirmed`, `downgrade` (with the new severity), or
+`drop`, with the reason. Apply the verdicts before building the report. `medium` and `low`
+findings pass through unverified and the report labels them as such.
+
+A weak finding costs more than a missing one - this gate is what lets the board be read at face
+value.
+
+## 5. Report
 
 Write one self-contained triage board to `.claude/reports/<YYYY-MM-DD>-review-<scope-slug>.html`. Style it with the plugin's shared stylesheet, `<plugin root>/assets/report.css`, inlined into a `<style>` block so the file stays self-contained. Print the absolute path, then try to open it: `open` on macOS, `xdg-open` on Linux, `start ""` on Windows. Structure:
 
-- **Header** — repo, scope (mode + ref or paths), date, per-pass finding counts, and any passes skipped with the reason.
+- **Header** — repo, scope (mode + ref or paths), date, per-pass finding counts with the
+  found → confirmed tally from the verify stage, and any passes skipped with the reason.
 - **One section per pass** — findings as cards: severity chip (colour carries severity), title, `file:line`, evidence in mono, recommendation. Each card gets a "file as issue" checkbox and an "afk" toggle.
 - **Footer** — an **Export** button that turns the checked cards into ready-to-run `gh issue create --title "…" --body "…"` commands in a copyable textarea (body = evidence + recommendation as markdown; add `--label afk` where toggled).
 
-## 5. Offer to file issues
+## 6. Offer to file issues
 
 After presenting the report, offer to file the blocker/high findings (plus any others the user names) as GitHub issues directly — issue text is markdown, GitHub-bound. Apply the AFK test to each issue you file: clear spec, self-contained, verifiable by the repo's own check, no human decision, secret, deploy, or visual judgement needed. Label the ones that pass `afk` so an autonomous agent can pick them up.
