@@ -108,6 +108,9 @@ session. `review-suite` below is for a broad quality sweep.
 
 > Occasional, and nobody has to use them.
 
+- **`guide`** - not sure which skill fits? Routes your situation to the right one, or gives a
+  tour of how the playbook hangs together. Checks `gh auth status` first, since much of the
+  flow runs through GitHub.
 - **`wizard`** - generate a script that walks a human through the steps only they can do:
   provisioning, credentials, one-off migrations. Secrets never touch the model.
 - **`to-questionnaire`** - turn the questions someone else has to answer into a fillable form.
