@@ -95,8 +95,8 @@ session. `review-suite` below is for a broad quality sweep.
 - **`to-questionnaire`** - turn the questions someone else has to answer into a fillable form.
 - **`start`** - pick up where the last session left off.
 - **`update-docs`** - save session progress to the ledger and refresh docs the work drifted from.
-  Not a dev skill. It is for the projects where you need to remember what was agreed and where
-  you left off.
+  Works in any repo, dev included; it earns its keep on long-running projects where you need to
+  remember what was agreed and where you left off.
 
 ## Reports
 

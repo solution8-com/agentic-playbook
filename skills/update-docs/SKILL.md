@@ -7,10 +7,17 @@ description: Save session progress to the ledger, refresh any project docs the w
 
 Run this at the end of a session, or when the context window is running low.
 
-## When context runs low
+## When to run it
 
-Around **40%** of the window, or whenever the session has learned something worth keeping.
-The number is a house habit, not a measurement - pick your own.
+Two triggers:
+
+- **The context is about to leave the smart zone** - the stretch of the window where the model
+  is still sharp. Around **40%** used is the house habit; a habit, not a measurement, so pick
+  your own.
+- **A milestone landed** - a feature done, a decision settled, a phase closed. Save the session
+  while the context that produced it is still rich.
+
+On the context trigger:
 
 1. Pause current work
 2. Tell the user the context is filling and that you are saving session state

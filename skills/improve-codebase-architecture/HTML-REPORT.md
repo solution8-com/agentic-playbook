@@ -14,10 +14,10 @@ The architectural review is rendered as a single self-contained HTML file in `.c
       /* Inline the plugin's shared assets/report.css here, then add only what
          this report needs on top: dashed seam lines, arrow heads, and so on. */
       .seam { stroke-dasharray: 4 4; }
-      .leak { stroke: var(--clay); }
-      .deep { background: var(--gray-dark); }
-      .node rect { fill: #fff; stroke: var(--oat); stroke-width: 1.5; }
-      .node text { font-size: 11px; fill: var(--slate); }
+      .leak { stroke: var(--red); }
+      .deep { background: var(--panel-2); outline: 2px solid var(--amber); }
+      .node rect { fill: var(--panel-2); stroke: var(--line); stroke-width: 1.5; }
+      .node text { font-size: 11px; fill: var(--ink); }
     </style>
   </head>
   <body>
@@ -32,7 +32,7 @@ The architectural review is rendered as a single self-contained HTML file in `.c
 
 ## Header
 
-Repo name, date, and a compact legend: solid box = module, dashed line = seam, red arrow = leakage, thick dark box = deep module. No introduction paragraph — straight into the candidates.
+Repo name, date, and a compact legend: solid box = module, dashed line = seam, red arrow = leakage, amber-edged box = deep module. No introduction paragraph — straight into the candidates.
 
 ## Candidate card
 
@@ -101,7 +101,7 @@ Before: a tree of function calls rendered as nested boxes. After: the same tree 
 ## Style guidance
 
 - Lean editorial, not corporate-dashboard. Generous whitespace. The shared stylesheet already sets serif headings and the palette; work inside it.
-- Colour sparingly and semantically: `--clay` for leakage, `--olive` for the resolved state, `--gray-dark` for everything structural.
+- Colour sparingly and semantically: `--red` for leakage, `--green` for the resolved state, `--line` and `--muted` for everything structural.
 - Keep diagrams ~320px tall so before/after sits comfortably side by side without scrolling.
 - Module labels inside diagrams read as schematic, not as UI: small, uppercase, letter-spaced, monospace.
 

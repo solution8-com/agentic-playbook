@@ -28,22 +28,6 @@ Continue working from where you left off by reading project state first, then ac
    - If the user named a task, work on that.
    - If not, summarise the current state and ask what to work on.
 
-## At a phase boundary
-
-When a chunk of work ends mid-session ("ok, we're done with that"), pick the next move
-in this order, first yes wins:
-
-1. **Continue** in the session - the only move that keeps the conversation as a primary
-   source. The standard yes: grilling into implementation, which wants the reasoning
-   verbatim, not a summary of it.
-2. **Clear** (`/clear`) - when nothing in the context bears on what comes next; cheapest
-   move on the board, and the old session stays resumable.
-3. **Handoff** - only when knowledge must travel: a new repo or harness, a colleague, a
-   side task forked mid-phase. If nothing is travelling, skip it.
-4. **Subagent** - a scoped side-task that should not pollute this window; it reports back.
-5. **Compact** (`/compact`) - last, not first, and always with an instruction about what
-   to keep. A summary is confidently wrong about whatever it flattened.
-
 ## Usage
 
 ```

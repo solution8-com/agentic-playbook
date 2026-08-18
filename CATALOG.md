@@ -26,7 +26,7 @@ precedent.
 
 | Skill | Group | Source | Upstream path | What we changed |
 |---|---|---|---|---|
-| `setup-dev-repo` | Get Started | ours | - | Two issue labels (`afk`/`hitl`) instead of eight; adds `.claude/reports/` to `.gitignore`. 2026-08-17: the complex/simple fork and the five-question stack interview were cut - this runs after planning, so the stack is already decided and re-asking boxes the user in before the grill has happened. `CONTEXT.md` deliberately not seeded, with the reason written in |
+| `setup-dev-repo` | Get Started | ours | - | Two issue labels (`afk`/`hitl`) instead of eight; adds `.claude/reports/` to `.gitignore`. 2026-08-17: the complex/simple fork and the five-question stack interview were cut - this runs after planning, so the stack is already decided and re-asking boxes the user in before the grill has happened. `CONTEXT.md` deliberately not seeded, with the reason written in. 2026-08-18: the EXT-/INT- naming table replaced by asking the user for name and owner - a public-bound repo should not ship internal naming rules - and the Common mistakes table cut as restating the body |
 | `grill-me` | Main Flow | merged | `productivity/grill-me` + `productivity/grilling` | Matt's `grill-me` is a one-line delegator to `grilling`. Merged into one self-contained file rather than shipping a hidden skill nobody invokes. Body is his `grilling` verbatim. 2026-08-17: `disable-model-invocation: true` dropped. The flag came from his `grill-me` wrapper; his `grilling` carries no such flag, so he could reach the interview method both ways and our merge had silently collapsed it to typed-only. With 97 Skill calls in 1,200 sampled sessions, typed-only means never. The description already carries a trigger clause, so the model can route to it |
 | `to-spec` | Main Flow | tweaked | `engineering/to-spec` | Tracker-setup sentence removed |
 | `to-issues` | Main Flow | tweaked | `engineering/to-tickets` | Renamed. Tracker note points at `setup-dev-repo` rather than `/setup-matt-pocock-skills`; `ready-for-agent` label replaced by `afk`/`hitl` with `hitl` as default |
@@ -43,7 +43,7 @@ precedent.
 | `review-suite` | Utilities | Emil Vladinov | - | Same porting. Seven passes unchanged |
 | `wizard` | Misc | verbatim | `engineering/wizard` | none |
 | `to-questionnaire` | Misc | verbatim | `productivity/to-questionnaire` | none |
-| `start` | Misc | tweaked | obra/superpowers | Dangling `start-dev` reference removed, and the claim that `grill-me` maintains `CONTEXT.md` dropped - the shipped `grill-me` does no such thing |
+| `start` | Misc | tweaked | obra/superpowers | Dangling `start-dev` reference removed, and the claim that `grill-me` maintains `CONTEXT.md` dropped - the shipped `grill-me` does no such thing. 2026-08-18: the at-a-phase-boundary ladder cut - `start` fires at session start, the ladder fires mid-session, so it could never be in context when it was needed; the content is parked for the modules |
 | `update-docs` | Misc | lifted | Matt's handoff lineage | Reshaped for our ledger + handoff model |
 | `tdd` | Support | tweaked | `engineering/tdd` | Reference to `/codebase-design` (not shipped) replaced by the vocabulary inline. 2026-08-18: listed in the README under Utilities - `implement` calls it, and you can also invoke it directly |
 
@@ -72,9 +72,8 @@ precedent.
 - **2026-08-18, from Kasper's read-through:** `assets/report.css` v2 - the report family went dark,
   layout language adopted from Syv AI's `visual-plan` output (rebuilt from scratch, not copied;
   still unbranded and network-free). `review-suite` gained an adversarial verify stage before the
-  report and every pass file states that an empty result is valid. `pickup-issue` compressed to
-  four paragraphs. `skills/` flattened to one directory per skill - grouping lives in the README
-  only.
+  report and every pass file states that an empty result is valid. `skills/` flattened to one
+  directory per skill - grouping lives in the README only.
 
 ## How to refresh
 

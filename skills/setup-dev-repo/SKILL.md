@@ -31,18 +31,10 @@ project**, and the job changes from building to understanding.
 
 ### 1. Name it
 
-Repo names say whether the work is external or internal:
-
-| Kind | Pattern | Example |
-|---|---|---|
-| External project | `EXT-<org>-<project>` | `EXT-elservice-fakturaflow` |
-| Internal project | `INT-<project>` | `INT-s8-agentic-playbook` |
-
-Lower-kebab after the prefix. The org segment exists only on external repos.
-
-**Ask which it is if the user has not said.** It is not inferable - "fakturaflow" does not tell
-you which side it belongs on - and renaming a repo later breaks every clone and remote. This is
-the cheapest possible moment to be sure.
+**Ask the user what the repo should be called and which owner (account or org) it belongs
+under.** Do not guess and do not derive it from a convention - naming schemes are the owner's
+business, and renaming a repo later breaks every clone and remote. This is the cheapest possible
+moment to be sure.
 
 ### 2. Create it
 
@@ -71,9 +63,8 @@ two that are rarely inferable are the **package manager** (`uv` vs `pip`, `bun` 
 **what kind of thing this is** - CLI, library, web service - because that shapes the layout.
 Everything else: take the ecosystem standard and say which one you took.
 
-**Match the question to the person.** Someone who names a stack should be answered in those terms,
-not walked through an interview. Someone who does not know should be able to take the
-recommendation without having to bluff. Both end in a working project.
+**Match the question to the person** - someone who names a stack gets answered in those terms;
+someone who does not know gets a recommendation they can take without bluffing.
 
 ### 4. Scaffold
 
@@ -188,19 +179,6 @@ launch.
 - [ ] CI runs the same checks as the gate
 - [ ] A slim `CLAUDE.md` records the stack, the verified commands and the gate
 - [ ] The user knows what only a human can still do (secrets, deploy targets)
-
-## Common mistakes
-
-| Mistake | Fix |
-|---|---|
-| Running this on a context repo | It has no stack or gate. There is nothing here for it. |
-| Guessing the EXT/INT prefix | Ask. Renaming later breaks every clone and remote. |
-| Trusting a documented command | Run it. Config rots quietly. |
-| Reporting the gate works without seeing it block | You have installed something, not verified it. |
-| Imposing a new stack on an existing repo | Match the conventions already there. |
-| Asking a question whose answer changes nothing | If the shape is already known, stop asking. |
-| Writing a fat `CLAUDE.md` | It is re-read every session forever. Anything true of any project is pure cost. |
-| Overwriting an existing `CLAUDE.md` | Propose additions instead. Someone wrote what is there on purpose. |
 
 ## Related skills
 
