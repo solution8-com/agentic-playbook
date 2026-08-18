@@ -34,7 +34,7 @@ Worktrees are what stop parallel sessions from corrupting each other. Two builds
 - **A related issue, same area, current tree clean** - reuse the tree, **sequentially**. Finish one issue, then start the next. Never two issues in flight in one tree.
 - **Grouping** - if sibling issues look worth taking together, name them and let the user confirm. Do not decide it silently.
 
-Branch off the default branch and merge the branch back when the work lands. No draft PR.
+Branch off the default branch. No draft PR. Merging back is the user's call - `/implement` stops at the commit and hands the branch over for review.
 
 **Caveat worth knowing:** `refs/stash` is shared across worktrees, so a `git stash` in one shows up in all of them. Prefer a commit on the branch over a stash.
 

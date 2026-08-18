@@ -182,4 +182,5 @@ launch.
 
 ## Related skills
 
-- **wayfinder** / **grill-me** - the planning stages that follow, once the project runs.
+- **wayfinder** / **grill-me** - the planning that continues once the project runs. Often they
+  already ran and settled the stack; this skill just wired it.

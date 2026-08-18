@@ -14,7 +14,7 @@ Passes: `over-engineering` · `dead-code` · `duplication` · `security` · `aut
 One scope, resolved once, handed identically to every pass so all findings describe the same thing:
 
 - **diff** — uncommitted work: `git diff HEAD` plus untracked files.
-- **branch** — everything since trunk: `git diff <trunk>...HEAD` (three-dot, against the merge-base; trunk = the `trunk` value in `.claude/collab.json` if present, else the default branch). A PR number resolves here too (`gh pr diff <n>`).
+- **branch** — everything since trunk: `git diff <trunk>...HEAD` (three-dot, against the merge-base; trunk = the repo's default branch). A PR number resolves here too (`gh pr diff <n>`).
 - **codebase** — all tracked files, optionally narrowed to a path the user named.
 
 Infer the scope from what the user said ("this branch", "the whole repo", "PR 214"); ask once only when branch vs codebase is genuinely ambiguous. Before dispatching, prove the scope is real: the ref resolves (`git rev-parse`) and the diff or file list is non-empty. A bad ref fails here, not inside seven subagents.
@@ -29,7 +29,7 @@ One `general-purpose` subagent per selected pass, all Agent calls in a single me
 - The scope: mode, the exact diff command or file list, and (for branch scope) the commit list.
 - Repo orientation: where conventions and decisions live (`.claude/rules/`, `docs/adr/`, CLAUDE.md / AGENTS.md) — the pass file says what to do with them.
 - The findings schema and severity rubric below, pasted in full.
-- "Return ONLY the JSON array as your final message — it is data for the controller, not prose for a human."
+- "Return ONLY the JSON array as your final message — it is data for the controller, not prose for a human." One pass is exempt by its own file: `authz-coverage` appends its coverage table after the array.
 
 ### Findings schema
 
@@ -74,7 +74,7 @@ Write one self-contained triage board to `.claude/reports/<YYYY-MM-DD>-review-<s
 
 - **Header** — repo, scope (mode + ref or paths), date, per-pass finding counts with the
   found → confirmed tally from the verify stage, and any passes skipped with the reason.
-- **One section per pass** — findings as cards: severity chip (colour carries severity), title, `file:line`, evidence in mono, recommendation. Each card gets a "file as issue" checkbox and an "afk" toggle.
+- **One section per pass** — findings as cards: severity chip (colour carries severity), title, `file:line`, evidence in mono, recommendation. Each card gets a "file as issue" checkbox and an "afk" toggle. The `authz-coverage` section also renders its full coverage table, not just the gaps.
 - **Footer** — an **Export** button that turns the checked cards into ready-to-run `gh issue create --title "…" --body "…"` commands in a copyable textarea (body = evidence + recommendation as markdown; add `--label afk` where toggled).
 
 ## 6. Offer to file issues

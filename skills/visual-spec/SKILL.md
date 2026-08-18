@@ -63,7 +63,7 @@ in a diagram library.
 
 Anything the stylesheet genuinely does not cover goes in a short extra `<style>` block below the
 inlined sheet - but if it is a component the other report skills would also want, add it to
-`assets/report.css` instead so all three stay in step.
+`assets/report.css` instead so all four stay in step.
 
 No accented Danish characters.
 

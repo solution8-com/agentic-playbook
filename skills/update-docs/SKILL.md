@@ -1,11 +1,11 @@
 ---
 name: update-docs
-description: Save session progress to the ledger, refresh any project docs the work drifted from, and write the handoff for the next session.
+description: Save session progress to the ledger, refresh any project docs the work drifted from, and write the handoff for the next session. Use at the end of a working session, when a milestone lands, when the context nears the smart-zone edge, or when the user asks to wrap up or update the docs.
 ---
 
 # Update Docs
 
-Run this at the end of a session, or when the context window is running low.
+Run this when a milestone lands, or before the context leaves the smart zone.
 
 ## When to run it
 
@@ -86,7 +86,7 @@ people to skim doc changes.
    |---|---|
    | An architectural or convention change | `CLAUDE.md`, `AGENTS.md`; if it is a durable decision, the ADR row below |
    | A system-design change, in a repo that already keeps `docs/architecture.md` | That file (never create it) |
-   | New or sharpened domain terms | `CONTEXT.md` at the repo root - create it here if it does not exist yet; this is the skill that brings it into being |
+   | New or sharpened domain terms | `CONTEXT.md` at the repo root - create it if it does not exist yet |
    | A decision that is hard to reverse, surprising without context, and a real trade-off - all three | An ADR under `docs/adr/` |
 
 3. **On an ADR, check first.** List the existing ADRs in `docs/adr/` and read their titles.

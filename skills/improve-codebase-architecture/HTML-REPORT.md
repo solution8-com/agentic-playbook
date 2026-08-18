@@ -41,7 +41,7 @@ The diagrams carry the weight. Prose is sparse, plain, and uses the architecture
 Each candidate is one `<article>`:
 
 - **Title** — short, names the deepening (e.g. "Collapse the Order intake pipeline").
-- **Badge row** — recommendation strength (`Strong` = emerald, `Worth exploring` = amber, `Speculative` = slate), plus a tag for the dependency category (`in-process`, `local-substitutable`, `ports & adapters`, `mock`).
+- **Badge row** — recommendation strength (`Strong` = `--green`, `Worth exploring` = `--amber`, `Speculative` = `--muted`, border-only like `.badge.low`), plus a tag for the dependency category (`in-process`, `local-substitutable`, `ports & adapters`, `mock`).
 - **Files** — monospaced list, using the stylesheet's `.mono`.
 - **Before / After diagram** — the centrepiece. Two columns, side by side. See patterns below.
 - **Problem** — one sentence. What hurts.

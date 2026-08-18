@@ -1,6 +1,6 @@
 ---
 name: implement
-description: "Implement a piece of work based on a spec or set of tickets."
+description: "Implement a piece of work based on a spec or set of tickets. Use when work arrives from /pickup-issue, or when the user asks to implement or build something already specced in a ticket."
 ---
 
 Implement the work described by the user in the spec or tickets.
@@ -13,4 +13,4 @@ Once done, use `/code-review low` to check the work does what the ticket asked.
 
 Do not run a deep review here. An agent reviewing code it just wrote is biased toward its own solution, so the deep pass belongs in a fresh session against a fixed point.
 
-Commit your work to the current branch.
+Commit your work to the current branch, then stop: report the branch and hand it to the user to review and merge. Do not merge it yourself unless the user has said to for this work - an issue labelled `afk` counts as that permission.

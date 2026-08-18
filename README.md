@@ -102,8 +102,9 @@ session. `review-suite` below is for a broad quality sweep.
 
 > Every report looks the same on any machine.
 
-`verify-feature`, `review-suite` and `visual-spec` write self-contained HTML to `.claude/reports/`,
-styled with `assets/report.css`. `setup-dev-repo` adds that folder to `.gitignore`.
+`verify-feature`, `review-suite`, `visual-spec` and `improve-codebase-architecture` write
+self-contained HTML to `.claude/reports/`, styled with `assets/report.css`. `setup-dev-repo` adds
+that folder to `.gitignore`.
 
 ## Tools
 
