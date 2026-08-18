@@ -24,8 +24,14 @@ process anyone is signed up to. Skills are tools; reach for the ones that help.
 /plugin install s8-playbook@solution8
 ```
 
-Installing the plugin subscribes you to updates - when a skill changes here, every install picks it
-up automatically. No reinstall, no version pinning.
+Installing the plugin ties you to this repo - no reinstall, no version pinning. Run
+`/plugin marketplace update solution8` to pull the latest skills; Claude Code's automatic
+marketplace refresh is not yet reliable for GitHub repos.
+
+While the repo is private, installing needs GitHub auth that can clone it. SSH keys are the
+reliable path - Claude Code clones `owner/repo` marketplaces over SSH. If you only have HTTPS
+credentials (`gh auth login`), use the full URL form:
+`/plugin marketplace add https://github.com/solution8-com/INT-s8-agentic-playbook.git`
 
 ## Setup
 
