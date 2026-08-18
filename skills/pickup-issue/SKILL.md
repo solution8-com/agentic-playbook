@@ -17,6 +17,11 @@ Read the body **and the comments**. Decisions get made in comment threads and ne
 
 If the issue references a parent, a spec, or a blocking issue, read those too.
 
+Then **check the issue's claims against the live tree**. An issue is a hypothesis, including last
+week's: the paths, counts and code references it states go stale between writing and pickup.
+Spot-check that they still hold. If one does not, surface it and let the user rule before any code
+gets written - do not build on a stale premise.
+
 ## 2. Ask what is unclear
 
 Ask only about ambiguity **in the issue itself**: what to build, what done means, where the scope stops.
@@ -31,6 +36,8 @@ Worktrees are what stop parallel sessions from corrupting each other. Two builds
 
 - **Nothing in progress** - create one:
   `git worktree add ../<repo>-<slug> -b <branch>`
+  The path is a default, not a rule. If the repo already has a worktree convention - a naming
+  scheme, or hooks keyed on the path - follow that instead.
 - **A related issue, same area, current tree clean** - reuse the tree, **sequentially**. Finish one issue, then start the next. Never two issues in flight in one tree.
 - **Grouping** - if sibling issues look worth taking together, name them and let the user confirm. Do not decide it silently.
 
