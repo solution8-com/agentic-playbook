@@ -19,19 +19,31 @@ process anyone is signed up to. Skills are tools; reach for the ones that help.
 
 ## Install
 
+While the repo is private, installing needs GitHub auth that can clone it. Two paths:
+
+**With SSH keys set up** (the reliable path - Claude Code clones `owner/repo` over SSH):
+
 ```
 /plugin marketplace add solution8-com/INT-s8-agentic-playbook
 /plugin install s8-playbook@solution8
 ```
 
-Installing the plugin ties you to this repo - no reinstall, no version pinning. Run
-`/plugin marketplace update solution8` to pull the latest skills; Claude Code's automatic
-marketplace refresh is not yet reliable for GitHub repos.
+**With HTTPS credentials only** (`gh auth login`), give the full URL instead:
 
-While the repo is private, installing needs GitHub auth that can clone it. SSH keys are the
-reliable path - Claude Code clones `owner/repo` marketplaces over SSH. If you only have HTTPS
-credentials (`gh auth login`), use the full URL form:
-`/plugin marketplace add https://github.com/solution8-com/INT-s8-agentic-playbook.git`
+```
+/plugin marketplace add https://github.com/solution8-com/INT-s8-agentic-playbook.git
+/plugin install s8-playbook@solution8
+```
+
+Installing ties you to this repo - no reinstall, no version pinning. To pull the latest skills
+after a change is announced:
+
+```
+/plugin marketplace update solution8
+```
+
+Claude Code's automatic marketplace refresh is not yet reliable for GitHub repos, so run the
+update yourself rather than waiting for it.
 
 ## Setup
 
