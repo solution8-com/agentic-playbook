@@ -45,7 +45,7 @@ precedent.
 | `to-questionnaire` | Misc | verbatim | `productivity/to-questionnaire` | none |
 | `start` | Misc | tweaked | obra/superpowers | Dangling `start-dev` reference removed, and the claim that `grill-me` maintains `CONTEXT.md` dropped - the shipped `grill-me` does no such thing |
 | `update-docs` | Misc | lifted | Matt's handoff lineage | Reshaped for our ledger + handoff model |
-| `tdd` | Support | tweaked | `engineering/tdd` | Reference to `/codebase-design` (not shipped) replaced by the vocabulary inline. Not listed in the README - `implement` calls it |
+| `tdd` | Support | tweaked | `engineering/tdd` | Reference to `/codebase-design` (not shipped) replaced by the vocabulary inline. 2026-08-18: listed in the README under Utilities - `implement` calls it, and you can also invoke it directly |
 
 **Set-wide changes:**
 
