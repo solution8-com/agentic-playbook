@@ -43,5 +43,5 @@ If nothing fits, say so plainly - most work needs no skill at all.
 If they want the overview instead: show the Main Flow in one line (`grill-me` -> `to-spec`
 -> `to-issues` -> `pickup-issue` -> `implement` -> a human reviews and merges), then the
 README's groups - Setup, Main Flow, Shape, Utilities, Misc - one sentence each, and point at
-`TOOLS.md` for the recommended tools. Close by offering to route whatever they are actually
+`tools/README.md` for the recommended tools. Close by offering to route whatever they are actually
 working on right now.

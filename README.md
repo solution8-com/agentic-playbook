@@ -127,28 +127,48 @@ session. `review-suite` below is for a broad quality sweep.
 self-contained HTML to `.claude/reports/`, styled with `assets/report.css`. `setup-dev-repo` adds
 that folder to `.gitignore`.
 
+## Modules
+
+> The teaching layer: the principles behind the skills, one lesson doc per concept.
+
+Ten lesson docs in [`modules/`](./modules), ordered the way the agentic loop runs - context,
+action, verification - then the operating topics. Each teaches one concept in plain words:
+why it matters, and what you can do about it. Fresh drafts, review in progress.
+[SOURCES.md](./modules/SOURCES.md) collects the reading behind all of them.
+
+1. [The agentic loop](./modules/m0-the-agentic-loop.md) - what an agentic tool actually does, and why you are part of the loop.
+2. [The context window](./modules/m1-the-context-window.md) - the agent's working memory is a budget; sessions get worse before they get full.
+3. [What the agent reads](./modules/m2-what-the-agent-reads.md) - instruction files, the codebase itself, and checks that enforce instead of hope.
+4. [Deciding before building](./modules/m3-deciding-before-building.md) - shared vision beats clever wording; agree what done looks like first.
+5. [Handing work off](./modules/m4-handing-work-off.md) - delegation, scouts, and briefs that stand alone.
+6. [Verifying agent work](./modules/m5-verifying-agent-work.md) - the three gates between "done" and done.
+7. [Working unattended](./modules/m6-working-unattended.md) - containment beats supervision; when work can run alone.
+8. [Teams](./modules/m7-teams.md) - a shared setup beats everyone improvising.
+9. [Measuring](./modules/m8-measuring.md) - feelings aren't data; check numbers before adopting them.
+10. [When rules expire](./modules/m9-when-rules-expire.md) - the expiry test: rules die a layer at a time.
+
 ## Tools
 
 > What to install alongside the skills.
 
-[TOOLS.md](./TOOLS.md) covers the MCPs, CLIs and plugins worth having - including the three things
-the skills actually need (`gh`, Playwright MCP, Python 3) and which MCPs are worth keeping
+[tools/](./tools/README.md) covers the MCPs, CLIs and plugins worth having - including the three
+things the skills actually need (`gh`, Playwright MCP, Python 3) and which MCPs are worth keeping
 switched off until you need them.
 
 | Tool | Kind | What it's for |
 |---|---|---|
-| [Context7](./TOOLS.md#context7) | MCP | Current library documentation |
-| [Playwright](./TOOLS.md#playwright) | MCP | A real browser to drive |
-| [Supabase](./TOOLS.md#supabase) | MCP | Your database, queryable |
-| [n8n](./TOOLS.md#n8n) | MCP | Automations, and their failures |
-| [Vercel](./TOOLS.md#vercel) | MCP | Deploys, build logs, preview URLs |
-| [Miro](./TOOLS.md#miro) | MCP | Boards read and written in place |
-| [GitHub](./TOOLS.md#github-gh) | CLI | Issues, PRs and CI from the terminal |
-| [Azure](./TOOLS.md#azure-az) | CLI | Azure resources and deployments |
-| [Postgres](./TOOLS.md#postgres-psql) | CLI | Direct database queries |
-| [context-mode](./TOOLS.md#context-mode) | Plugin + MCP | Big output kept out of the conversation |
-| [Caveman](./TOOLS.md#caveman) | Plugin | Shorter replies |
-| [Language servers](./TOOLS.md#language-servers) | Plugin | Real types instead of grep |
+| [Context7](./tools/README.md#context7) | MCP | Current library documentation |
+| [Playwright](./tools/README.md#playwright) | MCP | A real browser to drive |
+| [Supabase](./tools/README.md#supabase) | MCP | Your database, queryable |
+| [n8n](./tools/README.md#n8n) | MCP | Automations, and their failures |
+| [Vercel](./tools/README.md#vercel) | MCP | Deploys, build logs, preview URLs |
+| [Miro](./tools/README.md#miro) | MCP | Boards read and written in place |
+| [GitHub](./tools/README.md#github-gh) | CLI | Issues, PRs and CI from the terminal |
+| [Azure](./tools/README.md#azure-az) | CLI | Azure resources and deployments |
+| [Postgres](./tools/README.md#postgres-psql) | CLI | Direct database queries |
+| [context-mode](./tools/README.md#context-mode) | Plugin + MCP | Big output kept out of the conversation |
+| [Caveman](./tools/README.md#caveman) | Plugin | Shorter replies |
+| [Language servers](./tools/README.md#language-servers) | Plugin | Real types instead of grep |
 
 ## License
 
