@@ -54,24 +54,16 @@ update yourself rather than waiting for it.
 
 ## Main Flow
 
-> The usual path to code that landed. Which end you start from depends on where the work came
-> from - and that is the only real difference between the two.
-
-**From an idea** - nothing is written down anywhere yet:
+> The usual path to code that landed. You join it wherever your work already is.
 
 ```
 grill-me  ->  to-spec  ->  to-issues  ->  pickup-issue  ->  implement
 ```
 
-**From an issue** - the work arrived already written, assigned by someone else:
-
-```
-pickup-issue  ->  grill-me  ->  implement
-```
-
-The grill moves because the decisions move with it. Starting from an idea, you settle them before
-anything is written down. Starting from an issue, someone else already wrote it down - and whether
-they settled anything is the first thing `pickup-issue` works out.
+Nothing written down yet? Start at the left. A spec already written? Start at `to-issues`. An issue
+someone else assigned you? Start at `pickup-issue` - and if its decisions were never settled,
+`pickup-issue` sends you back to `grill-me` before anything gets built. Nobody picks a flow; the
+work already says where you are.
 
 - **`grill-me`** - a relentless interview that sharpens a plan until the open decisions are settled -
   it gets you and your coding agent on the same page about exactly what you want built, before

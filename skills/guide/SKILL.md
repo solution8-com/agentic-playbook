@@ -17,14 +17,17 @@ anywhere that needs it.
 
 ## Route
 
-If they are heading into build work, first work out **which end they are starting from**. It
-decides the shape of the whole flow, and it is the thing people get wrong:
+For build work, work out **where their work already is - never ask**. The Main Flow is one chain,
+joined at whichever point matches what exists:
 
-- **An idea, nothing written down anywhere** - `grill-me` -> `to-spec` -> `to-issues` ->
-  `pickup-issue` -> `implement`. Settle the decisions, write them down, then build.
-- **An issue that already exists**, assigned or handed over - `pickup-issue` -> `grill-me` ->
-  `implement`. `pickup-issue` works out whether the issue is settled enough to build; where it is,
-  the grill is skipped entirely.
+```
+grill-me  ->  to-spec  ->  to-issues  ->  pickup-issue  ->  implement
+```
+
+Nothing written down means the whole chain. A spec already written starts at `to-issues`. A named
+issue, a URL, or "pick up #12" starts at `pickup-issue` - and if its decisions were never settled,
+`pickup-issue` hands back to `grill-me` before anything gets built. The signal is in what they
+said, so read it and route.
 
 Then match the situation to the skill, with one line on why:
 
@@ -60,9 +63,9 @@ Neither is a step in the flow, and saying so is part of the job:
 
 ## Tour
 
-If they want the overview instead: show both entry points in one line each (from an idea:
-`grill-me` -> `to-spec` -> `to-issues` -> `pickup-issue` -> `implement`; from an existing issue:
-`pickup-issue` -> `grill-me` -> `implement`; then a human reviews and merges), then the
+If they want the overview instead: show the Main Flow in one line (`grill-me` -> `to-spec`
+-> `to-issues` -> `pickup-issue` -> `implement` -> a human reviews and merges), say you join it
+wherever the work already is, then the
 README's groups - Setup, Main Flow, Shape, Utilities, Misc - one sentence each, and point at
 `tools/README.md` for the recommended tools. Close by offering to route whatever they are actually
 working on right now.
