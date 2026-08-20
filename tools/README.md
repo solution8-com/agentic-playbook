@@ -1,4 +1,10 @@
-**Tools** - the MCPs, CLIs and plugins worth adding to a Claude Code setup.
+# Tools
+
+The MCPs, CLIs and plugins worth adding to a Claude Code setup. Almost all of it is optional. Three
+things are not: [`gh`](#github-gh), which several skills read and write GitHub through,
+[Playwright](#playwright), which `verify-feature` drives the browser with, and Python 3, which the
+`verify-feature` report builder runs on. Python 3 ships with macOS and every Linux distribution, so
+in practice it is already there.
 
 | Tool | Kind | What it's for |
 |---|---|---|
@@ -15,17 +21,16 @@
 | [Caveman](#caveman) | Plugin | Shorter replies |
 | [Language servers](#language-servers) | Plugin | Real types instead of grep |
 
-# MCPs
+## MCPs
 
-An MCP gives Claude a new set of tools - a database it can query, a browser it can drive, a
-service it can talk to.
+An MCP gives Claude a new set of tools: a database it can query, a browser it can drive.
 
 **Keep the ones you rarely use switched off.** Every enabled MCP loads its full set of tools into
 every session whether you touch them or not, so a long list of live MCPs makes each conversation
 more expensive before you have typed anything. Install what looks useful, leave most of it off,
 and switch one on for the project that needs it.
 
-## Context7
+### Context7
 
 > Stops Claude writing confident code against an API that changed six months ago.
 
@@ -41,7 +46,7 @@ Claude writes code that looks completely reasonable and does not run.
 claude mcp add context7 -- npx -y @upstash/context7-mcp --api-key <key>
 ```
 
-## Playwright
+### Playwright
 
 > Turns "this should work" into "I watched it work".
 
@@ -57,9 +62,9 @@ than for the model to read.
 claude mcp add playwright -- npx -y @playwright/mcp@latest
 ```
 
-## Supabase
+### Supabase
 
-> Check what the data actually looks like before writing code against it.
+> See the real shape of the data before writing code against it.
 
 Connects Claude to your Supabase project: inspect tables, run queries, apply migrations, read
 logs. It saves pasting schemas into the chat, and it is the difference between assuming a column
@@ -69,19 +74,19 @@ is never null and knowing it.
 claude mcp add supabase -- npx -y @supabase/mcp-server-supabase@latest
 ```
 
-## n8n
+### n8n
 
 > Best at the debugging end, where the question is which node died.
 
 Lets Claude build and inspect n8n automations directly: create a workflow, check how a node is
-configured, look at what actually happened in a failed run. Useful when the job is wiring services
+configured, read what happened in a run that failed. Useful when the job is wiring services
 together rather than writing code.
 
 ```
 claude mcp add n8n -- npx n8n-mcp
 ```
 
-## Vercel
+### Vercel
 
 > The deploy answer without opening a dashboard.
 
@@ -93,26 +98,24 @@ are pushing often.
 claude mcp add --transport http vercel https://mcp.vercel.com
 ```
 
-## Miro
+### Miro
 
 > Saves transcribing a board by hand.
 
 Reads and writes Miro boards. If the planning for something lives on a board, Claude reads the
 stickies itself and can write results back.
 
-One gotcha worth knowing: the tag pills on a sticky only come back when you fetch that sticky
-individually, so a bulk read of a board will quietly miss them.
+One gotcha: the tag pills on a sticky only come back when you fetch that sticky individually, so a
+bulk read of a board will quietly miss them.
 
-```
-See Miro's own MCP documentation for the current endpoint
-```
+The endpoint moves, so take it from Miro's own MCP documentation.
 
-# CLIs
+## CLIs
 
 Command-line tools. Claude drives a terminal well, and unlike an MCP a CLI costs nothing while
 you are not using it.
 
-## GitHub (`gh`)
+### GitHub (`gh`)
 
 > The one to install first. Several skills stop working without it.
 
@@ -126,7 +129,7 @@ Run `gh auth login` after installing, or none of that works.
 brew install gh && gh auth login
 ```
 
-## Azure (`az`)
+### Azure (`az`)
 
 > Predictable commands, and Claude can read the output straight back.
 
@@ -139,25 +142,25 @@ without costing context in every session.
 brew install azure-cli
 ```
 
-## Postgres (`psql`)
+### Postgres (`psql`)
 
 > Settles whether a bug is in the code or in the data.
 
 Query a database directly. Instead of inferring what is in a table from migration files, Claude
 can look - which is usually the first fork in a debugging session.
 
-`libpq` gives you just the command-line tool. Install the full Postgres package only if you want
-a server running locally too.
+`libpq` gives you the command-line tool on its own. Install the full Postgres package only if you
+want a server running locally too.
 
 ```
 brew install libpq
 ```
 
-# Plugins
+## Plugins
 
 Installed inside Claude Code with `/plugin`.
 
-## context-mode
+### context-mode
 
 > One long test run can cost more room than the code you are working on.
 
@@ -171,7 +174,7 @@ Most valuable on log-heavy work: test runs, build output, large data files, long
 /plugin marketplace add mksglu/context-mode
 ```
 
-## Caveman
+### Caveman
 
 > Filler out, code and errors exact.
 
@@ -187,7 +190,7 @@ claude plugin marketplace add JuliusBrussee/caveman
 claude plugin install caveman@caveman
 ```
 
-## Language servers
+### Language servers
 
 > Without one, it is searching for text and inferring the rest.
 

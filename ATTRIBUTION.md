@@ -39,17 +39,18 @@ Exactly what changed in each tweaked skill is recorded in
 | `improve-codebase-architecture` | mattpocock/skills (`improve-codebase-architecture`), tweaked |
 | `diagnosing-bugs` | mattpocock/skills (`diagnosing-bugs`), verbatim |
 | `wait-what` | mattpocock/skills (`wait-what`), tweaked |
-| `verify-feature` | Solution8 original - Emil Vladinov |
-| `review-suite` | Solution8 original - Emil Vladinov |
+| `verify-feature` | Solution8 original |
+| `review-suite` | Solution8 original |
+| `guide` | Solution8 original |
 | `wizard` | mattpocock/skills (`wizard`), verbatim |
 | `to-questionnaire` | mattpocock/skills (`to-questionnaire`), verbatim |
-| `handoff` | mattpocock/skills (`productivity/handoff`), tweaked |
+| `handoff` | mattpocock/skills (`handoff`), tweaked |
 | `tdd` | mattpocock/skills (`tdd`), tweaked |
 
 A line-level audit (2026-08-07) traced every vendored or reshaped line in the
 collection back to one of the two libraries above; everything else is
 Solution8's own text. The 2026-08-14 rescope replaced most reshaped forks with
-verbatim upstream copies, which narrows rather than widens what we claim.
+verbatim upstream copies, which narrows what we claim as ours.
 
 ## Upstream licenses
 

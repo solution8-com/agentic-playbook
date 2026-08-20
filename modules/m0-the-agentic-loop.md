@@ -1,10 +1,9 @@
 # The agentic loop
 
-Drop a skilled developer into an unfamiliar codebase and watch what they do. They don't
-start typing. They read, search around, run the tests to see what's green. Then they make a
-small change, run things again, adjust. An agentic coding tool works exactly this way - the
-same cycle a careful professional has always run, now automated, hundreds of times faster,
-and never tired.
+Drop a skilled developer into an unfamiliar codebase and watch them work. They read first.
+They search around and run the tests to see what passes. Then they make a small change,
+run the tests again, and adjust. An agentic coding tool works the same way. It runs the cycle
+a careful professional has always run, hundreds of times faster, and it never gets tired.
 
 **In this module:**
 
@@ -13,24 +12,24 @@ and never tired.
 - What the loop makes it good and bad at
 - Why you are part of the loop
 
-## From answering to doing
+## Chatbots and agentic tools
 
-**A chatbot answers. An agentic tool does.**
+**A chatbot answers. An agentic tool does the work.**
 
-- With a chatbot, you paste something in, get an answer back, and apply it yourself. Every
-  step passes through your hands - the machine advises, you do the work.
-- An agentic tool takes a task: it opens files, runs commands, edits code, and keeps going
-  until the task is done - or until it needs something from you.
-- The difference is not a smarter model. It's **tools** - the ability to search and read
-  your code, fetch documentation, run commands, edit files - plus a loop that decides what
+- A chatbot takes your question and gives you an answer. You apply that answer yourself.
+  Every step passes through your hands.
+- An agentic tool takes a task. It opens files, runs commands, and edits code. It keeps
+  going until the task is done, or until it needs something from you.
+- The difference is not a smarter model. It is **tools** plus a loop. The tools let it
+  search your code, read documentation, run commands, and edit files. The loop decides what
   to do next.
 
-In plain terms: chat is asking a consultant for advice. Agentic is the consultant sitting
-down at the keyboard.
+In plain terms: a chatbot is a consultant who gives you advice. An agentic tool is the
+consultant sitting at your keyboard.
 
 ## The loop: context, action, verification
 
-Everything the tool does is one loop, run over and over.
+**Every task runs through the same three steps, over and over.**
 
 ```mermaid
 flowchart LR
@@ -41,63 +40,65 @@ flowchart LR
     V -->|done| D[Back to you]
 ```
 
-- **Context.** It uses its tools to build a picture before it works: searching the
-  codebase, reading your files and instructions, pulling up documentation, running a
-  command just to see what happens. This is all it has - what it hasn't seen doesn't exist
-  for it.
-- **Action.** It edits files, runs commands, installs what's missing. Every action produces
-  a result it can look at.
-- **Verification.** It checks what happened - runs the tests, reads the error, looks at the
-  output - and decides: loop again, or hand back.
+- **Context.** The agent builds a picture before it works. It searches the codebase, reads
+  your files and instructions, pulls up documentation, and runs a command to see what
+  happens. It knows only what it has read.
+- **Action.** It edits files, runs commands, and installs what is missing. Every action
+  gives it a result it can read.
+- **Verification.** It checks what happened. It runs the tests, then reads the output and any
+  errors. Then it makes one decision: run the loop again, or hand the task back to you.
 
-If this sounds familiar, it should. Understand first, change second, test third is how
-software has always been built well. The upgrade is that the cycle now runs in seconds
-instead of hours - and doesn't lose patience on the fortieth repetition.
+In plain terms: understand first, change second, check third. Good developers have always
+worked this way. What changes is the speed - the cycle now takes seconds instead of hours.
 
 ## What the loop makes it good and bad at
 
+**The loop is good at repetition and bad at judgment.**
+
 | Good at | Bad at |
 |---|---|
-| Grinding through many steps without tiring | Knowing what it hasn't read - context is everything it has |
-| Sweeping wide - reading more of a codebase in minutes than a person does in a day | Judging its own work - it grades its own homework |
-| Anything with a clear check: "make this test pass" | Knowing what you *meant* rather than what you wrote |
+| Grinding through many steps without tiring | Knowing what it has not read |
+| Sweeping wide - it reads more of a codebase in minutes than a person reads in a day | Judging its own work |
+| Any task with a clear check: "make this test pass" | Knowing what you *meant* when your words say something else |
 
-Traditional development always had the same split: the mechanical parts - writing, running,
-re-running - and the judgment parts - what to build, whether it's right. The loop takes over
-the first set. The second set doesn't move; it stays with people.
+In plain terms: this split is old. Traditional development already separates the mechanical
+work from the judgment. Writing, running and re-running code is mechanical. Deciding what to
+build, and whether it is right, is judgment. The agent takes over the mechanical work. The
+judgment stays with you.
 
 ## You are part of the loop
 
 **The agent runs the loop. You steer it.**
 
-Think of it the way a team lead works: the lead doesn't type every line either - they set
-direction, share what they know, and judge the result.
+- You supply the task and what "done" means. The agent cannot guess your intent.
+- You supply the context it cannot find on its own: the reasons, the constraints, and what
+  the customer said.
+- You supply judgment. The agent cannot tell you whether the task is the right task.
+- Steer early. A correction during the work costs seconds. A rework after the agent finishes
+  costs the whole task.
 
-- You supply the task, and what "done" means - the loop can't guess intent.
-- You supply the context it can't find on its own: the reasons, the constraints, what the
-  customer actually said.
-- You supply judgment: left alone, the loop will happily finish the wrong thing well.
-- Steer early. A word while it works costs seconds; a rework after it finishes costs the
-  whole task.
+In plain terms: you work like a team lead. The lead sets direction, shares what they know,
+and judges the result.
 
 ## What you can do
 
-- **Watch one full loop before anything else.** Give a small real task and just observe:
-  what it reads, what it runs, what it checks. Ten minutes, and the mental model sticks.
-- **Say what done looks like** when you hand over a task - even one sentence changes what
-  the loop aims at.
-- **Give it something to check against**: a test, an example of the expected output, a way
-  to run the thing. The check phase is only as good as what you gave it.
-- **Interrupt early.** If it's heading somewhere wrong, say so now - don't wait politely
-  for it to finish being wrong.
-- **Write repeated explanations down.** The second time you explain the same thing, put it
-  where the agent reads (its instruction files) - that's how the loop learns your project.
+- **Watch one full loop before anything else.** Give the agent a small real task and observe
+  it: what it reads, what it runs, what it checks. Ten minutes is enough.
+- **Say what done looks like** when you hand over a task. One sentence changes what the
+  agent aims at.
+- **Give the agent something to check against**: a test, an example of the expected output,
+  or a way to run the thing. The check step is only as good as what you supply.
+- **Interrupt early.** Speak up as soon as the agent heads the wrong way.
+- **Write repeated explanations down.** The second time you explain the same thing, put it in
+  the files the agent reads. This is how the agent learns your project.
 
 ## What to remember
 
-- An agentic tool doesn't just answer - it reads, acts, and checks, in a loop, until done.
-- The loop is how careful developers always worked - understand, change, check - now
-  running in seconds, without tiring.
-- It only knows what's in front of it. Context is everything it has.
-- Its own checking answers "does it work" - "is it what you meant" stays yours.
-- You are part of the loop: the task, the missing context, the judgment, the steering.
+- An agentic tool reads, acts and checks, in a loop, until the task is done.
+- The loop is how careful developers have always worked: understand, change, check. It now
+  runs in seconds, without tiring.
+- The agent knows only what it has read.
+- The agent's own checks answer "does it work". Whether the work is what you meant stays
+  with you.
+- You are part of the loop. You supply the task, the missing context, the judgment and the
+  steering.

@@ -1,26 +1,24 @@
 # Handing work off
 
-A lead who sends a contractor to a site across town writes the brief carefully, because there
-is no shouting a follow-up question across the city. Whatever the brief leaves out, the
-contractor settles alone, and you find out when they come back. You can hand work to an agent
-the same way - a second agent that works on its own and reports back - and what you gain from
-it is not what it looks like.
+A lead who sends a contractor to a site across town writes the brief carefully, because nobody
+can shout a follow-up question across the city. Whatever the brief leaves out, the contractor
+settles alone, and you find out when they come back. You can hand work to an agent the same
+way. The helper agent works on its own and reports back to you.
 
 **In this module:**
 
-- Why a helper agent is a fresh head, not extra hands
-- What has to be in a brief that can't ask questions
-- Which work travels well, and which should stay with you
-- What running several at once costs
+- Where the gain comes from
+- What a brief must carry when nobody can ask questions
+- Which work travels well, and which stays with you
+- What running several helpers at once costs
 
-## A scout, not extra hands
+## Where the gain comes from
 
-**The gain isn't more work done at once. It's work done somewhere else.**
+**The helper works in its own memory. Only the answer comes back to yours.**
 
-Handing a task to a helper agent looks like hiring temps: more agents, more output. That
-picture leads to bad decisions. The real mechanic is quieter - the helper works in *its own*
-memory, and only the answer comes back to yours. It can open thirty files and read a wall of
-test output; what lands in your session is one paragraph.
+Handing a task to a helper agent looks like hiring temps: more agents, more output. That picture
+leads to bad decisions, because the real gain is a quieter one. The helper can open thirty files
+and read a wall of test output; what lands in your session is one paragraph.
 
 ```mermaid
 flowchart LR
@@ -31,90 +29,84 @@ flowchart LR
 ```
 
 - **Big in, small out is the shape that pays.** "Find every place we create a session token."
-  "Read these three doc pages and answer one question." Huge consumption, short answer.
-- **You get the conclusion, not the working.** A scout shows you where it got to, not every
-  path it walked. If you need to watch the middle of the work, don't send it away.
-- **It's a fresh head, not a continuation.** The helper starts from your project - same files,
-  same instruction files, same permissions - but not from your conversation. It doesn't know
-  what the two of you agreed ten minutes ago.
+  "Read these three doc pages and answer one question." It reads a lot and returns a short
+  answer.
+- **You get the conclusion.** The helper reports where it got to, and the path it walked stays
+  in its own session. If you need to watch the work as it happens, keep it with you.
+- **The helper starts fresh.** It gets your project - the same files, the same instruction
+  files, the same permissions. It does not get your conversation, so it does not know what you
+  agreed ten minutes ago.
 
-In plain terms: it's outsourcing a document review. You wanted the summary, not the reading.
-The reading still happened - just not at your desk.
+In plain terms: this is outsourcing a document review. You get the summary, and someone else
+does the reading.
 
 ## The brief has to stand alone
 
-**A helper agent can't come back and ask what you meant.**
+**A helper agent cannot ask you what you meant.**
 
-A colleague stops halfway and says "wait - do you mean A or B?" This won't. Every gap gets
-filled with a guess, and the guess is invisible: what comes back is a confident answer to a
-question you didn't quite ask. A brief that travels carries four things - the goal, what
-comes back, where to look, and where the edges are.
+A colleague stops halfway and asks "do you mean A or B?". A helper agent does not ask, so it
+fills every gap with a guess. The guess is invisible, and what comes back is a confident answer
+to a question you did not quite ask. A brief that travels carries four things.
 
 |  | Thin brief | Stands alone |
 |---|---|---|
 | The goal | "look into the auth code" | "list every place a session token gets created" |
-| What comes back | unsaid - so you get an essay | "one line per hit: file and line number, nothing else" |
+| What comes back | unsaid, so you get an essay | "one line per hit: file and line number, nothing else" |
 | Where to look | unsaid | "start in the auth service; the old billing path is out of scope" |
 | The edges | unsaid | "read only - don't change any files" |
 
-Traditional development already had this exact test: write the ticket well enough that nobody
-comes back to ask. Same skill, same failure mode, higher stakes - a person asks, an agent
-guesses.
+Traditional development already had this test: write the ticket well enough that nobody comes
+back to ask.
 
 ## What travels, and what stays
 
-**Send the work you can describe. Keep the work you're still working out.**
+**Send the work you can describe. Keep the work you are still working out.**
 
-A handoff is mostly decided before it starts, by how well you could describe the task - which
-makes a decent sorting rule.
+How well you can describe the task decides most of the handoff.
 
-- **Travels well:** searching, reading, gathering and grinding - anything where you already
-  know what a good answer looks like. Also review passes, one helper per angle.
-- **Stays with you:** the design you haven't settled, the bug you don't understand yet,
-  anything where you'd want to steer as you learn. Those need a conversation, and a helper
-  can't have one with you.
-- **Not worth it either way:** small tasks - the briefing costs more than the task.
+- **Travels well:** searching, reading and gathering. Any work where you already know what a
+  good answer looks like. Review passes travel well too, one helper per angle.
+- **Stays with you:** the design you have not settled, the bug you do not understand yet, and
+  anything you want to steer as you learn. This work needs a conversation, and a helper agent
+  cannot have one with you.
+- **Not worth it either way:** small tasks. The briefing costs more than the task.
 
-The fuzzy work is usually the *deciding* work. Decide close, then hand off the rest once the
-decision has made it describable.
+The fuzzy work is usually the deciding work. Settle it yourself, then hand off the rest once
+the decision makes it describable.
 
 ## Several at once
 
-**Parallel helpers are for independent questions, not for a second opinion.**
+**Parallel helpers suit independent questions.**
 
-Three separate searches at once is exactly what the shape is for. Three helpers on one fuzzy
-question gets you the same search run three times, or three confident answers that disagree -
-and checking them costs more than doing the work yourself. The division of labour has to be
-*in* the briefs; there's nobody at the site to negotiate it.
+Three separate searches at once fits the shape. Three helpers on one fuzzy question runs the
+same search three times, or returns three confident answers that disagree. Checking those costs
+more than doing the work yourself. The division of labour goes in the briefs, because nobody at
+the site can negotiate it.
 
-Two costs before you fan out. It burns tokens fast - on research work, measured at four times
-a plain chat for one agent and fifteen times for a crew - so the task has to be worth the
-spend. And every helper reports home: run enough of them and you refill the memory you sent
-them out to protect.
+Fanning out burns tokens fast. On research work, one agent has been measured at four times a
+plain chat, and several agents at fifteen times. So the task has to be worth the spend. Every
+helper also reports back into your session, so enough of them refill your memory.
 
 ## What you can do
 
-- **Read the brief back before you send it.** If it contains "figure out what makes sense",
-  you're handing off a decision you haven't made - keep that one.
+- **Read the brief back before you send it.** If it says "figure out what makes sense", you're
+  handing off a decision you haven't made. Keep that one.
 - **Name the shape of the answer.** "A list of file paths, one per line, nothing else" beats
-  "report your findings", and it makes a thin answer obvious on arrival.
-- **Hand off the reading first** - the safest place to start. `research` sends a reading job
-  offstage and brings back a findings file instead of a pile of pages.
+  "report your findings", and it makes a thin answer easy to spot.
+- **Hand off the reading first**, the safest place to start. `research` sends a reading job
+  offstage and brings back a findings file.
 - **Write tickets that stand alone.** `to-issues` splits work into tickets that each carry
-  their own context; `pickup-issue` loads one cold and `implement` builds from it. If cold
-  pickup doesn't work, the ticket was thin - a useful test to run on purpose.
-- **Fan out on independent questions only.** Different areas, no overlap. The same question
-  three times isn't a crew, it's noise.
+  their own context. `pickup-issue` loads one cold, and `implement` builds from it. A ticket
+  that fails a cold pickup was thin. Run that test on purpose.
+- **Fan out on independent questions.** Different areas, no overlap.
 - **Keep the deciding close.** On work too big to hold in one go, settle the open questions
   first, then hand off what that makes describable (`wayfinder`).
 
 ## What to remember
 
-- A helper agent is a fresh head, not extra hands - it works in its own memory, and only the
-  answer comes back to yours.
-- Big in, small out - reading, searching, gathering - is the shape that pays.
-- It can't ask a follow-up. The goal, the output, where to look and where the edges are all
-  go in the brief.
-- Send what you can describe; keep what you're still working out.
-- Several at once is for independent questions - and every report still comes home to your
-  session.
+- A helper agent works in its own memory, and only the answer comes back to yours.
+- Big in, small out is the shape that pays. Searching, reading and gathering fit it.
+- A helper cannot ask a follow-up. The goal, the output, the place to look and the edges go in
+  the brief.
+- Send what you can describe. Keep what you are still working out.
+- Several at once suits independent questions. Every report still comes home to your session.
