@@ -96,9 +96,10 @@ None of this is new. Every profession that works in shifts writes the log whethe
 feels like it, and software has kept commit messages and decision records for the same reason:
 the conversation is temporary, the record is not.
 
-In our toolkit that's a pair: `update-docs` closes a session by writing down what got done,
-what was decided and what's next; `start` opens the next one by reading it first. Good test:
-could a colleague pick your project up from the files alone right now?
+Most of that record already exists without anyone maintaining it: the issue says what was
+being built, the commits say what changed. `handoff` covers what they miss - the decisions
+settled out loud that were never written anywhere. Good test: could a colleague pick your
+project up from the files alone right now?
 
 ## What you can do
 
@@ -111,8 +112,8 @@ could a colleague pick your project up from the files alone right now?
 - **Cut what feeds the window.** Don't connect tools you won't use today; don't paste a whole
   file when the part that matters would do; let a separate agent do the wide reading, so it
   hands back an answer instead of everything it read.
-- **End by writing, start by reading** (`update-docs`, `start`). A decision that lives only in
-  the chat dies with the chat.
+- **Write down the part that exists only in the chat** (`handoff`). A decision nobody recorded
+  dies with the session that made it.
 
 ## What to remember
 

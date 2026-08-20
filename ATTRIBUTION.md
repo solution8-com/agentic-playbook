@@ -43,8 +43,7 @@ Exactly what changed in each tweaked skill is recorded in
 | `review-suite` | Solution8 original - Emil Vladinov |
 | `wizard` | mattpocock/skills (`wizard`), verbatim |
 | `to-questionnaire` | mattpocock/skills (`to-questionnaire`), verbatim |
-| `start` | obra/superpowers, verbatim |
-| `update-docs` | mattpocock/skills (`handoff` lineage), rewritten |
+| `handoff` | mattpocock/skills (`productivity/handoff`), tweaked |
 | `tdd` | mattpocock/skills (`tdd`), tweaked |
 
 A line-level audit (2026-08-07) traced every vendored or reshaped line in the

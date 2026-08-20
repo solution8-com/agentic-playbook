@@ -105,8 +105,8 @@ longer needs.
 - **Put the material in front of it before polishing the sentence.** The relevant file, the real
   error, the actual ticket - that moves the result far more than the wording.
 - **Read your instruction file top to bottom this week.** Cut anything discoverable from the
-  code and anything that stopped being true; keep the non-obvious (`start` reads the project
-  docs back at the start of a session, `update-docs` keeps them from drifting).
+  code and anything that stopped being true; keep the non-obvious - what nobody
+  could work out from the code itself.
 - **Fix the pattern before you scale the work.** About to run many tasks through one area? Clean
   it first - every task copies what it finds (`check-software-principles`, `review-suite`,
   `/code-review low`).

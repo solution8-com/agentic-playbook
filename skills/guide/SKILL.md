@@ -17,31 +17,52 @@ anywhere that needs it.
 
 ## Route
 
-Match the situation to the skill, with one line on why:
+If they are heading into build work, first work out **which end they are starting from**. It
+decides the shape of the whole flow, and it is the thing people get wrong:
+
+- **An idea, nothing written down anywhere** - `grill-me` -> `to-spec` -> `to-issues` ->
+  `pickup-issue` -> `implement`. Settle the decisions, write them down, then build.
+- **An issue that already exists**, assigned or handed over - `pickup-issue` -> `grill-me` ->
+  `implement`. `pickup-issue` works out whether the issue is settled enough to build; where it is,
+  the grill is skipped entirely.
+
+Then match the situation to the skill, with one line on why:
 
 | Situation | Skill |
 |---|---|
 | An idea, still fuzzy, decisions unsettled | `grill-me` |
 | Work too big to hold in one head | `wayfinder` |
 | "Would this design even feel right?" | `prototype` |
+| A screen or layout with a lot still undefined | `design` - Claude Code ships it, not us |
 | A question needing sources, not opinions | `research` |
 | Decisions settled, nothing written down | `to-spec` |
 | A spec that needs to become tickets | `to-issues` |
-| A ticket ready to build | `pickup-issue` (hands to `implement`) |
+| A ticket ready to build | `pickup-issue` (hands to `grill-me` or `implement`) |
 | Something broken, failing, or slow | `diagnosing-bugs` |
 | "Prove this feature actually works" | `verify-feature` |
 | A branch or codebase to sweep for quality | `review-suite` |
 | A new repo to stand up | `setup-dev-repo` |
 | Steps only a human can do (credentials, dashboards) | `wizard` |
-| Session starting | `start` |
-| Session ending, or a milestone landed | `update-docs` |
+| Session ending with decisions that live nowhere else | `handoff` |
 
 If nothing fits, say so plainly - most work needs no skill at all.
 
+## The two questions that come after the build
+
+Neither is a step in the flow, and saying so is part of the job:
+
+- **Review.** `implement` already runs `/code-review low` over its own diff. A full `/code-review`
+  in a fresh session is worth it at the end of a work session, and `review-suite` is for sweeping
+  a whole branch or codebase.
+- **`verify-feature`.** Worth a run when a human has to trust the result - client-facing work,
+  anything with a UI, a change nobody is going to read the diff of. Where the tests already carry
+  the proof, skip it. Never advise it as a routine gate after every slice.
+
 ## Tour
 
-If they want the overview instead: show the Main Flow in one line (`grill-me` -> `to-spec`
--> `to-issues` -> `pickup-issue` -> `implement` -> a human reviews and merges), then the
+If they want the overview instead: show both entry points in one line each (from an idea:
+`grill-me` -> `to-spec` -> `to-issues` -> `pickup-issue` -> `implement`; from an existing issue:
+`pickup-issue` -> `grill-me` -> `implement`; then a human reviews and merges), then the
 README's groups - Setup, Main Flow, Shape, Utilities, Misc - one sentence each, and point at
 `tools/README.md` for the recommended tools. Close by offering to route whatever they are actually
 working on right now.

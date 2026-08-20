@@ -18,17 +18,42 @@ Read the body **and the comments**. Decisions get made in comment threads and ne
 If the issue references a parent, a spec, or a blocking issue, read those too.
 
 Then **check the issue's claims against the live tree**. An issue is a hypothesis, including last
-week's: the paths, counts and code references it states go stale between writing and pickup.
-Spot-check that they still hold. If one does not, surface it and let the user rule before any code
-gets written - do not build on a stale premise.
+week's: the paths, counts and code references it states go stale between writing and pickup. Worse,
+an issue drafted by an agent without repo access mixes verified fact and confident guess in prose
+that reads identically - the verified parts check out, so the guessed parts get trusted too.
 
-## 2. Ask what is unclear
+Resolve every claim to one of three states, and never quietly promote one:
 
-Ask only about ambiguity **in the issue itself**: what to build, what done means, where the scope stops.
+- **Confirmed** - with the `file:line` that shows it.
+- **Contradicted** - with the `file:line` of what is actually there instead.
+- **Unknown** - with the search terms you tried. An unknown left standing as an unknown is a good
+  outcome. An unknown rounded up to confirmed is how the wrong thing gets built.
 
-Do not ask about implementation approach - that is `/implement`'s job, and asking invites a redesign of work that was already settled. Do not re-open decisions the issue records as made.
+**Claims of absence are the hardest and the most often wrong** - "there is no X", "nothing handles
+Y". Confirming absence takes positive search evidence, so record what you searched rather than only
+that you found nothing.
 
-If the issue is clear, say so in one line and keep going. No ceremony.
+Then trace each contradiction forward. A wrong claim rarely stays local: name the acceptance
+criteria, scope statements and design decisions that rested on it. Surface all of it and let the
+user rule before any code gets written - do not build on a stale premise.
+
+## 2. Decide whether it is settled enough to build
+
+An issue from `/to-issues` arrives with its decisions already made. An issue written by someone
+else - a designer, a client, a colleague in a hurry - often does not. Telling those two apart is
+this step's whole job.
+
+Read for **open decisions**, not for detail: are what to build, what done means, and where the
+scope stops actually settled?
+
+- **Settled** - say so in one line and hand to `/implement`. No ceremony.
+- **Not settled** - name the open decisions and hand to `/grill-me` first, then `/implement`.
+
+Do not settle them yourself. An issue with open decisions is a plan nobody finished, and finishing
+it silently is how you build the wrong thing confidently.
+
+Either way, do not re-open decisions the issue records as **made**. Disagreeing with a settled
+decision is a conversation with whoever settled it, not a thing to quietly revise here.
 
 ## 3. Resolve the workspace
 
@@ -47,4 +72,4 @@ Branch off the default branch. No draft PR. Merging back is the user's call - `/
 
 ## 4. Hand off
 
-State the issue number, the branch and the worktree path in one line, then invoke `/implement`.
+State the issue number, the branch and the worktree path in one line, then invoke `/grill-me` or `/implement` - whichever step 2 landed on.

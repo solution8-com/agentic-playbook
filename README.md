@@ -54,11 +54,24 @@ update yourself rather than waiting for it.
 
 ## Main Flow
 
-> The usual path from an idea to code that landed.
+> The usual path to code that landed. Which end you start from depends on where the work came
+> from - and that is the only real difference between the two.
+
+**From an idea** - nothing is written down anywhere yet:
 
 ```
 grill-me  ->  to-spec  ->  to-issues  ->  pickup-issue  ->  implement
 ```
+
+**From an issue** - the work arrived already written, assigned by someone else:
+
+```
+pickup-issue  ->  grill-me  ->  implement
+```
+
+The grill moves because the decisions move with it. Starting from an idea, you settle them before
+anything is written down. Starting from an issue, someone else already wrote it down - and whether
+they settled anything is the first thing `pickup-issue` works out.
 
 - **`grill-me`** - a relentless interview that sharpens a plan until the open decisions are settled -
   it gets you and your coding agent on the same page about exactly what you want built, before
@@ -67,14 +80,21 @@ grill-me  ->  to-spec  ->  to-issues  ->  pickup-issue  ->  implement
 - **`to-issues`** - break a spec into tracer-bullet vertical slices, published as GitHub issues with
   their blocking edges and an `afk` (safe to run unattended) / `hitl` (human in the loop - the
   default) label.
-- **`pickup-issue`** - read one issue and its comments, ask what is unclear, sort out the worktree,
-  then hand over. Writes no code and no plan - the issue already is the plan.
+- **`pickup-issue`** - read one issue and its comments, check its claims against the live tree,
+  sort out the worktree, then work out whether the issue is settled enough to build or needs a
+  grill first. Writes no code and no plan of its own.
 - **`implement`** - build what was already decided. It never reopens the plan, which is what
   separates it from typing "build this" at a fresh agent.
 
 Review is not a skill here. Claude Code ships `/code-review` - use `/code-review low` for a small
 change that matters, and at the end of a work session run the full pass over the diff in a fresh
 session. `review-suite` below is for a broad quality sweep.
+
+`verify-feature` is not a step either. `implement` stops at a commit with `/code-review low`
+already run; whether the behaviour also needs *proving* is a judgement about the change, not a
+stage in the flow. Run it when a human has to trust the result - client-facing work, anything with
+a UI, a change nobody is going to read the diff of. Skip it where the tests already carry the
+proof.
 
 ## Shape
 
@@ -86,6 +106,12 @@ session. `review-suite` below is for a broad quality sweep.
 - **`research`** - chase a question back to primary sources in a background agent, written up with
   citations.
 - **`visual-spec`** - render a spec as a self-contained HTML overview for a human to read.
+
+`design` is not a skill here either - Claude Code ships it. It opens an editable canvas you move
+things around on directly, and because it runs inside the repo the layout arrives with the code it
+has to sit on, instead of a screenshot you then have to explain. Reach for it when a lot is still
+undefined. `prototype` stays the better tool once the direction is settled and you want two or
+three variants built to compare.
 
 ## Utilities
 
@@ -114,8 +140,9 @@ session. `review-suite` below is for a broad quality sweep.
 - **`wizard`** - generate a script that walks a human through the steps only they can do:
   provisioning, credentials, one-off migrations. Secrets never touch the model.
 - **`to-questionnaire`** - turn the questions someone else has to answer into a fillable form.
-- **`start`** - pick up where the last session left off.
-- **`update-docs`** - save session progress to the ledger and refresh docs the work drifted from.
+- **`handoff`** - compact the session into a handoff a fresh one can pick up from, written to a
+  temp file rather than into the repo. The tracker and the git history are the project's memory;
+  this covers only what they do not hold.
   Works in any repo, dev included; it earns its keep on long-running projects where you need to
   remember what was agreed and where you left off.
 

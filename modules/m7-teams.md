@@ -58,8 +58,8 @@ flowchart LR
   matter. If the agents get worse, go read what you wrote.
 
 Nobody has measured whether this improves team outcomes; the alternative is five people
-improvising five setups that die with the session. `update-docs` writes what a session learned
-back into the repo, and `start` reads it first.
+improvising five setups that die with the session. The tracker and the commit history already carry most of
+what a session learned; `handoff` catches the decisions that were only ever said out loud.
 
 ## Writing code got cheap. Checking it didn't
 
@@ -106,7 +106,8 @@ merging code nobody can explain is how a team stops having juniors who learn.
   wrong without it, it isn't personal setup.
 - **Back the rules that matter with a machine.** A check that runs on every change never gets
   skipped and never needs remembering; a sentence does.
-- **Put the work in issues and the lessons back in the repo** (`to-issues`, `update-docs`), so
+- **Put the work in issues, and the decisions where the next person will look** (`to-issues`,
+  `handoff`), so
   the next person starts with what you learned instead of asking around.
 - **Read your own change before you ask anyone else to**, and say where it's heavily
   AI-written so the reviewer knows to look harder.
