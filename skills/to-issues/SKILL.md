@@ -7,7 +7,10 @@ description: Break a plan, spec, or the current conversation into a set of trace
 
 Break a plan, spec, or conversation into a set of **tickets** — tracer-bullet vertical slices, each declaring the tickets that **block** it.
 
-The default tracker is GitHub issues via `gh`. Create the `afk` and `hitl` labels if they are missing.
+The tracker is whatever `.claude/tracker.md` names, and **GitHub issues via `gh` when that file is
+absent** - which is the common case and needs no setup. Where the note says `automation: none`,
+write the tickets out for a human to paste rather than pretending to publish them. Create the
+`afk` and `hitl` labels if they are missing.
 
 ## Process
 

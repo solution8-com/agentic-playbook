@@ -28,11 +28,11 @@ and neither repeats what the code already shows. Keep each to one screen - every
 read every session, so every stale line does damage every session. And don't let a
 generator write this file for you: generated files dump everything they can see, and you
 pay for every line forever. Start nearly empty and grow it from real corrections
-(`setup-dev-repo` seeds a lean one).
+(`setup-repo` seeds a lean one).
 
 ## What a well-set-up repo looks like
 
-- `CLAUDE.md` - one screen, see above. `setup-dev-repo` seeds it.
+- `CLAUDE.md` - one screen, see above. `setup-repo` seeds it.
 - `docs/` - only what the repo genuinely needs. Session state lives in the tracker and the git
   history; `handoff` writes the leftovers to a temp file rather than into the repo.
 - `CONTEXT.md` - a glossary, only if the project has real domain vocabulary.
@@ -61,7 +61,7 @@ Start with one blocking hook for the single action that would hurt most, not a r
 ## The pipeline - same checks, twice
 
 - The **commit gate** runs the checks locally before a change is saved; **CI** runs the same
-  checks on the server for every branch and merge. `setup-dev-repo` wires both and proves
+  checks on the server for every branch and merge. `setup-repo` wires both and proves
   the gate actually blocks.
 - Keep the two identical. A check that exists only in CI gets discovered late; one that
   exists only locally proves nothing to your team.

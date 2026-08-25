@@ -6,7 +6,7 @@
     "name": "Solution8",
     "url": "https://solution8.dk"
   },
-  "repository": "https://github.com/solution8-com/INT-s8-agentic-playbook",
+  "repository": "https://github.com/solution8-com/agentic-playbook",
   "license": "MIT",
   "keywords": [
     "skills",
@@ -18,8 +18,9 @@
     "solution8"
   ],
   "skills": [
-    "./skills/guide",
-    "./skills/setup-dev-repo",
+    "./skills/onboarding",
+    "./skills/suggest",
+    "./skills/setup-repo",
     "./skills/grill-me",
     "./skills/to-spec",
     "./skills/to-issues",

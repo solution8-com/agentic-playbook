@@ -26,7 +26,8 @@ Exactly what changed in each tweaked skill is recorded in
 
 | Skill | Origin |
 |---|---|
-| `setup-dev-repo` | Solution8 original |
+| `onboarding` | Solution8 original |
+| `setup-repo` | Solution8 original |
 | `grill-me` | mattpocock/skills (`grill-me` + `grilling`), merged into one file |
 | `to-spec` | mattpocock/skills (`to-spec`), tweaked |
 | `to-issues` | mattpocock/skills (`to-tickets`), renamed and tweaked |
@@ -41,7 +42,7 @@ Exactly what changed in each tweaked skill is recorded in
 | `wait-what` | mattpocock/skills (`wait-what`), tweaked |
 | `verify-feature` | Solution8 original |
 | `review-suite` | Solution8 original |
-| `guide` | Solution8 original |
+| `suggest` | Solution8 original |
 | `wizard` | mattpocock/skills (`wizard`), verbatim |
 | `to-questionnaire` | mattpocock/skills (`to-questionnaire`), verbatim |
 | `handoff` | mattpocock/skills (`handoff`), tweaked |

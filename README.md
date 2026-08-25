@@ -22,7 +22,7 @@ up to it. Skills are tools: reach for the ones that help and leave the rest.
 
 | Part | Where | What it gives you |
 |---|---|---|
-| **Skills** | [`skills/`](./skills/) | 20 ready-made ways of working, installed as one plugin and updated in place |
+| **Skills** | [`skills/`](./skills/) | 21 ready-made ways of working, installed as one plugin and updated in place |
 | **Tools** | [`tools/`](./tools/README.md) | The CLIs and MCP servers worth having, with setup notes. None of it is required |
 | **Modules** | [`modules/`](./modules/) | Nine lessons on the principles, plus two hands-on guides. Read these to understand why the skills are shaped the way they are |
 
@@ -33,19 +33,40 @@ what we changed and why.
 
 ## Install
 
+### The short way
+
+Paste this into any Claude Code session and let it do the work:
+
+```
+Install the Solution8 agentic playbook for me. It lives at
+github.com/solution8-com/agentic-playbook.
+
+Add it as a plugin marketplace, install the s8-playbook plugin, then ask me to
+run /reload-plugins. Once that is done, use the onboarding skill to set it up
+alongside whatever Claude setup I already have.
+```
+
+Claude runs the install itself. You type one thing, `/reload-plugins`, when it asks - skills only
+attach at that point, so nothing works until you do. Onboarding then looks at what you already
+have and walks you through the rest.
+
+You do not need to know what a marketplace is to use this.
+
+### By hand
+
 The repo is private, so installing needs GitHub auth that can clone it. Two paths:
 
 **With SSH keys set up** (the reliable path - Claude Code clones `owner/repo` over SSH):
 
 ```
-/plugin marketplace add solution8-com/INT-s8-agentic-playbook
+/plugin marketplace add solution8-com/agentic-playbook
 /plugin install s8-playbook@solution8
 ```
 
 **With HTTPS credentials only** (`gh auth login`), give the full URL instead:
 
 ```
-/plugin marketplace add https://github.com/solution8-com/INT-s8-agentic-playbook.git
+/plugin marketplace add https://github.com/solution8-com/agentic-playbook.git
 /plugin install s8-playbook@solution8
 ```
 
@@ -56,34 +77,42 @@ after a change is announced:
 /plugin marketplace update solution8
 ```
 
-Claude Code's automatic marketplace refresh is unreliable for GitHub repos at the moment, so run
-that update yourself instead of waiting for one.
+Then restart, or run `/reload-plugins`. Skills attach when a session starts, so an update made
+inside a running session reaches nothing until one of those happens.
 
-Much of the flow runs through GitHub, so `gh auth login` is worth doing before you start. The
-`/guide` skill checks it for you.
+**Nothing here updates on its own.** It updates when somebody runs the two commands above. A copy
+nobody has updated is a stale claim about what is running - this plugin sat five days behind
+without anyone noticing. And treat the reload's own summary as decoration: it has been seen
+reporting "0 skills" while attaching one. Check the skill list, not the message.
+
+Much of the flow runs through GitHub, so `gh auth login` is worth doing before you start.
+`onboarding` checks it for you, and so does `suggest`.
 
 ## Getting started
 
 Once the plugin is in:
 
-1. **Type `/guide`.** It works out what you are doing and points you at the skill that fits. If
-   there is one thing to take from this page, this is it.
-2. **Read [`m0-the-agentic-loop`](./modules/m0-the-agentic-loop.md).** Ten minutes, and the rest of
+1. **Let onboarding run.** If you used the paste-block above it starts on its own. It looks at
+   the setup you already have, tells you what collides with what, and shows you where to begin.
+2. **Type `/suggest` when you are not sure what to reach for.** It works out what you are doing
+   and points you at the skill that fits.
+3. **Read [`m0-the-agentic-loop`](./modules/m0-the-agentic-loop.md).** Ten minutes, and the rest of
    the set makes sense afterwards.
-3. **Run one real piece of work through the Main Flow.** Pick something small you were going to do
+4. **Run one real piece of work through the Main Flow.** Pick something small you were going to do
    anyway. The flow pays off more on the second run than the first, because by then you have
    stopped reading it and started recognising it.
-4. **Wire a project up properly when you want to.** `setup-dev-repo` sets up the stack, the commit
-   gate and CI, then proves the gate blocks.
+5. **Wire a project up properly when you want to.** `setup-repo` handles code and non-code repos
+   alike - on a code project it sets up the stack, the commit gate and CI, then proves the gate
+   blocks.
 
-None of this has to be adopted at once. Most people stop after step 1 and come back to the rest
+None of this has to be adopted at once. Most people stop after step 2 and come back to the rest
 when they hit something that needs it.
 
 ## The skills, by group
 
 | Group | Skills | What it's for |
 |---|---|---|
-| [Project setup](#project-setup) | 1 | Standing up a new dev project the rest of this can work in |
+| [Project setup](#project-setup) | 2 | Getting set up, and standing up a project the rest of this can work in |
 | [Main Flow](#main-flow) | 5 | Idea to code that landed |
 | [Shape](#shape) | 4 | Working out what to build, before there is a spec to write |
 | [Utilities](#utilities) | 6 | Reached for mid-work, in whatever order the work demands |
@@ -91,10 +120,14 @@ when they hit something that needs it.
 
 ## Project setup
 
-> Standing up a new dev project the rest of this can work in.
+> Getting set up, and standing up a project the rest of this can work in.
 
-- **`setup-dev-repo`** - create a new dev repo or adopt an existing one, then wire the stack, dev
-  environment and commit gate, mirror the checks in CI, and prove the gate blocks a bad commit.
+- **`onboarding`** - run once, right after install. Looks at the Claude setup you already have,
+  says what will collide with the playbook and why, changes nothing without your say-so, and shows
+  you where to start.
+- **`setup-repo`** - create a repo or adopt an existing one, then wire what it actually needs.
+  Every project gets a `CLAUDE.md`, issue labels and somewhere for tickets. Projects with code also
+  get the stack, the dev environment, a commit gate proven to block, and the same checks in CI.
 
 ## Main Flow
 
@@ -171,8 +204,8 @@ two or three variants built to compare.
 
 > Occasional, and nobody has to use them.
 
-- **`guide`** - not sure which skill fits? Routes your situation to the right one, or gives a
-  tour of how the playbook hangs together. Checks `gh auth status` first, since much of the
+- **`suggest`** - not sure which skill fits? Routes your situation to the right one, with a line
+  on why. Checks `gh auth status` first, since much of the
   flow runs through GitHub.
 - **`wizard`** - generate a script that walks a human through the steps only they can do:
   provisioning, credentials, one-off migrations. Secrets never touch the model.
@@ -187,7 +220,7 @@ two or three variants built to compare.
 > Every report looks the same on any machine.
 
 `verify-feature`, `review-suite`, `visual-spec` and `improve-codebase-architecture` write
-self-contained HTML to `.claude/reports/`, styled with `assets/report.css`. `setup-dev-repo` adds
+self-contained HTML to `.claude/reports/`, styled with `assets/report.css`. `setup-repo` adds
 that folder to `.gitignore`.
 
 ## Modules
