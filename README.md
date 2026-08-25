@@ -33,19 +33,40 @@ what we changed and why.
 
 ## Install
 
+### The short way
+
+Paste this into any Claude Code session and let it do the work:
+
+```
+Install the Solution8 agentic playbook for me. It lives at
+github.com/solution8-com/agentic-playbook.
+
+Add it as a plugin marketplace, install the s8-playbook plugin, then ask me to
+run /reload-plugins. Once that is done, use the onboarding skill to set it up
+alongside whatever Claude setup I already have.
+```
+
+Claude runs the install itself. You type one thing, `/reload-plugins`, when it asks - skills only
+attach at that point, so nothing works until you do. Onboarding then looks at what you already
+have and walks you through the rest.
+
+You do not need to know what a marketplace is to use this.
+
+### By hand
+
 The repo is private, so installing needs GitHub auth that can clone it. Two paths:
 
 **With SSH keys set up** (the reliable path - Claude Code clones `owner/repo` over SSH):
 
 ```
-/plugin marketplace add solution8-com/INT-s8-agentic-playbook
+/plugin marketplace add solution8-com/agentic-playbook
 /plugin install s8-playbook@solution8
 ```
 
 **With HTTPS credentials only** (`gh auth login`), give the full URL instead:
 
 ```
-/plugin marketplace add https://github.com/solution8-com/INT-s8-agentic-playbook.git
+/plugin marketplace add https://github.com/solution8-com/agentic-playbook.git
 /plugin install s8-playbook@solution8
 ```
 
@@ -56,8 +77,13 @@ after a change is announced:
 /plugin marketplace update solution8
 ```
 
-Claude Code's automatic marketplace refresh is unreliable for GitHub repos at the moment, so run
-that update yourself instead of waiting for one.
+Then restart, or run `/reload-plugins`. Skills attach when a session starts, so an update made
+inside a running session reaches nothing until one of those happens.
+
+**Nothing here updates on its own.** It updates when somebody runs the two commands above. A copy
+nobody has updated is a stale claim about what is running - this plugin sat five days behind
+without anyone noticing. And treat the reload's own summary as decoration: it has been seen
+reporting "0 skills" while attaching one. Check the skill list, not the message.
 
 Much of the flow runs through GitHub, so `gh auth login` is worth doing before you start. The
 `/guide` skill checks it for you.
