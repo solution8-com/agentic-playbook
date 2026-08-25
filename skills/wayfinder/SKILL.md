@@ -21,7 +21,8 @@ The map is a single issue on this repo's issue tracker, labelled `wayfinder:map`
 
 The map is an **index**, not a store. It lists the decisions made and points at the tickets that hold their detail; a decision lives in exactly one place — its ticket — so the map never restates it, only gists it and links.
 
-The tracker is **GitHub Issues via `gh`**, like everywhere else in this set: the map and its tickets are issues, claiming is assignment, and the frontier is a `gh issue list` query over open, unassigned, unblocked children.
+The tracker is the one `.claude/tracker.md` names, and **GitHub Issues via `gh`** when that file is
+absent - like everywhere else in this set. On GitHub: the map and its tickets are issues, claiming is assignment, and the frontier is a `gh issue list` query over open, unassigned, unblocked children.
 
 ### The map body
 

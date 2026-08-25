@@ -180,6 +180,40 @@ On an **existing repo that already has one**, do not overwrite it. Propose addit
 whatever the discovery step learned that the file does not already say, the same way missing
 linters are proposed rather than imposed.
 
+## Where the tickets go
+
+Ask once, at setup, and write the answer down. **Which tracker a team uses cannot be detected** -
+it is a decision, not a fact on disk, and a repo hosted on GitHub may keep every ticket in Jira.
+**Whether the tools to reach it exist can be detected**, so do that part yourself rather than
+asking.
+
+Three answers:
+
+- **GitHub Issues** - the recommendation. Ask nothing further and write nothing: **the absence of a
+  tracker note means GitHub**, everywhere in this set. The recommended path costs the user no
+  configuration at all.
+- **Local files** - markdown in the repo, which `to-issues` already knows how to write. No account,
+  no network, and a fine place to start before a team has chosen anything.
+- **Something else** - Jira, Linear, Azure DevOps. Look for a way to reach it: an MCP server for it
+  among the session's tools, or a CLI on the machine. **Say what you found.** If nothing can reach
+  it, that is a legitimate answer and not a failure - record `automation: none`, and the skills that
+  create tickets will write the text out for a human to paste.
+
+When the answer is anything but GitHub, write `.claude/tracker.md`:
+
+```markdown
+# Tracker
+
+- **Where tickets live:** Jira, project ABC
+- **Read a ticket:** `jira issue view <KEY>`
+- **Create a ticket:** `jira issue create --project ABC --type Task`
+- **Automation:** cli
+```
+
+`Automation:` is one of `cli`, `mcp`, `local` or `none`. Never invent a command you have not
+confirmed exists - an unverified command is a claim, and a skill that runs one fails in a way the
+user cannot diagnose.
+
 ## Report
 
 Say what was wired, what the checks returned, and what a human still needs to handle - secrets,
@@ -196,6 +230,7 @@ Every project:
 
 - [ ] The repo exists under the owner the user named, with a default branch and a license
 - [ ] The `afk` and `hitl` issue labels exist
+- [ ] Where tickets live is settled - and written to `.claude/tracker.md` unless it is GitHub
 - [ ] A slim `CLAUDE.md` records what the repo is and the conventions a session cannot guess
 - [ ] The user knows what only a human can still do (secrets, deploy targets)
 

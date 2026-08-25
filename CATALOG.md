@@ -75,6 +75,13 @@ precedent.
   tracker and the git history already hold the state. They move to the internal playbook, alongside
   ADR authoring, where the work being tracked is not always a repo. `handoff` replaces them here
   and writes nothing durable.
+- **The tracker layer is back, 2026-08-25, owned by us.** `wayfinder`, `to-spec` and `to-issues`
+  had their tracker-setup sentences stripped because upstream's tracker-doc layer and
+  local-markdown fallback belonged to `/setup-matt-pocock-skills`, which we do not ship. That trade
+  left a hole nobody walked into until now: `to-issues` could write local tickets that
+  `pickup-issue` had no way to read, so the Main Flow snapped between step three and step four for
+  anyone not on GitHub. The layer is now `.claude/tracker.md`, written by `setup-repo` and read by
+  the flow skills, with **absence meaning GitHub** so the recommended path stays configuration-free.
 - **On refresh, do not restore the flag.** A `verbatim`/`tweaked` diff will show upstream carrying
   `disable-model-invocation` where we do not. That gap is this decision showing up in the diff.
   Leave it.
