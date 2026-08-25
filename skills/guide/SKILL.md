@@ -44,7 +44,7 @@ Then match the situation to the skill, with one line on why:
 | Something broken, failing, or slow | `diagnosing-bugs` |
 | "Prove this feature actually works" | `verify-feature` |
 | A branch or codebase to sweep for quality | `review-suite` |
-| A new repo to stand up | `setup-dev-repo` |
+| A repo to stand up, with or without code | `setup-repo` |
 | Steps only a human can do (credentials, dashboards) | `wizard` |
 | Session ending with decisions that live nowhere else | `handoff` |
 

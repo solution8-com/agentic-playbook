@@ -1,18 +1,25 @@
 ---
-name: setup-dev-repo
-description: Set up a dev project - create the repo or adopt an existing one, then wire the stack, dev environment and commit gate. Dev projects only, never context repos.
+name: setup-repo
+description: Set up a project repo - create it or adopt an existing one, then wire what the project actually needs. Use when standing up a new project, or bringing an existing one under the playbook.
 ---
 
-# Setup Dev Repo
+# Setup Repo
 
 ## Overview
 
-Gets a dev project ready to work in. It looks first, because the two situations need different
-things: a brand-new project has to be created, and an existing one has to be understood.
-Everything after that first branch is the same.
+Gets a project ready to work in. It looks first, because the situations need different things: a
+new project has to be created, an existing one has to be understood, and a project with no code in
+it needs far less than one with code.
 
-**Dev projects only.** A context repo - training material, uddannelse, documentation - has no
-stack, no tests and no commit gate, so there is nothing here for it. Do not run this on one.
+**Every project gets** a repo, a slim `CLAUDE.md`, the `afk`/`hitl` issue labels, and somewhere for
+tickets to live.
+
+**Projects with code also get** a stack, a dev environment, a commit gate and CI.
+
+A documentation, training or planning repo has no stack and no tests, so a commit gate on it is
+friction with nothing behind it. That is the whole difference. It is not a lesser setup - tickets
+matter there as much as anywhere, because `wayfinder` puts decision tickets on the tracker and a
+decision is not code.
 
 ## Step 0: look before you act
 
@@ -26,6 +33,11 @@ Establish which situation you are in before changing anything:
 
 No manifest and no repo means **new project**. Anything already there means **existing
 project**, and the job changes from building to understanding.
+
+**Then settle whether it has code**, because that decides how much of this runs. On an existing
+repo, read it off the manifests above - one present means code, and asking about something visible
+on disk wastes the user's attention. On a new, empty project there is nothing to read, so ask - in
+the same breath as the name and the owner, never as a separate interview.
 
 ## New project
 
@@ -54,6 +66,8 @@ agent's own pull requests).
 
 ### 3. Take the stack from the plan
 
+**Code projects only.** A project with no code skips to `CLAUDE.md` and the tracker.
+
 By the time this runs the stack is usually already settled - `grill-me` or `wayfinder` decided it,
 or the user named it in the same breath as the repo. Read it off what you have and confirm in one
 line rather than re-asking.
@@ -67,6 +81,8 @@ Everything else: take the ecosystem standard and say which one you took.
 someone who does not know gets a recommendation they can take without bluffing.
 
 ### 4. Scaffold
+
+**Code projects only.**
 
 1. `git init` if needed; a language-appropriate `.gitignore`, plus `.claude/reports/` so generated reports never get committed.
 2. The minimal layout and manifest for the chosen stack.
@@ -105,7 +121,10 @@ evidence.
 If a formatter, linter or test gate is missing, propose adding it - but **match what is already
 there** rather than imposing a different stack on someone else's codebase.
 
-## The commit gate (both paths)
+## The commit gate (code projects, both paths)
+
+Skip this entirely where there is no code. There is nothing for a gate to check, and a linter
+standing between someone and their own notes is friction that buys nothing.
 
 The mechanism differs per ecosystem, the principle does not: run the fast deterministic checks
 on every commit, block on failure, and auto-format so all output meets the project's style.
@@ -131,7 +150,7 @@ violates a rule and confirm it is rejected. Then make a clean one and confirm it
 A misconfigured gate is indistinguishable from a working one right up until something broken
 sails through months later. Installing it is not evidence; watching it block is.
 
-## Seed `CLAUDE.md` (both paths)
+## Seed `CLAUDE.md` (every project)
 
 Write a slim `CLAUDE.md` at the repo root. Other skills read it as the conventions file -
 `pickup-issue` sessions read it at the head of every issue, and the built-in `/code-review`
@@ -143,9 +162,9 @@ what you **verified**, not what you intended:
 
 | Include | Why |
 |---|---|
-| The stack, in one line | The first thing any session needs |
-| The real commands for test, lint, type-check, build | You just ran them. These are evidence, not claims |
-| How the commit gate works and what it runs | So nobody re-derives it or works around it |
+| The stack, in one line | The first thing any session needs. Where there is no code, say what the repo is for instead |
+| The real commands for test, lint, type-check, build | You just ran them. These are evidence, not claims. Code projects only |
+| How the commit gate works and what it runs | So nobody re-derives it or works around it. Code projects only |
 | Repo-specific conventions that are not guessable from the code | The only part a human has to supply |
 
 **`CONTEXT.md` is deliberately not seeded.** Several skills read the domain glossary, but an
@@ -173,12 +192,20 @@ launch.
 
 ## Done when
 
+Every project:
+
+- [ ] The repo exists under the owner the user named, with a default branch and a license
+- [ ] The `afk` and `hitl` issue labels exist
+- [ ] A slim `CLAUDE.md` records what the repo is and the conventions a session cannot guess
+- [ ] The user knows what only a human can still do (secrets, deploy targets)
+
+Projects with code, additionally:
+
 - [ ] A fresh clone can install everything without manual fixes
 - [ ] The format, lint/type-check and test commands exist and were **run**, not read
 - [ ] The commit gate was seen blocking a bad commit and passing a clean one
 - [ ] CI runs the same checks as the gate
-- [ ] A slim `CLAUDE.md` records the stack, the verified commands and the gate
-- [ ] The user knows what only a human can still do (secrets, deploy targets)
+- [ ] `CLAUDE.md` records the stack, the verified commands and the gate
 
 ## Related skills
 

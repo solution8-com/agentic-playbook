@@ -19,7 +19,7 @@
   ],
   "skills": [
     "./skills/guide",
-    "./skills/setup-dev-repo",
+    "./skills/setup-repo",
     "./skills/grill-me",
     "./skills/to-spec",
     "./skills/to-issues",

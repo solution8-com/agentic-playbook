@@ -99,8 +99,9 @@ Once the plugin is in:
 3. **Run one real piece of work through the Main Flow.** Pick something small you were going to do
    anyway. The flow pays off more on the second run than the first, because by then you have
    stopped reading it and started recognising it.
-4. **Wire a project up properly when you want to.** `setup-dev-repo` sets up the stack, the commit
-   gate and CI, then proves the gate blocks.
+4. **Wire a project up properly when you want to.** `setup-repo` handles code and non-code repos
+   alike - on a code project it sets up the stack, the commit gate and CI, then proves the gate
+   blocks.
 
 None of this has to be adopted at once. Most people stop after step 1 and come back to the rest
 when they hit something that needs it.
@@ -109,7 +110,7 @@ when they hit something that needs it.
 
 | Group | Skills | What it's for |
 |---|---|---|
-| [Project setup](#project-setup) | 1 | Standing up a new dev project the rest of this can work in |
+| [Project setup](#project-setup) | 1 | Standing up a project the rest of this can work in |
 | [Main Flow](#main-flow) | 5 | Idea to code that landed |
 | [Shape](#shape) | 4 | Working out what to build, before there is a spec to write |
 | [Utilities](#utilities) | 6 | Reached for mid-work, in whatever order the work demands |
@@ -117,10 +118,11 @@ when they hit something that needs it.
 
 ## Project setup
 
-> Standing up a new dev project the rest of this can work in.
+> Standing up a project the rest of this can work in.
 
-- **`setup-dev-repo`** - create a new dev repo or adopt an existing one, then wire the stack, dev
-  environment and commit gate, mirror the checks in CI, and prove the gate blocks a bad commit.
+- **`setup-repo`** - create a repo or adopt an existing one, then wire what it actually needs.
+  Every project gets a `CLAUDE.md`, issue labels and somewhere for tickets. Projects with code also
+  get the stack, the dev environment, a commit gate proven to block, and the same checks in CI.
 
 ## Main Flow
 
@@ -213,7 +215,7 @@ two or three variants built to compare.
 > Every report looks the same on any machine.
 
 `verify-feature`, `review-suite`, `visual-spec` and `improve-codebase-architecture` write
-self-contained HTML to `.claude/reports/`, styled with `assets/report.css`. `setup-dev-repo` adds
+self-contained HTML to `.claude/reports/`, styled with `assets/report.css`. `setup-repo` adds
 that folder to `.gitignore`.
 
 ## Modules
