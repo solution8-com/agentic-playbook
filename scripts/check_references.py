@@ -54,7 +54,11 @@ NOT_COMMANDS = {"settings", "tmp"}
 
 # Matched against the repo-relative path, not the bare filename: a skill of its own could
 # carry a CATALOG.md, and that one is not the historical record.
-EXEMPT = {"CATALOG.md"}
+#
+# CATALOG.md      - the historical record; it names upstream skills we never shipped, on purpose.
+# onboarding      - its job is talking about skills the plugin does not ship but the user owns.
+#                   'start' and 'update-docs' are retired from the set, not from the world.
+EXEMPT = {"CATALOG.md", "skills/onboarding/SKILL.md"}
 
 # A slash invocation is written one of two ways and no others: inside backticks, or alone at
 # the start of a line. Matching a bare '/word' anywhere would drag in every URL path, route

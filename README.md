@@ -22,7 +22,7 @@ up to it. Skills are tools: reach for the ones that help and leave the rest.
 
 | Part | Where | What it gives you |
 |---|---|---|
-| **Skills** | [`skills/`](./skills/) | 20 ready-made ways of working, installed as one plugin and updated in place |
+| **Skills** | [`skills/`](./skills/) | 21 ready-made ways of working, installed as one plugin and updated in place |
 | **Tools** | [`tools/`](./tools/README.md) | The CLIs and MCP servers worth having, with setup notes. None of it is required |
 | **Modules** | [`modules/`](./modules/) | Nine lessons on the principles, plus two hands-on guides. Read these to understand why the skills are shaped the way they are |
 
@@ -92,25 +92,27 @@ Much of the flow runs through GitHub, so `gh auth login` is worth doing before y
 
 Once the plugin is in:
 
-1. **Type `/guide`.** It works out what you are doing and points you at the skill that fits. If
-   there is one thing to take from this page, this is it.
-2. **Read [`m0-the-agentic-loop`](./modules/m0-the-agentic-loop.md).** Ten minutes, and the rest of
+1. **Let onboarding run.** If you used the paste-block above it starts on its own. It looks at
+   the setup you already have, tells you what collides with what, and shows you where to begin.
+2. **Type `/guide` when you are not sure what to reach for.** It works out what you are doing and
+   points you at the skill that fits.
+3. **Read [`m0-the-agentic-loop`](./modules/m0-the-agentic-loop.md).** Ten minutes, and the rest of
    the set makes sense afterwards.
-3. **Run one real piece of work through the Main Flow.** Pick something small you were going to do
+4. **Run one real piece of work through the Main Flow.** Pick something small you were going to do
    anyway. The flow pays off more on the second run than the first, because by then you have
    stopped reading it and started recognising it.
-4. **Wire a project up properly when you want to.** `setup-repo` handles code and non-code repos
+5. **Wire a project up properly when you want to.** `setup-repo` handles code and non-code repos
    alike - on a code project it sets up the stack, the commit gate and CI, then proves the gate
    blocks.
 
-None of this has to be adopted at once. Most people stop after step 1 and come back to the rest
+None of this has to be adopted at once. Most people stop after step 2 and come back to the rest
 when they hit something that needs it.
 
 ## The skills, by group
 
 | Group | Skills | What it's for |
 |---|---|---|
-| [Project setup](#project-setup) | 1 | Standing up a project the rest of this can work in |
+| [Project setup](#project-setup) | 2 | Getting set up, and standing up a project the rest of this can work in |
 | [Main Flow](#main-flow) | 5 | Idea to code that landed |
 | [Shape](#shape) | 4 | Working out what to build, before there is a spec to write |
 | [Utilities](#utilities) | 6 | Reached for mid-work, in whatever order the work demands |
@@ -118,8 +120,11 @@ when they hit something that needs it.
 
 ## Project setup
 
-> Standing up a project the rest of this can work in.
+> Getting set up, and standing up a project the rest of this can work in.
 
+- **`onboarding`** - run once, right after install. Looks at the Claude setup you already have,
+  says what will collide with the playbook and why, changes nothing without your say-so, and shows
+  you where to start.
 - **`setup-repo`** - create a repo or adopt an existing one, then wire what it actually needs.
   Every project gets a `CLAUDE.md`, issue labels and somewhere for tickets. Projects with code also
   get the stack, the dev environment, a commit gate proven to block, and the same checks in CI.

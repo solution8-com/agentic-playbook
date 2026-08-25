@@ -26,6 +26,7 @@ Exactly what changed in each tweaked skill is recorded in
 
 | Skill | Origin |
 |---|---|
+| `onboarding` | Solution8 original |
 | `setup-repo` | Solution8 original |
 | `grill-me` | mattpocock/skills (`grill-me` + `grilling`), merged into one file |
 | `to-spec` | mattpocock/skills (`to-spec`), tweaked |

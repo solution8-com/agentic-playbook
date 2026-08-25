@@ -18,6 +18,7 @@
     "solution8"
   ],
   "skills": [
+    "./skills/onboarding",
     "./skills/guide",
     "./skills/setup-repo",
     "./skills/grill-me",
