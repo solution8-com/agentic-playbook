@@ -85,8 +85,8 @@ nobody has updated is a stale claim about what is running - this plugin sat five
 without anyone noticing. And treat the reload's own summary as decoration: it has been seen
 reporting "0 skills" while attaching one. Check the skill list, not the message.
 
-Much of the flow runs through GitHub, so `gh auth login` is worth doing before you start. The
-`/guide` skill checks it for you.
+Much of the flow runs through GitHub, so `gh auth login` is worth doing before you start.
+`onboarding` checks it for you, and so does `suggest`.
 
 ## Getting started
 
@@ -94,8 +94,8 @@ Once the plugin is in:
 
 1. **Let onboarding run.** If you used the paste-block above it starts on its own. It looks at
    the setup you already have, tells you what collides with what, and shows you where to begin.
-2. **Type `/guide` when you are not sure what to reach for.** It works out what you are doing and
-   points you at the skill that fits.
+2. **Type `/suggest` when you are not sure what to reach for.** It works out what you are doing
+   and points you at the skill that fits.
 3. **Read [`m0-the-agentic-loop`](./modules/m0-the-agentic-loop.md).** Ten minutes, and the rest of
    the set makes sense afterwards.
 4. **Run one real piece of work through the Main Flow.** Pick something small you were going to do
@@ -204,8 +204,8 @@ two or three variants built to compare.
 
 > Occasional, and nobody has to use them.
 
-- **`guide`** - not sure which skill fits? Routes your situation to the right one, or gives a
-  tour of how the playbook hangs together. Checks `gh auth status` first, since much of the
+- **`suggest`** - not sure which skill fits? Routes your situation to the right one, with a line
+  on why. Checks `gh auth status` first, since much of the
   flow runs through GitHub.
 - **`wizard`** - generate a script that walks a human through the steps only they can do:
   provisioning, credentials, one-off migrations. Secrets never touch the model.

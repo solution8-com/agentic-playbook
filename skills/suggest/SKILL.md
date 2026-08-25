@@ -1,13 +1,16 @@
 ---
-name: guide
-description: Route to the right skill for the situation, or give a tour of the playbook. Use when someone is unsure which skill fits ("what do I use for..."), asks how the playbook fits together, or is new to the plugin.
+name: suggest
+description: Point someone at the skill that fits what they are doing. Use when they are unsure what to reach for ("what do I use for...", "is there a skill for this"), or describe a piece of work without naming a skill.
 ---
 
-# Guide
+# Suggest
 
-Orient someone in the playbook: route them to the right skill for their situation, or walk
-them through how the pieces fit. Suggest, never push - the Main Flow is what we usually do,
-not a process anyone must follow.
+Work out what someone is doing and name the skill that fits, with one line on why. Suggest, never
+push - the Main Flow is what we usually do, not a process anyone must follow, and most work needs
+no skill at all.
+
+Orientation is not this skill's job. Someone new to the playbook wants `onboarding`, which runs
+once and sets them up against what they already have.
 
 ## Preflight
 
@@ -60,12 +63,3 @@ Neither is a step in the flow, and saying so is part of the job:
 - **`verify-feature`.** Worth a run when a human has to trust the result - client-facing work,
   anything with a UI, a change nobody is going to read the diff of. Where the tests already carry
   the proof, skip it. Never advise it as a routine gate after every slice.
-
-## Tour
-
-If they want the overview instead: show the Main Flow in one line (`grill-me` -> `to-spec`
--> `to-issues` -> `pickup-issue` -> `implement` -> a human reviews and merges), say you join it
-wherever the work already is, then the
-README's groups - Setup, Main Flow, Shape, Utilities, Misc - one sentence each, and point at
-`tools/README.md` for the recommended tools. Close by offering to route whatever they are actually
-working on right now.

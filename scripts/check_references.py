@@ -46,6 +46,7 @@ RETIRED = {
     "start",         # left the set 2026-08-20; lives in the internal playbook
     "update-docs",   # left the set 2026-08-20; lives in the internal playbook
     "setup-dev-repo",  # renamed to setup-repo 2026-08-25
+    "guide",           # renamed to suggest 2026-08-25; note modules/guide-*.md are unrelated
 }
 
 # Backticked paths that are shaped exactly like a slash command. A path with a second slash is

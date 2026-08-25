@@ -42,7 +42,7 @@ Exactly what changed in each tweaked skill is recorded in
 | `wait-what` | mattpocock/skills (`wait-what`), tweaked |
 | `verify-feature` | Solution8 original |
 | `review-suite` | Solution8 original |
-| `guide` | Solution8 original |
+| `suggest` | Solution8 original |
 | `wizard` | mattpocock/skills (`wizard`), verbatim |
 | `to-questionnaire` | mattpocock/skills (`to-questionnaire`), verbatim |
 | `handoff` | mattpocock/skills (`handoff`), tweaked |
