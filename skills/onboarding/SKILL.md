@@ -27,9 +27,15 @@ Five things, all global. **Never their project code.**
 |---|---|
 | `~/.claude/CLAUDE.md` | Their standing instructions. Anything here outranks the playbook |
 | `~/.claude/skills/` | Their own skills. A shared name means one shadows the other |
-| Installed plugins | Two plugins can do the same job twice |
+| Installed plugins | Two can do the same job twice, and one can tell the model to always prefer its own |
 | `~/.claude/settings.json` | Permissions and env that change what skills can do |
 | Hooks | A hook can block a command a skill depends on, and the failure looks like a bug |
+
+**Read plugins for what they assert, not only for what they contain.** A list of skill names shows
+you where two plugins overlap. It does not show you what either one will *do* about that overlap,
+and that is where the conflict actually lives. So open the text a plugin injects at the start of
+every session, and any skill text that claims priority over other skills. A plugin can instruct
+the model to always reach for its own skills first, in words strong enough that it will.
 
 Then check `gh auth status`. Two of the five Main Flow skills go through GitHub, and finding that
 out in week one is worse than finding it out now.
@@ -39,7 +45,7 @@ out in week one is worse than finding it out now.
 Report it plainly, in their terms, not as a config dump. For each thing worth mentioning give the
 finding, then **a reason in one sentence a non-developer could judge**.
 
-The four that actually come up:
+The five that actually come up:
 
 - **Two skills with the same name.** Say which one wins and what the other one did. This is the
   most common one and the most confusing when it bites.
@@ -47,11 +53,17 @@ The four that actually come up:
   then open a PR". It is not wrong - it is *theirs* - but it will steer every skill in the set.
   Show it, say what it will do, and leave the decision alone.
 - **Another plugin covering the same ground.** Name both and let them pick.
+- **A plugin that claims precedence.** Some plugins instruct the model, every session, to always
+  use their own skills first - occasionally in capitals, phrased as non-negotiable. This is a
+  finding in its own right, not a footnote to the overlap above. Describe what it will do rather
+  than quoting it: *"when you say let's build something, this will send you to its planning skill
+  instead of `grill-me`"*. Which moment it takes, and what it takes it from.
 - **A hook that will block something.** Say which skill it stops and what the failure will look
   like, so they recognise it if it happens.
 
 Where you found nothing, say so. "Nothing in your setup fights this" is a real result and a good
-one to hear.
+one to hear - and say it about precedence specifically, since silence there reads as "not
+checked".
 
 ## 3. Suggest, one at a time
 
@@ -61,6 +73,11 @@ nobody read.
 **Back the file up before the first edit** - `CLAUDE.md` to `CLAUDE.md.bak-<date>`. There is no
 git in most people's `~/.claude/`, so this is the only undo there is. It is what makes saying yes
 cheap.
+
+**Where a plugin claims precedence, the fix is one line in their own `CLAUDE.md`.** Their standing
+instructions outrank anything a plugin injects, so a single line settles it - and the plugin stays
+installed, untouched, still updating. Offer turning the other plugin off as an option, but never
+recommend it: it costs them everything else that plugin does, to solve one sentence.
 
 Declining is a normal outcome. Move to the next one without arguing, and never re-raise it later
 in the session.
@@ -122,6 +139,7 @@ repo you are working in and I will suggest where to start"*.
 
 - [ ] They know what was read, because you said so before reading it
 - [ ] Every collision in their setup has been named, or you said there were none
+- [ ] Any plugin asserting precedence was reported, in plain words, or you said none does
 - [ ] Every change was approved individually, and every edited file was backed up first
 - [ ] They know whether GitHub is set up, and how to fix it if not
 - [ ] They know the five steps, that the flow is joined anywhere, and that it is all optional
