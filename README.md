@@ -24,7 +24,7 @@ up to it. Skills are tools: reach for the ones that help and leave the rest.
 |---|---|---|
 | **Skills** | [`skills/`](./skills/) | 21 ready-made ways of working, installed as one plugin and updated in place |
 | **Tools** | [`tools/`](./tools/README.md) | The CLIs and MCP servers worth having, with setup notes. None of it is required |
-| **Modules** | [`modules/`](./modules/) | Nine lessons on the principles, plus two hands-on guides. Read these to understand why the skills are shaped the way they are |
+| **Modules** | [`modules/`](./modules/) | Ten lessons on the principles, plus two hands-on guides. Read these to understand why the skills are shaped the way they are |
 
 Most of the skills are [Matt Pocock's](https://github.com/mattpocock/skills), vendored with small
 tweaks. A handful are ours. We mostly pick and adapt other people's work instead of writing our
@@ -227,7 +227,7 @@ that folder to `.gitignore`.
 
 > The teaching layer: the principles behind the skills, one lesson doc per concept.
 
-Nine lesson docs in [`modules/`](./modules), ordered the way the agentic loop runs - context,
+Ten lesson docs in [`modules/`](./modules), ordered the way the agentic loop runs - context,
 action, verification - then the operating topics. Each one teaches a single concept in plain words:
 why it matters, and what you can do about it. These are fresh drafts and still under review.
 [SOURCES.md](./modules/SOURCES.md) collects the reading behind all of them.
@@ -241,6 +241,7 @@ why it matters, and what you can do about it. These are fresh drafts and still u
 7. [Working unattended](./modules/m6-working-unattended.md) - containment beats supervision; when work can safely run alone.
 8. [Working as a team](./modules/m7-teams.md) - a shared setup beats everyone improvising.
 9. [When rules expire](./modules/m8-when-rules-expire.md) - the expiry test, and why rules die a layer at a time.
+10. [Many agents on one job](./modules/m9-many-agents-on-one-job.md) - rounds, lanes, and why a report has to carry its evidence.
 
 Two hands-on guides sit alongside them, both dated on purpose because the tooling moves under
 them:

@@ -21,12 +21,12 @@ been measured" trace back here.
   reads*.
 - [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) -
   what delegation to subagents buys and costs, from production experience. Backs: *Handing
-  work off*.
+  work off*, *Many agents on one job*.
 - [Beyond permission prompts: sandboxing](https://www.anthropic.com/engineering/claude-code-sandboxing) -
   containment instead of click-to-approve supervision. Backs: *Working unattended*.
 - [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) -
   running agents beyond a sitting, and why harness rules go stale as models improve. Backs:
-  *Working unattended*, *When rules expire*.
+  *Working unattended*, *When rules expire*, *Many agents on one job*.
 
 ## Independent research
 
