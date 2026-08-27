@@ -48,9 +48,6 @@ been measured" trace back here.
 - [Simon Willison - Agentic Engineering Patterns](https://simonwillison.net/guides/agentic-engineering-patterns/) -
   a veteran engineer's ongoing field guide to working with coding agents. Backs: *The
   agentic loop*, *Deciding before building*, *Handing work off*, *Verifying agent work*.
-- [obra/superpowers](https://github.com/obra/superpowers) - widely used open-source checking
-  and debugging workflows for agents; test-first and verification-before-completion in
-  executable form. Backs: *Verifying agent work*.
 - [Matt Pocock](https://github.com/mattpocock/skills) - a working practitioner teaching agentic
   coding as an engineering discipline. A lot of the skills in this repo began as his, and some are
   our own ([ATTRIBUTION.md](../ATTRIBUTION.md) has the detail).

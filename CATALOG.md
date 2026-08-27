@@ -14,7 +14,6 @@ twice, in two days. This is the only record.
 | Upstream | Pinned at | Licence |
 |---|---|---|
 | [mattpocock/skills](https://github.com/mattpocock/skills) | v1.2.3, commit `8b78b53`, 2026-08-13 | MIT |
-| [obra/superpowers](https://github.com/obra/superpowers) | as vendored 2026-08 | MIT |
 
 **We do not track Matt continuously.** He ships faster than we can merge, and pretending otherwise
 is the promise most likely to break. Refresh deliberately, using the table below.
