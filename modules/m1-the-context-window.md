@@ -95,6 +95,12 @@ built, the commits say what changed. `handoff` covers what they miss - the decis
 out loud and never written down. Good test: could a colleague pick your project up from the
 files alone?
 
+**Not every project gets that for free.** On a codebase the tracker and the commits carry the
+state whether anyone tends them or not, so the note can be small and thrown away. On a docs,
+training or planning project nothing carries it - there is no diff that explains why - so the
+record has to be written on purpose and kept, which is what `update-docs` does. The rule is the
+same either way; only the amount you have to write yourself changes.
+
 ## What you can do
 
 - **Put the gauge on screen.** Then you read the session's state at a glance.
