@@ -11,10 +11,10 @@ Two passes, because this repo references skills in two shapes:
            ships elsewhere (EXTERNAL).
   Pass B - retired names. Skills are usually written in backticks with no slash - `grill-me` -
            so a slash-only scan would miss the very rename it exists to catch. A name in RETIRED
-           still appearing in backticks is a leftover. Deliberately backticks only: 'start' is an
-           ordinary English word, and matching it in plain prose would fire on almost every file.
-           The slash form needs no special handling here - a retired skill is not shipped, so
-           '/start' is already an unresolved invocation under pass A.
+           still appearing in backticks is a leftover. Deliberately backticks only: a retired
+           name can also be an ordinary English word, and matching it in plain prose would fire
+           on almost every file. The slash form needs no special handling here - a retired skill
+           is not shipped, so its slash form is already unresolved under pass A.
 
 CATALOG.md is exempt from both. It is the historical record: it names upstream skills the
 plugin never shipped and skills that have since left the set, on purpose.
@@ -43,8 +43,6 @@ EXTERNAL = {
 # Skills that have left this plugin. A mention outside CATALOG.md is a leftover from a rename
 # or a removal. Add a name here in the same commit that retires the skill.
 RETIRED = {
-    "start",         # left the set 2026-08-20; lives in the internal playbook
-    "update-docs",   # left the set 2026-08-20; lives in the internal playbook
     "setup-dev-repo",  # renamed to setup-repo 2026-08-25
     "guide",           # renamed to suggest 2026-08-25; note modules/guide-*.md are unrelated
 }
