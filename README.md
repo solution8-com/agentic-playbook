@@ -94,8 +94,18 @@ Once the plugin is in:
 
 1. **Let onboarding run.** If you used the paste-block above it starts on its own. It looks at
    the setup you already have, tells you what collides with what, and shows you where to begin.
-2. **Type `/suggest` when you are not sure what to reach for.** It works out what you are doing
-   and points you at the skill that fits.
+2. **Type `/suggest` when you are not sure what to reach for.** Say it however you would say it
+   out loud - a whole messy sentence, not a keyword. It works out what you are doing and points
+   you at the skill that fits, with one line on why, and offers to run it.
+
+   ```
+   /suggest i wanna start building a finance tracker
+   /suggest how do i use context management
+   ```
+
+   The first routes you - a new product runs for weeks, so `wayfinder` rather than `grill-me`.
+   The second is not a routing question at all, and it says so: it answers from the modules
+   instead, because most work needs no skill.
 3. **Read [`m0-the-agentic-loop`](./modules/m0-the-agentic-loop.md).** Ten minutes, and the rest of
    the set makes sense afterwards.
 4. **Run one real piece of work through the Main Flow.** Pick something small you were going to do
