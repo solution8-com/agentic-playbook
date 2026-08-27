@@ -52,13 +52,13 @@ tests on every change, and nothing merges red.
 work? Gate 3 answers another: **is it what was asked?** You asked for a CSV export for the
 accountant. You got a fully tested JSON export. Gates one and two passed, and the work is
 still wrong. For bigger work, get fresh eyes first: a new session or another reviewer that
-sees the change without the conversation behind it (`review-suite`, `/code-review` in a fresh
+sees the change without the conversation behind it ([`review-suite`](../skills/review-suite/SKILL.md), `/code-review` in a fresh
 session). The final yes is yours, checked against the task. So agree what done looks like
-while you plan (`grill-me`, `to-spec`), or gate 3 has nothing to check against. This gate
+while you plan ([`grill-me`](../skills/grill-me/SKILL.md), [`to-spec`](../skills/to-spec/SKILL.md)), or gate 3 has nothing to check against. This gate
 also catches goal-shrinking, where an agent delivers a smaller thing and calls it the whole
 thing.
 
-`verify-feature` produces the proof for gate 3. The agent drives the real app and brings back
+[`verify-feature`](../skills/verify-feature/SKILL.md) produces the proof for gate 3. The agent drives the real app and brings back
 screenshots and data.
 
 |  | Gate 1: the agent | Gate 2: the machines | Gate 3: a person |
@@ -89,7 +89,7 @@ load-bearing walls, where failure is expensive.
   run, the app clicked through, a number checked in the database.
 - **Agree what "done" means before building.** Which checks must pass, what a user must be
   able to do afterwards, where the work would break - written into the task (`grill-me`,
-  `to-spec`; `tdd` turns the risky spots into checks written first).
+  `to-spec`; [`tdd`](../skills/tdd/SKILL.md) turns the risky spots into checks written first).
 - **Keep gate 1 light.** In our experience a self-review of the diff is enough
   (`/code-review low`).
 - **Let machines hold gate 2.** Tests in a CI pipeline, run on every change. Nothing merges
@@ -98,7 +98,7 @@ load-bearing walls, where failure is expensive.
   (`review-suite`, `/code-review` in a new session).
 - **Make a bug fail on demand first.** "It's broken, fix it" sends the agent guessing. Get a
   way to trigger the problem every time. Fix until the trigger comes back clean, then keep the
-  check (`diagnosing-bugs`).
+  check ([`diagnosing-bugs`](../skills/diagnosing-bugs/SKILL.md)).
 
 ## What to remember
 

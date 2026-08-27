@@ -102,8 +102,8 @@ It is the same agent all day.
   while you are away.
 - **Then stop approving inside the boundary.** Once it holds, step-by-step approval only
   trains the reflex.
-- **Move your attention to the exit.** Read the diff before you merge (`verify-feature` for
-  evidence, `review-suite` for a sweep).
+- **Move your attention to the exit.** Read the diff before you merge ([`verify-feature`](../skills/verify-feature/SKILL.md) for
+  evidence, [`review-suite`](../skills/review-suite/SKILL.md) for a sweep).
 - **Label the work as you create it.** `hitl` work stops at the commit and the merge stays
   yours; `afk` is the permission to merge on green. The label is the decision, so make it when
   you write the ticket rather than when the branch is waiting.

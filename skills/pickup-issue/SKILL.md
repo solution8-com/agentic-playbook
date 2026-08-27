@@ -79,7 +79,7 @@ Worktrees are what stop parallel sessions from corrupting each other. Two builds
 
 Branch off the default branch. No draft PR. Merging back is the user's call - `/implement` stops at the commit and hands the branch over for review.
 
-**Caveat worth knowing:** `refs/stash` is shared across worktrees, so a `git stash` in one shows up in all of them. Prefer a commit on the branch over a stash.
+**Caveats worth knowing:** a worktree isolates *files only*. `refs/stash` is shared across worktrees, so a `git stash` in one shows up in all of them - prefer a commit on the branch over a stash. So is everything outside git: ports, a local database, `.env` files. Two parallel sessions can still fight over those.
 
 ## 4. Hand off
 

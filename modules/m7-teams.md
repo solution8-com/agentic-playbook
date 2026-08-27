@@ -30,7 +30,7 @@ to sit. It now has to sit somewhere they will look.
 
 A chat session holds one person and one agent, and it ends when they stop. So the work needs a
 shared home as well. Use one issue per piece of work, write decisions into it as you make them, and
-anyone can pick it up cold (`to-issues`).
+anyone can pick it up cold ([`to-issues`](../skills/to-issues/SKILL.md)).
 
 In plain terms: if you would have to explain it to a new colleague, write it where the agent reads.
 
@@ -75,7 +75,7 @@ flowchart LR
 
 We have not measured whether this improves team outcomes. The alternative is five people
 improvising five setups that end with the session. The tracker and the commit history already carry
-most of what a session learned, and `handoff` catches the decisions that were only said out loud.
+most of what a session learned, and [`handoff`](../skills/handoff/SKILL.md) catches the decisions that were only said out loud.
 
 ## Checking is now the constraint
 
@@ -89,13 +89,13 @@ does. Twice the code needs twice the checking.
 
 - Prefer small changes. Ten small ones get read; one two-thousand-line change gets skimmed and
   waved through. Running more agents at once sends more work to the same reviewer.
-- Let an agent take a first pass (`review-suite`), so the mechanical problems are gone before a
+- Let an agent take a first pass ([`review-suite`](../skills/review-suite/SKILL.md)), so the mechanical problems are gone before a
   person reads. Agent review with nobody behind it has been measured doing worse than people alone,
   so keep the person.
 
 **Whoever hands it in owns it.** Send a change for review without reading it yourself, and you have
 delegated to your colleagues rather than to an agent. They could have prompted one themselves. In
-our flow `implement` stops at the commit and hands the branch to a person, unless the ticket
+our flow [`implement`](../skills/implement/SKILL.md) stops at the commit and hands the branch to a person, unless the ticket
 carries an `afk` label saying it may merge on green.
 
 ## The signals that used to prove understanding

@@ -52,6 +52,12 @@ what stays true and what the code does not show: the non-standard convention, th
 odd-looking decision. Cut the tour. In our experience one screen is a good target, re-read monthly,
 because nothing errors when a line goes stale.
 
+This is also why a generated file is a bad start. A generator writes down everything it can see -
+the folder tour, the obvious conventions, the file list - which is precisely the material the
+measurement found unhelpful, and you pay for every line of it on every run afterwards. Start nearly
+empty and grow the file from real corrections: the times the agent got something wrong that a
+sentence would have prevented.
+
 ## The codebase is the loudest of the three
 
 **The twenty files around the edit set the pattern. You get a twenty-first that does the same.**
@@ -95,11 +101,11 @@ longer needs.
 - **Read your instruction file top to bottom this week.** Cut what the code shows and what stopped
   being true.
 - **Fix the pattern before you scale the work.** Clean the area first if many tasks will run
-  through it (`review-suite`, `/code-review low`).
+  through it ([`review-suite`](../skills/review-suite/SKILL.md), `/code-review low`).
 - **Turn your two or three most expensive rules into checks.** The rest stays prose.
 - **Give the agent a way to check its own work**: tests, a way to run the app, read access to the
-  data (`tdd`, `verify-feature`).
-- **Write the reasons down when you catch yourself repeating them** (`grill-me`, `to-spec`).
+  data ([`tdd`](../skills/tdd/SKILL.md), [`verify-feature`](../skills/verify-feature/SKILL.md)).
+- **Write the reasons down when you catch yourself repeating them** ([`grill-me`](../skills/grill-me/SKILL.md), [`to-spec`](../skills/to-spec/SKILL.md)).
   Repeated explanation belongs on one of the three surfaces.
 
 ## What to remember

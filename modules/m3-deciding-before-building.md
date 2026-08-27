@@ -44,10 +44,10 @@ flowchart LR
     B -.->|plan turned out wrong| G
 ```
 
-- **Let it interview you.** `grill-me` works through the open decisions one question at a time
+- **Let it interview you.** [`grill-me`](../skills/grill-me/SKILL.md) works through the open decisions one question at a time
   and proposes an answer to each, so you're mostly saying yes or no. A good interviewer raises
   angles you hadn't considered.
-- **Then write it down.** `to-spec` turns the answers into a spec, and `to-issues` cuts it into
+- **Then write it down.** [`to-spec`](../skills/to-spec/SKILL.md) turns the answers into a spec, and [`to-issues`](../skills/to-issues/SKILL.md) cuts it into
   tickets. Written decisions travel to tomorrow's session and to whoever checks the work.
 - **Let the ticket carry "done".** Write what must be true at the end, and where the work would
   realistically break. Otherwise a reader can't tell finished from abandoned.
@@ -73,11 +73,11 @@ wrong guess costs two minutes, a ten-minute interview is waste; throwaway work c
 Planning anyway hides the uncertainty inside tickets that look precise.
 
 - If you can't answer "how should this feel?" in words, ask for something to click: one
-  disposable file you open in a browser (`prototype`).
+  disposable file you open in a browser ([`prototype`](../skills/prototype/SKILL.md)).
 - Answer questions of fact before you plan. Look up what an API returns instead of guessing
   inside a ticket.
 - When the work is too big to hold in your head, settle the open decisions one at a time
-  (`wayfinder`).
+  ([`wayfinder`](../skills/wayfinder/SKILL.md)).
 
 Work you've done ten times before needs none of this.
 
@@ -91,8 +91,8 @@ measured: agents carry out a specified change reliably, and are much weaker at c
 change to make.
 
 Our build flow has two steps on purpose. The first reads the ticket, checks its claims against
-the live code, and sets up the workspace (`pickup-issue`). The second builds without reopening it
-(`implement`). A mid-build "wouldn't it be better if..." goes into a comment for later. When the
+the live code, and sets up the workspace ([`pickup-issue`](../skills/pickup-issue/SKILL.md)). The second builds without reopening it
+([`implement`](../skills/implement/SKILL.md)). A mid-build "wouldn't it be better if..." goes into a comment for later. When the
 plan is wrong, change the ticket out loud, then build again.
 
 ## What you can do

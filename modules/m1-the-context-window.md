@@ -68,6 +68,23 @@ at 100k", and nobody measured those either. The idea is solid; the digit is folk
 ours because a shared habit beats each person improvising. Treat any threshold as a default,
 ours included: wrap up earlier if your work degrades earlier.
 
+## Which model you spend it with
+
+**A bigger model holds more of the task in view. A smaller one is cheaper and faster, and worse at
+judgment.** Same budget, different worker.
+
+The menu changes every few months, so the names below will date. The logic will not:
+
+- **The biggest model** where judgment concentrates: planning, review, hard debugging - the work you
+  would give your most senior person.
+- **The middle** for everyday building, where the decisions are already made.
+- **The small, fast one** for mechanical bulk: renames, formatting, sweeps with no judgment in them.
+
+Two things follow. Being stuck in a loop of failed attempts is a *judgment* problem, so switching up
+is usually cheaper than three more retries. And speed is a separate lever from capability: some
+models can run faster in exchange for more tokens, which is worth it when your own waiting is the
+expensive part, and never worth it when the work needs more thinking.
+
 ## Keep the knowledge, discard the session
 
 **People keep sessions alive too long for one honest reason: the session knows things.**
@@ -91,14 +108,14 @@ Professions that work in shifts write the log anyway, and software keeps commit 
 same reason.
 
 Most of that record already exists without anyone maintaining it: the issue says what was
-built, the commits say what changed. `handoff` covers what they miss - the decisions settled
+built, the commits say what changed. [`handoff`](../skills/handoff/SKILL.md) covers what they miss - the decisions settled
 out loud and never written down. Good test: could a colleague pick your project up from the
 files alone?
 
 **Not every project gets that for free.** On a codebase the tracker and the commits carry the
 state whether anyone tends them or not, so the note can be small and thrown away. On a docs,
 training or planning project nothing carries it - there is no diff that explains why - so the
-record has to be written on purpose and kept, which is what `update-docs` does. The rule is the
+record has to be written on purpose and kept, which is what [`update-docs`](../skills/update-docs/SKILL.md) does. The rule is the
 same either way; only the amount you have to write yourself changes.
 
 ## What you can do
@@ -112,7 +129,7 @@ same either way; only the amount you have to write yourself changes.
   file when the part that matters would do. Let a separate agent do the wide reading.
 - **Write down the part that lives only in the chat** (`handoff` on a repo with code,
   `update-docs` where nothing else holds it), **and open the next session by reading it**
-  (`start`). A record nobody reads back is a record that was not worth writing.
+  ([`start`](../skills/start/SKILL.md)). A record nobody reads back is a record that was not worth writing.
 
 ## What to remember
 

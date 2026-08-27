@@ -19,7 +19,7 @@ the coordinating becomes the job.
 
 *Handing work off* is one brief out and one report back, which is the right shape for most work. It stops
 fitting when a job has a dozen pieces, runs for hours, and the pieces have an order. Run that as
-one long session and its memory fills before the job is done (*The context window*). Run it as twelve
+one long session and its memory fills before the job is done ([*The context window*](m1-the-context-window.md)). Run it as twelve
 separate handoffs and you are the one holding the plan, re-briefing every time. Neither fails
 loudly; both just get worse as the day goes on.
 
@@ -62,7 +62,7 @@ it reports accordingly.
 - **This is why the planner stays out of the code.** Not tidiness. If it builds, its judgment at
   the end is the builder's judgment wearing a different hat.
 - **Judging can fan out too.** One agent per angle, each seeing only its own question
-  (`review-suite` runs its passes this way).
+  ([`review-suite`](../skills/review-suite/SKILL.md) runs its passes this way).
 - **Expect a judge to weigh badly at first.** Review passes find real things and then rate them
   wrongly, usually too high. Make each finding argue against itself before it earns a severity.
 
@@ -128,8 +128,8 @@ flowchart LR
 - **Fanning out costs, and rounds multiply it.** *Handing work off* has the measured numbers for
   one round; a job run over several has to be worth that again.
 
-In our flow, `to-issues` writes tickets carrying their own blocking edges, so the order lives on
-the tickets rather than in your head, and `pickup-issue` re-checks one against the live code
+In our flow, [`to-issues`](../skills/to-issues/SKILL.md) writes tickets carrying their own blocking edges, so the order lives on
+the tickets rather than in your head, and [`pickup-issue`](../skills/pickup-issue/SKILL.md) re-checks one against the live code
 before anyone builds from it.
 
 ## What you can do
@@ -141,9 +141,9 @@ before anyone builds from it.
 - **Break every new guard once on purpose.** Red, then green, both pasted. It takes a minute and
   it is the only proof the check works.
 - **Draw the lanes from the files.** Note what each piece touches, queue the collisions, run the
-  rest alongside (`to-issues` for the edges, `wayfinder` when the job is too big to hold).
+  rest alongside (`to-issues` for the edges, [`wayfinder`](../skills/wayfinder/SKILL.md) when the job is too big to hold).
 - **Clear the builder between rounds.** A fresh session reading a written brief beats a tired one
-  that was there for the last three (`handoff` to write it, `start` to pick it up).
+  that was there for the last three ([`handoff`](../skills/handoff/SKILL.md) to write it, [`start`](../skills/start/SKILL.md) to pick it up).
 - **Try it on two rounds before you try it on six.** The coordination is the part that is new,
   and it is cheaper to learn it small.
 

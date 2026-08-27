@@ -51,5 +51,20 @@ been measured" trace back here.
 - [obra/superpowers](https://github.com/obra/superpowers) - widely used open-source checking
   and debugging workflows for agents; test-first and verification-before-completion in
   executable form. Backs: *Verifying agent work*.
+- [Matt Pocock](https://github.com/mattpocock/skills) - a working practitioner teaching agentic
+  coding as an engineering discipline. Most of the skills in this repo began as his
+  ([ATTRIBUTION.md](../ATTRIBUTION.md) has the detail), and his
+  [AI Coding Crash Course](https://www.aihero.dev/workshops/ai-coding-crash-course) covers this
+  ground from a practitioner's side.
 - [Google - engineering practices for code review](https://google.github.io/eng-practices/review/) -
   the review-culture baseline most teams start from. Backs: *Working as a team*.
+
+## Other vendors
+
+First-party engineering writing about a vendor's own system. Useful for what they measured; read
+with the caution any first-party result deserves.
+
+- [NVIDIA - AVO reaches 100% on ARC-AGI-3](https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/) -
+  the harness, not the model: Claude Opus 5 went from a 30% baseline to solving all 183 levels of a
+  long-horizon benchmark inside NVIDIA's agent architecture, with no change to the model itself.
+  Backs: *The agentic loop*.

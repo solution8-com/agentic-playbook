@@ -93,14 +93,14 @@ helper also reports back into your session, so enough of them refill your memory
   handing off a decision you haven't made. Keep that one.
 - **Name the shape of the answer.** "A list of file paths, one per line, nothing else" beats
   "report your findings", and it makes a thin answer easy to spot.
-- **Hand off the reading first**, the safest place to start. `research` sends a reading job
+- **Hand off the reading first**, the safest place to start. [`research`](../skills/research/SKILL.md) sends a reading job
   offstage and brings back a findings file.
-- **Write tickets that stand alone.** `to-issues` splits work into tickets that each carry
-  their own context. `pickup-issue` loads one cold, and `implement` builds from it. A ticket
+- **Write tickets that stand alone.** [`to-issues`](../skills/to-issues/SKILL.md) splits work into tickets that each carry
+  their own context. [`pickup-issue`](../skills/pickup-issue/SKILL.md) loads one cold, and [`implement`](../skills/implement/SKILL.md) builds from it. A ticket
   that fails a cold pickup was thin. Run that test on purpose.
 - **Fan out on independent questions.** One helper cannot see what another found.
 - **Keep the deciding close.** On work too big to hold in one go, settle the open questions
-  first, then hand off what that makes describable (`wayfinder`).
+  first, then hand off what that makes describable ([`wayfinder`](../skills/wayfinder/SKILL.md)).
 
 ## What to remember
 

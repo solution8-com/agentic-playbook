@@ -11,6 +11,7 @@ a careful professional has always run, hundreds of times faster, and it never ge
 - The loop it runs: context, action, verification
 - What the loop makes it good and bad at
 - Why you are part of the loop
+- The harness around the model, and why it is the half you own
 
 ## Chatbots and agentic tools
 
@@ -26,6 +27,23 @@ a careful professional has always run, hundreds of times faster, and it never ge
 
 In plain terms: a chatbot is a consultant who gives you advice. An agentic tool is the
 consultant sitting at your keyboard.
+
+## The model and the harness
+
+**Two things do the work, and only one of them gets talked about.**
+
+- The **model** is the part that reasons. Opus, Sonnet, whichever you picked.
+- The **harness** is everything around it: the tools it can reach, what gets read in and in what
+  order, how many turns it may take, what happens when a check fails, when it stops to ask you.
+  Claude Code is a harness. So is the setup in this repo.
+
+Almost every conversation about better results is about the model - a newer one, a bigger one. But
+the same model in a better harness is a different worker. NVIDIA took Claude Opus 5 from solving
+about 30% of a long-horizon benchmark to solving all of it without touching the model, by rebuilding
+what surrounded it: persistent memory, its own supervision, and observations in a format it could
+actually use.
+
+You cannot make the model smarter. The harness is the half you own, and it is where the gains are.
 
 ## The loop: context, action, verification
 

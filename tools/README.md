@@ -21,6 +21,13 @@ in practice it is already there.
 | [Caveman](#caveman) | Plugin | Shorter replies |
 | [Language servers](#language-servers) | Plugin | Real types instead of grep |
 
+## Reviewing what you install
+
+An MCP server or a plugin is executable instructions from the internet, running with your agent's
+access to your machine and your repos. Review each one **once, before it first runs**. Third-party:
+read what it does at install time. Your own team's: review it in the change that adds it. After that
+one review, trust it and move on - a rule you re-litigate every session is a rule nobody keeps.
+
 ## MCPs
 
 An MCP gives Claude a new set of tools: a database it can query, a browser it can drive.

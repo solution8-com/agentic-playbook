@@ -34,7 +34,7 @@ MANIFEST = REPO / ".claude-plugin" / "plugin.json"
 # make, so keep it short and justified.
 EXTERNAL = {
     "plugin", "clear", "compact", "help",           # Claude Code session commands
-    "context", "model", "statusline",               # Claude Code session commands
+    "context", "model", "statusline", "fast",       # Claude Code session commands
     "reload-plugins", "reload-skills",              # Claude Code plugin commands
     "code-review", "security-review",               # Claude Code review commands
     "design",                                       # ships with Claude Code; the router points at it
@@ -56,7 +56,7 @@ NOT_COMMANDS = {"settings", "tmp"}
 #
 # CATALOG.md      - the historical record; it names upstream skills we never shipped, on purpose.
 # onboarding      - its job is talking about skills the plugin does not ship but the user owns.
-#                   'start' and 'update-docs' are retired from the set, not from the world.
+#                   it also names skills the plugin does not ship, which is the point.
 EXEMPT = {"CATALOG.md", "skills/onboarding/SKILL.md"}
 
 # A slash invocation is written one of two ways and no others: inside backticks, or alone at
