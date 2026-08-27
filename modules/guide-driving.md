@@ -19,9 +19,15 @@ it's full (module 2). So:
   keeps only the instructions files.
 - **`/compact`** squeezes the current conversation into a summary. Use it only when you must
   continue mid-task; a fresh session with a written handoff is almost always better.
-- **Ending a work session:** `handoff` compacts what only exists in the chat - the decisions
-  nobody wrote down - into a note the next session opens with. That is what makes killing a
-  session free (module 1).
+- **Ending a work session, on a repo with code:** `handoff` compacts what only exists in the
+  chat - the decisions nobody wrote down - into a note the next session opens with. It writes
+  outside the repo, because the tracker and the commits already hold the rest. That is what
+  makes killing a session free (module 1).
+- **Ending a work session, on a docs or planning repo:** `update-docs` instead. There is no
+  tracker and no commit history carrying the decisions, so the note has to be durable: a ledger
+  entry, a handoff in the repo, and any project doc the work actually drifted from.
+- **Opening one:** `start` reads whichever of the two wrote last, before it does anything else.
+  A session that starts by guessing is a session that starts wrong.
 - **Esc** stops the agent mid-action (Ctrl+C if Esc is ignoring you). Interrupt early - a
   wrong direction gets more expensive every minute you let it run.
 

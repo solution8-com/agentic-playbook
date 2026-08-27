@@ -76,6 +76,14 @@ precedent.
   tracker and the git history already hold the state. They move to the internal playbook, alongside
   ADR authoring, where the work being tracked is not always a repo. `handoff` replaces them here
   and writes nothing durable.
+- **`start` and `update-docs` came back on 2026-08-27.** The reason they left expired: on
+  2026-08-25 `setup-dev-repo` became `setup-repo` and stopped refusing non-code projects, so the
+  playbook no longer assumes a repo, a tracker and code. The drift argument still holds and now
+  decides *which* skill runs rather than whether either ships - `handoff` owns repos with code and
+  writes nothing durable; `update-docs` owns docs, training and planning repos, where nothing else
+  carries the state and a doc that drifts still beats no record at all. Repo type is read off
+  manifest presence, the same rule `setup-repo` already uses, so nothing new is configured. `start`
+  is the read side for both and reads both destinations.
 - **The tracker layer is back, 2026-08-25, owned by us.** `wayfinder`, `to-spec` and `to-issues`
   had their tracker-setup sentences stripped because upstream's tracker-doc layer and
   local-markdown fallback belonged to `/setup-matt-pocock-skills`, which we do not ship. That trade
@@ -103,8 +111,9 @@ Rows marked `ours` never need this.
 
 ## Cut in the 2026-08-14 rescope
 
-The set went from 25 skills to 20. It has moved since: `guide` and `handoff` in, `start` and
-`update-docs` out. Cut in the rescope, with the reason:
+The set went from 25 skills to 20. It has moved since: `guide` and `handoff` in, then `start` and
+`update-docs` out on 2026-08-20 and back in on 2026-08-27, split from `handoff` by repo type. Cut
+in the rescope, with the reason:
 
 | Cut | Why |
 |---|---|
