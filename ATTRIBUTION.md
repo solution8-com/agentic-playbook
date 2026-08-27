@@ -47,6 +47,8 @@ Exactly what changed in each tweaked skill is recorded in
 | `to-questionnaire` | mattpocock/skills (`to-questionnaire`), verbatim |
 | `handoff` | mattpocock/skills (`handoff`), tweaked |
 | `tdd` | mattpocock/skills (`tdd`), tweaked |
+| `start` | **Unrecorded - needs confirming.** In the set since 2026-08-07, left 2026-08-20, returned 2026-08-27; no commit ever recorded its origin |
+| `update-docs` | **Unrecorded - needs confirming.** Same history as `start` |
 
 A line-level audit (2026-08-07) traced every vendored or reshaped line in the
 collection back to one of the two libraries above; everything else is

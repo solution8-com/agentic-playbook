@@ -17,9 +17,9 @@ the coordinating becomes the job.
 
 **Handing off is a round trip. Big work needs something that keeps going.**
 
-Module 4 is one brief out and one report back, which is the right shape for most work. It stops
+*Handing work off* is one brief out and one report back, which is the right shape for most work. It stops
 fitting when a job has a dozen pieces, runs for hours, and the pieces have an order. Run that as
-one long session and its memory fills before the job is done (module 1). Run it as twelve
+one long session and its memory fills before the job is done (*The context window*). Run it as twelve
 separate handoffs and you are the one holding the plan, re-briefing every time. Neither fails
 loudly; both just get worse as the day goes on.
 
@@ -52,7 +52,7 @@ In plain terms: brief a contractor on the room you want, not on where each screw
 
 **The session that made the work is the worst one to ask whether it is good.**
 
-Module 5 says an author is a poor judge of their own work. That holds for agents, and for the
+*Verifying agent work* says an author is a poor judge of their own work. That holds for agents, and for the
 same reason: the check runs against the same understanding that produced the mistake. A session
 that has spent two hours getting something working has watched itself solve every problem, and
 it reports accordingly.
@@ -72,7 +72,7 @@ Traditional development settled this a long time ago: you do not approve your ow
 
 **A report you cannot check is a claim.**
 
-Module 4 ends with "you get the conclusion", and for one handoff that is fine. It stops being fine
+*Handing work off* promises you the conclusion, and for one handoff that is fine. It stops being fine
 here, because you are accepting work you did not watch several times a day, and each acceptance
 becomes the ground the next round is built on. Prose drifts toward the stronger claim as it goes:
 "mostly working" becomes "working" by the time it reaches a summary. Nothing is lying -
@@ -82,7 +82,7 @@ So the rule that makes it safe: **every claim arrives with the raw output that p
 in.** "The suite is green" is a verdict. Sixty lines of test output is evidence. A bare verdict
 counts as not done, and goes back.
 
-How much proof to ask for depends on what it would cost to be wrong - module 6's blast radius,
+How much proof to ask for depends on what it would cost to be wrong - *Working unattended*'s blast radius,
 applied to a report instead of an action.
 
 | How much proof | What it looks like | Ask for it when |
@@ -143,7 +143,7 @@ before anyone builds from it.
 - **Draw the lanes from the files.** Note what each piece touches, queue the collisions, run the
   rest alongside (`to-issues` for the edges, `wayfinder` when the job is too big to hold).
 - **Clear the builder between rounds.** A fresh session reading a written brief beats a tired one
-  that was there for the last three (`handoff`).
+  that was there for the last three (`handoff` to write it, `start` to pick it up).
 - **Try it on two rounds before you try it on six.** The coordination is the part that is new,
   and it is cheaper to learn it small.
 

@@ -1,6 +1,6 @@
 # Hands-on guide 1 - Setting up your Claude environment
 
-The cards (modules 1-9) say *why*. This says *how*, with the actual commands and file names.
+The cards (the ten modules, *The agentic loop* through *Many agents on one job*) say *why*. This says *how*, with the actual commands and file names.
 It is dated on purpose - tools change, and this page changes with them. Written Aug 2026
 against Claude Code as it is now.
 
@@ -23,7 +23,7 @@ Claude reads these automatically, in this order:
 2. The project's `CLAUDE.md` - what's true of *this* project: how to run it, what's unusual.
 3. `CLAUDE.local.md` - personal overrides for one machine; not committed.
 
-The rule (module 3): global says how you work, the project file says what the project is,
+The rule (*What the agent reads*): global says how you work, the project file says what the project is,
 and neither repeats what the code already shows. Keep each to one screen - every line is
 read every session, so every stale line does damage every session. And don't let a
 generator write this file for you: generated files dump everything they can see, and you
@@ -33,21 +33,26 @@ pay for every line forever. Start nearly empty and grow it from real corrections
 ## What a well-set-up repo looks like
 
 - `CLAUDE.md` - one screen, see above. `setup-repo` seeds it.
-- `docs/` - only what the repo genuinely needs. Session state lives in the tracker and the git
-  history; `handoff` writes the leftovers to a temp file rather than into the repo.
+- `docs/` - only what the repo genuinely needs. **On a repo with code**, session state lives in
+  the tracker and the git history, and `handoff` writes the leftovers to a temp file rather than
+  into the repo. **On a docs, training or planning repo** nothing else carries that state, so
+  `update-docs` writes it here on purpose - a ledger, a handoff, and the project docs the work
+  actually drifted from. `start` reads whichever of the two wrote last.
 - `CONTEXT.md` - a glossary, only if the project has real domain vocabulary.
 - `.claude/` - settings, and `reports/` where the review and verification reports land.
-- One command that runs the tests. If checking is hard, checking stops happening (module 1).
+- **On a repo with code:** one command that runs the tests. If checking is hard, checking stops
+  happening (*The agentic loop*). A repo with no code has nothing for a gate to check, and
+  `setup-repo` skips it rather than inventing one.
 
 ## The status line - your context gauge
 
 Run `/statusline` and have it show at least the **model** and **context usage**. The context
-gauge is the one instrument you should always see (module 2: sessions get worse before they
+gauge is the one instrument you should always see (*The context window*: sessions get worse before they
 get full). Config lands in `~/.claude/settings.json` under `statusLine`.
 
 ## Hooks in ten lines
 
-A hook is a small program that runs automatically on every action (module 3: a written rule
+A hook is a small program that runs automatically on every action (*What the agent reads*: a written rule
 is a wish, an automatic check is a wall). Config: `settings.json`, under `"hooks"`.
 
 - **Before an action** (`PreToolUse`): your script gets the action; exit code 2 *blocks* it
@@ -72,7 +77,7 @@ Start with one blocking hook for the single action that would hurt most, not a r
 
 ## Permissions - the everyday posture
 
-Cycle modes with Shift+Tab. The sane default day (module 6):
+Cycle modes with Shift+Tab. The sane default day (*Working unattended*):
 
 - **Accept edits** inside containment - the agent edits and runs freely *on its own branch*.
 - **Plan mode** when you want it to look and think before touching anything.
@@ -83,7 +88,7 @@ Cycle modes with Shift+Tab. The sane default day (module 6):
 
 Two sessions working in one checkout corrupt each other - they share one working state, so
 you get a commit amended onto the *other* session's work, or changes that simply vanish. A
-worktree gives each session its own folder and its own branch. Two ways to get one (module 6):
+worktree gives each session its own folder and its own branch. Two ways to get one (*Working unattended*):
 
 - `claude --worktree` (or `-w`) starts the session in a fresh worktree with its own branch.
 - In the flow, `pickup-issue` sets one up per issue - you don't have to think about it.
@@ -95,9 +100,9 @@ ports, a local database, `.env` files. Two parallel agents can still fight over 
 ## Tools
 
 MCPs, CLIs and plugins - what we actually recommend and how to install each - live in
-`TOOLS.md` in the plugin repo. Two rules:
+`tools/README.md` in the plugin repo. Two rules:
 
-- Connect only what the day's work needs: every connected tool eats context (module 2).
+- Connect only what the day's work needs: every connected tool eats context (*What the agent reads*).
 - Review every extension **once, before it first runs**. An MCP server or plugin is
   executable instructions from the internet. Third-party: read what it does at install
   time. Your own team's: review it in the change that adds it. After that one review,

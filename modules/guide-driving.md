@@ -6,12 +6,12 @@ purpose - written Aug 2026 against Claude Code as it is now.
 ## The context gauge
 
 Everything the agent reads and does fills its working memory, and quality drops well before
-it's full (module 2). So:
+it's full (*The context window*). So:
 
 - Keep the gauge visible (see guide 1: status line).
 - `/context` shows what's eating the window when you're surprised.
 - Our house habit: start wrapping up around 40%. That number is a habit, not a law - the
-  card in module 2 says so out loud - but a shared habit beats everyone improvising.
+  card in *The context window* says so out loud - but a shared habit beats everyone improvising.
 
 ## Session hygiene
 
@@ -22,7 +22,7 @@ it's full (module 2). So:
 - **Ending a work session, on a repo with code:** `handoff` compacts what only exists in the
   chat - the decisions nobody wrote down - into a note the next session opens with. It writes
   outside the repo, because the tracker and the commits already hold the rest. That is what
-  makes killing a session free (module 1).
+  makes killing a session free (*The context window*).
 - **Ending a work session, on a docs or planning repo:** `update-docs` instead. There is no
   tracker and no commit history carrying the decisions, so the note has to be durable: a ledger
   entry, a handoff in the repo, and any project doc the work actually drifted from.
@@ -49,19 +49,20 @@ Each of these means stop and steer, not "hope it works out":
 
 | What you see | What it usually means | What to do |
 |---|---|---|
-| The change is far bigger than the task - a "small fix" arrives as 400 changed lines | It's doing more than asked: uninvited refactoring, scope creep | Stop. Ask for the *minimal* change; put the extra ideas in a ticket comment (module 4) |
-| "Everything works as expected", no evidence | A claim, not a check | Ask for the check that could have failed: the test run, the output (module 1) |
-| It repeats work, forgets instructions, contradicts itself | Context rot - the session is past its best | Wrap up, write the handoff, start fresh (module 2) |
-| It delivered something quietly smaller than what was asked | Goal-shrinking under difficulty | Compare against the ticket, not against what got built (module 1, gate two) |
-| It edited the *test* until things passed | Gaming the check instead of fixing the code | Hard stop. Restore the test, reproduce the failure, then fix (module 1) |
-| Files far outside the task are changing | Scope drift | Stop; narrow the brief; keep it on its own branch so drift is cheap to discard (module 6) |
-| Long confident explanations, nothing actually run | Guessing, not measuring | "Run it and show me" - evidence, not theory (module 1) |
-| A vague request came back with zero questions | It guessed your meaning and built the guess | Interview first next time - that's what `grill-me` is for (module 4) |
+| The change is far bigger than the task - a "small fix" arrives as 400 changed lines | It's doing more than asked: uninvited refactoring, scope creep | Stop. Ask for the *minimal* change; put the extra ideas in a ticket comment (*Deciding before building*) |
+| "Everything works as expected", no evidence | A claim, not a check | Ask for the check that could have failed: the test run, the output (*Verifying agent work*) |
+| It repeats work, forgets instructions, contradicts itself | Context rot - the session is past its best | Wrap up, write the handoff, start fresh (*The context window*) |
+| It delivered something quietly smaller than what was asked | Goal-shrinking under difficulty | Compare against the ticket, not against what got built (*Verifying agent work*, gate three) |
+| It edited the *test* until things passed | Gaming the check instead of fixing the code | Hard stop. Restore the test, reproduce the failure, then fix (*Verifying agent work*) |
+| Files far outside the task are changing | Scope drift | Stop; narrow the brief; keep it on its own branch so drift is cheap to discard (*Working unattended*) |
+| Long confident explanations, nothing actually run | Guessing, not measuring | "Run it and show me" - evidence, not theory (*Verifying agent work*) |
+| A vague request came back with zero questions | It guessed your meaning and built the guess | Interview first next time - that's what `grill-me` is for (*Deciding before building*) |
 
 ## Finishing a change
 
 The flow stops at the commit on purpose: the agent builds and commits on its branch, and a
-*person* decides what happens next (module 7: you own what you hand in). From there, two
+*person* decides what happens next - unless the ticket carries an `afk` label, which is that
+decision made in advance (*Working as a team*: you own what you hand in). From there, two
 good paths - the playbook deliberately has no default:
 
 - **Branch, then merge it yourself.** One feature branch per issue; when the work checks
@@ -74,13 +75,13 @@ good paths - the playbook deliberately has no default:
 
 Pick per repo. The skills work with either - and with whatever your organisation's repo
 settings enforce. Protected branches and required reviews beat any written convention
-(module 3: a rule is a wish, an automatic check is a wall). Whichever path: green only
+(*What the agent reads*: a rule is a wish, an automatic check is a wall). Whichever path: green only
 counts if the checks ran on the exact version being merged, not the branch as it looked ten
-minutes ago (module 1).
+minutes ago (*Verifying agent work*).
 
 ## When to watch and when to walk away
 
 Marked the work `hitl`? Stay close and interrupt freely. Marked it `afk`? Let it run and
 judge the result at the end instead - interrupting unattended work defeats the point of
-labelling it (module 6). The label was the decision; make it when you create the ticket,
+labelling it (*Working unattended*). The label was the decision; make it when you create the ticket,
 not in the moment.

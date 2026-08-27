@@ -96,7 +96,8 @@ Once the plugin is in:
    the setup you already have, tells you what collides with what, and shows you where to begin.
 2. **Type `/suggest` when you are not sure what to reach for.** Say it however you would say it
    out loud - a whole messy sentence, not a keyword. It works out what you are doing and points
-   you at the skill that fits, with one line on why, and offers to run it.
+   you at the skill that fits, with one line on why - and offers to run it where one skill is
+   clearly the right one.
 
    ```
    /suggest i wanna start building a finance tracker
@@ -126,7 +127,7 @@ when they hit something that needs it.
 | [Main Flow](#main-flow) | 5 | Idea to code that landed |
 | [Shape](#shape) | 4 | Working out what to build, before there is a spec to write |
 | [Utilities](#utilities) | 6 | Reached for mid-work, in whatever order the work demands |
-| [Misc](#misc) | 4 | Occasional, and nobody has to use them |
+| [Misc](#misc) | 6 | Occasional, and nobody has to use them |
 
 ## Project setup
 
@@ -169,11 +170,12 @@ Review has no skill of its own here, because Claude Code ships `/code-review`. U
 `/code-review low` for a small change that matters, and at the end of a work session run the full
 pass over the diff in a fresh session. `review-suite` below is for a broad quality sweep.
 
-`verify-feature` sits outside the flow too. `implement` stops at a commit with `/code-review low`
-already run; whether the behaviour also needs *proving* depends on the change, so it stays a
-judgement call each time. Run it when a human has to trust the result: client-facing work, anything
-with a UI, a change nobody is going to read the diff of. Skip it where the tests already carry the
-proof.
+`verify-feature` is no longer a judgement call inside the flow. `implement` commits with
+`/code-review low` already run, and then **dispatches `verify-feature` to a sub-agent whenever the
+diff touched UI, an endpoint or the database** - a clean context, handed the branch and nothing
+else, because evidence written by the session that wrote the code is worth less. Where the diff
+touched none of those three it is skipped and says so. Reach for it yourself on a change that did
+not come through `implement`, or where a human has to trust a result the tests do not carry.
 
 ## Shape
 
@@ -197,13 +199,15 @@ two or three variants built to compare.
 
 > Reached for mid-work, in whatever order the work demands.
 
-- **`improve-codebase-architecture`** - find shallow modules worth deepening. A periodic sweep over
-  the whole codebase; it has nothing useful to say about a single issue.
+- **`improve-codebase-architecture`** - find shallow modules worth deepening. A periodic sweep,
+  scoped to an area you name or to the hot spots in recent commit history; it has nothing useful to
+  say about a single issue.
 - **`diagnosing-bugs`** - disciplined root-cause debugging, reproduce first, fix second.
 - **`wait-what`** - re-pitch the last message in plain language when it did not land.
 - **`verify-feature`** - drive the real app through the diff: UI flows, endpoints, database and
-  behavioral side effects, handed back as one self-contained HTML report with screenshots. Run it
-  when you finish implementing a feature.
+  behavioral side effects, handed back as one self-contained HTML report with screenshots.
+  `implement` runs it for you when the diff touched UI, an endpoint or the database, so reach for
+  it directly on work that came from somewhere else.
 - **`review-suite`** - seven quality passes (dead code, duplication, security, authz, docs drift,
   error handling, over-engineering) run in parallel, merged into one triage board with issue export.
   Run it when a big feature or branch wraps up.

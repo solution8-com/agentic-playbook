@@ -91,8 +91,8 @@ It is the same agent all day.
   unattended is something you grant.
 - One question picks the label: if the agent got this wrong and you only saw it at review,
   would that be annoying or dangerous? Work that is only annoying can run alone.
-- Freedom ends at the commit either way. The agent writes, tests and commits, and a person
-  merges.
+- Freedom ends at the commit unless you granted the merge. The agent writes, tests and commits;
+  on `hitl` work a person merges, and an `afk` label is what says the agent may.
 
 ## What you can do
 
@@ -104,8 +104,9 @@ It is the same agent all day.
   trains the reflex.
 - **Move your attention to the exit.** Read the diff before you merge (`verify-feature` for
   evidence, `review-suite` for a sweep).
-- **Label the work as you create it.** Mark it `afk` or `hitl`; `implement` stops at the commit
-  either way, so the merge stays yours.
+- **Label the work as you create it.** `hitl` work stops at the commit and the merge stays
+  yours; `afk` is the permission to merge on green. The label is the decision, so make it when
+  you write the ticket rather than when the branch is waiting.
 - **Start unattended on work you would happily throw away.** A first `afk` run on something
   disposable shows where your boundaries leak.
 
@@ -117,4 +118,5 @@ It is the same agent all day.
 - Ask how far the damage spreads and whether you can undo it.
 - Autonomy belongs to the task. Set it when you write the ticket, and let human-in-the-loop be
   the default.
-- Unattended work still ends at a person. The agent commits, and a human merges.
+- Unattended work still ends at a decision a person made. On `hitl` that decision is the merge
+  itself; on `afk` it was the label, granted before the work started.

@@ -95,7 +95,7 @@ longer needs.
 - **Read your instruction file top to bottom this week.** Cut what the code shows and what stopped
   being true.
 - **Fix the pattern before you scale the work.** Clean the area first if many tasks will run
-  through it (`check-software-principles`, `review-suite`, `/code-review low`).
+  through it (`review-suite`, `/code-review low`).
 - **Turn your two or three most expensive rules into checks.** The rest stays prose.
 - **Give the agent a way to check its own work**: tests, a way to run the app, read access to the
   data (`tdd`, `verify-feature`).

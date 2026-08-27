@@ -34,14 +34,14 @@ been measured" trace back here.
   ([2026 follow-up](https://metr.org/blog/2026-02-24-uplift-update/)) - independent research
   lab; ran the controlled studies on whether AI actually makes developers faster. The
   measured gap between how fast developers *felt* and how fast they *were* comes from here.
-  Backs: *Verifying agent work*, *Measuring*.
+  Backs: *Verifying agent work*.
 - [Chroma - Context Rot](https://research.trychroma.com/context-rot) - the study behind
   "quality decays as the window fills". Backs: *The context window*.
 - [Do unnecessary context files help?](https://arxiv.org/abs/2602.11988) - measured finding
   that surplus instruction files make tasks harder, not easier. Backs: *What the agent
   reads*.
 - [DORA - State of AI-assisted Software Development](https://dora.dev/) - the largest
-  ongoing survey of how AI changes real engineering teams. Backs: *Teams*, *Measuring*.
+  ongoing survey of how AI changes real engineering teams. Backs: *Working as a team*.
 
 ## Practitioners
 
@@ -52,4 +52,4 @@ been measured" trace back here.
   and debugging workflows for agents; test-first and verification-before-completion in
   executable form. Backs: *Verifying agent work*.
 - [Google - engineering practices for code review](https://google.github.io/eng-practices/review/) -
-  the review-culture baseline most teams start from. Backs: *Teams*.
+  the review-culture baseline most teams start from. Backs: *Working as a team*.

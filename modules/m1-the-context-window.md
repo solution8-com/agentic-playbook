@@ -110,7 +110,9 @@ same either way; only the amount you have to write yourself changes.
   experience ten minutes of handover beats an hour of degraded work.
 - **Cut what feeds the window.** Don't connect tools you won't use today. Don't paste a whole
   file when the part that matters would do. Let a separate agent do the wide reading.
-- **Write down the part that lives only in the chat** (`handoff`).
+- **Write down the part that lives only in the chat** (`handoff` on a repo with code,
+  `update-docs` where nothing else holds it), **and open the next session by reading it**
+  (`start`). A record nobody reads back is a record that was not worth writing.
 
 ## What to remember
 
@@ -119,4 +121,5 @@ same either way; only the amount you have to write yourself changes.
 - Quality falls before the window is full, and half-relevant leftovers do the most damage.
 - Make it visible. A gauge turns "am I out of context?" into "which zone am I in?"
 - Our 40% is a shared habit that nobody measured. Your own observation beats it.
-- A session is throwaway. Write down what it learned, and starting a new one costs nothing.
+- A session is throwaway. Write down what it learned, read it back at the start of the next
+  one, and starting a new one costs nothing.

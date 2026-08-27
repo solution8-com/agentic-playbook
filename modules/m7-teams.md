@@ -95,7 +95,8 @@ does. Twice the code needs twice the checking.
 
 **Whoever hands it in owns it.** Send a change for review without reading it yourself, and you have
 delegated to your colleagues rather than to an agent. They could have prompted one themselves. In
-our flow `implement` stops at the commit and hands the branch to a person.
+our flow `implement` stops at the commit and hands the branch to a person, unless the ticket
+carries an `afk` label saying it may merge on green.
 
 ## The signals that used to prove understanding
 
