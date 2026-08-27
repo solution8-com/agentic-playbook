@@ -38,6 +38,8 @@
     "./skills/wizard",
     "./skills/to-questionnaire",
     "./skills/handoff",
-    "./skills/tdd"
+    "./skills/tdd",
+    "./skills/start",
+    "./skills/update-docs"
   ]
 }

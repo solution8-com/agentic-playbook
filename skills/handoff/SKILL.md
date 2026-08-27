@@ -1,6 +1,6 @@
 ---
 name: handoff
-description: Compact the current conversation into a handoff document a fresh session can pick up from. Use at the end of a working session, when the context nears its edge, or when the user asks to wrap up or hand over.
+description: Compact the current conversation into a handoff document a fresh session can pick up from. Use at the end of a working session, when the context nears its edge, or when the user asks to wrap up or hand over - on a repo with code, where the tracker and the git history already hold the state. On a docs, training or planning repo, where nothing else holds it, use update-docs instead.
 argument-hint: "What will the next session be used for?"
 ---
 

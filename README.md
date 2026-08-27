@@ -22,7 +22,7 @@ up to it. Skills are tools: reach for the ones that help and leave the rest.
 
 | Part | Where | What it gives you |
 |---|---|---|
-| **Skills** | [`skills/`](./skills/) | 21 ready-made ways of working, installed as one plugin and updated in place |
+| **Skills** | [`skills/`](./skills/) | 23 ready-made ways of working, installed as one plugin and updated in place |
 | **Tools** | [`tools/`](./tools/README.md) | The CLIs and MCP servers worth having, with setup notes. None of it is required |
 | **Modules** | [`modules/`](./modules/) | Ten lessons on the principles, plus two hands-on guides. Read these to understand why the skills are shaped the way they are |
 
@@ -212,8 +212,16 @@ two or three variants built to compare.
 - **`to-questionnaire`** - turn the questions someone else has to answer into a fillable form.
 - **`handoff`** - compact the session into a handoff a fresh one can pick up from, written to a
   temp file rather than into the repo. The tracker and the git history are the project's memory,
-  and this covers only what they do not hold. It works in any repo, and it earns its keep on
-  long-running projects where you need to remember what was agreed and where you left off.
+  and this covers only what they do not hold. This is the end-of-session skill **on a repo with
+  code**, and it earns its keep on long-running projects where you need to remember what was
+  agreed and where you left off.
+- **`update-docs`** - the same job **on a docs, training or planning repo**, where nothing else
+  holds the state. There is no tracker and no git history carrying the decisions, so it writes
+  durable ones: a ledger entry, `docs/handoff.md`, and only those project docs the work actually
+  drifted from.
+- **`start`** - the read side. Opens a session by reading the handoff, the ledger and any domain
+  glossary before doing anything else, so a fresh session picks up where the last one stopped. It
+  reads both destinations, so it works whichever of the two wrote last.
 
 ## Reports
 
