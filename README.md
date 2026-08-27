@@ -171,12 +171,9 @@ Review has no skill of its own here, because Claude Code ships `/code-review`. U
 `/code-review low` for a small change that matters, and at the end of a work session run the full
 pass over the diff in a fresh session. `review-suite` below is for a broad quality sweep.
 
-`verify-feature` is no longer a judgement call inside the flow. `implement` commits with
-`/code-review low` already run, and then **dispatches `verify-feature` to a sub-agent whenever the
-diff touched UI, an endpoint or the database** - a clean context, handed the branch and nothing
-else, because evidence written by the session that wrote the code is worth less. Where the diff
-touched none of those three it is skipped and says so. Reach for it yourself on a change that did
-not come through `implement`, or where a human has to trust a result the tests do not carry.
+`implement` runs `verify-feature` for you. When it commits, it looks at what the diff touched -
+UI, an endpoint, the database - and hands the branch to a fresh sub-agent to prove the behaviour.
+Reach for it yourself on a change that did not come through the flow.
 
 ## Shape
 
@@ -207,8 +204,7 @@ two or three variants built to compare.
 - **`wait-what`** - re-pitch the last message in plain language when it did not land.
 - **`verify-feature`** - drive the real app through the diff: UI flows, endpoints, database and
   behavioral side effects, handed back as one self-contained HTML report with screenshots.
-  `implement` runs it for you when the diff touched UI, an endpoint or the database, so reach for
-  it directly on work that came from somewhere else.
+  `implement` runs it for you when the diff touched UI, an endpoint or the database.
 - **`review-suite`** - seven quality passes (dead code, duplication, security, authz, docs drift,
   error handling, over-engineering) run in parallel, merged into one triage board with issue export.
   Run it when a big feature or branch wraps up.
