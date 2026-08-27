@@ -65,7 +65,7 @@ back to ask.
 How well you can describe the task decides most of the handoff.
 
 - **Travels well:** searching, reading and gathering. Any work where you already know what a
-  good answer looks like. Review passes travel well too, one helper per angle.
+  good answer looks like. Review passes travel well too.
 - **Stays with you:** the design you have not settled, the bug you do not understand yet, and
   anything you want to steer as you learn. This work needs a conversation, and a helper agent
   cannot have one with you.
@@ -98,7 +98,7 @@ helper also reports back into your session, so enough of them refill your memory
 - **Write tickets that stand alone.** `to-issues` splits work into tickets that each carry
   their own context. `pickup-issue` loads one cold, and `implement` builds from it. A ticket
   that fails a cold pickup was thin. Run that test on purpose.
-- **Fan out on independent questions.** Different areas, no overlap.
+- **Fan out on independent questions.** One helper cannot see what another found.
 - **Keep the deciding close.** On work too big to hold in one go, settle the open questions
   first, then hand off what that makes describable (`wayfinder`).
 

@@ -127,7 +127,8 @@ when they hit something that needs it.
 | [Main Flow](#main-flow) | 5 | Idea to code that landed |
 | [Shape](#shape) | 4 | Working out what to build, before there is a spec to write |
 | [Utilities](#utilities) | 6 | Reached for mid-work, in whatever order the work demands |
-| [Misc](#misc) | 6 | Occasional, and nobody has to use them |
+| [Context](#context) | 3 | Opening and closing a session, so the next one starts where this one stopped |
+| [Misc](#misc) | 3 | Occasional, and nobody has to use them |
 
 ## Project setup
 
@@ -224,18 +225,29 @@ two or three variants built to compare.
 - **`wizard`** - generate a script that walks a human through the steps only they can do:
   provisioning, credentials, one-off migrations. Secrets never touch the model.
 - **`to-questionnaire`** - turn the questions someone else has to answer into a fillable form.
-- **`handoff`** - compact the session into a handoff a fresh one can pick up from, written to a
-  temp file rather than into the repo. The tracker and the git history are the project's memory,
-  and this covers only what they do not hold. This is the end-of-session skill **on a repo with
-  code**, and it earns its keep on long-running projects where you need to remember what was
-  agreed and where you left off.
-- **`update-docs`** - the same job **on a docs, training or planning repo**, where nothing else
+
+## Context
+
+> Opening and closing a session, so the next one starts where this one stopped.
+
+A session is throwaway; what it learned is not. These three are how the knowledge outlives the
+session - which is what makes ending a tired one cost nothing. *The context window* is the module
+behind them.
+
+- **`start`** - the read side, and the one you use most. Opens a session by reading the handoff,
+  the ledger and any domain glossary before doing anything else, so a fresh session picks up where
+  the last one stopped. It reads both destinations below, so it works whichever of the two wrote
+  last.
+- **`handoff`** - the write side **on a repo with code**. Compacts the session into a note a fresh
+  one can pick up from, written to a temp file rather than into the repo: the tracker and the git
+  history are already the project's memory, and this covers only what they do not hold.
+- **`update-docs`** - the write side **on a docs, training or planning repo**, where nothing else
   holds the state. There is no tracker and no git history carrying the decisions, so it writes
   durable ones: a ledger entry, `docs/handoff.md`, and only those project docs the work actually
   drifted from.
-- **`start`** - the read side. Opens a session by reading the handoff, the ledger and any domain
-  glossary before doing anything else, so a fresh session picks up where the last one stopped. It
-  reads both destinations, so it works whichever of the two wrote last.
+
+Which write side you want is decided by the repo, not by preference - a stack manifest present
+means code. `suggest` reads it the same way.
 
 ## Reports
 

@@ -125,8 +125,8 @@ flowchart LR
 - **Check the tickets are still true before dispatching.** A ticket written a month ago describes
   a codebase that has moved. Verifying the premise is cheap; a builder faithfully implementing a
   stale one is not.
-- **Fanning out costs.** One helper has been measured at around four times a plain chat, several
-  at fifteen. Rounds multiply that again, so the job has to be worth the spend.
+- **Fanning out costs, and rounds multiply it.** *Handing work off* has the measured numbers for
+  one round; a job run over several has to be worth that again.
 
 In our flow, `to-issues` writes tickets carrying their own blocking edges, so the order lives on
 the tickets rather than in your head, and `pickup-issue` re-checks one against the live code
