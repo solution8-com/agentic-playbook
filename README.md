@@ -172,7 +172,7 @@ Review has no skill of its own here, because Claude Code ships `/code-review`. U
 pass over the diff in a fresh session. `review-suite` below is for a broad quality sweep.
 
 `implement` runs `verify-feature` for you. When it commits, it looks at what the diff touched -
-UI, an endpoint, the database - and hands the branch to a fresh sub-agent to prove the behaviour.
+UI, an endpoint, the database - and proves the behaviour before it hands the branch back.
 Reach for it yourself on a change that did not come through the flow.
 
 ## Shape
