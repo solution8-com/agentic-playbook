@@ -285,9 +285,9 @@ why it matters, and what you can do about it. These are fresh drafts and still u
 Two hands-on guides sit alongside them, both dated on purpose because the tooling moves under
 them:
 
-- [Setup guide - your machine and your repos](./modules/guide-setup.md) - the commands and file
+- [Setup guide - your machine and your repos](./modules/guide-1-setup.md) - the commands and file
   names behind the lessons above.
-- [Daily guide - watching and steering the work](./modules/guide-daily.md) - what to watch and what
+- [Daily guide - watching and steering the work](./modules/guide-2-daily.md) - what to watch and what
   to do while the work is running.
 
 ## Tools
