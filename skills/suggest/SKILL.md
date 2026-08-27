@@ -95,6 +95,8 @@ Neither is a step in the flow, and saying so is part of the job:
 - **Review.** `implement` already runs `/code-review low` over its own diff. A full `/code-review`
   in a fresh session is worth it at the end of a work session, and `review-suite` is for sweeping
   a whole branch or codebase.
-- **`verify-feature`.** Worth a run when a human has to trust the result - client-facing work,
-  anything with a UI, a change nobody is going to read the diff of. Where the tests already carry
-  the proof, skip it. Never advise it as a routine gate after every slice.
+- **`verify-feature`.** `implement` now runs it itself, in a sub-agent, whenever the diff touched
+  UI, an endpoint or the database - so on work that came through the flow it is already done, and
+  advising it again is noise. Advise it for a change that did **not** come through `implement`,
+  or when a human has to trust a result the tests do not already carry: client-facing work, a
+  change nobody is going to read the diff of.
