@@ -19,8 +19,8 @@ benchmark, [without changing the model at all](https://developer.nvidia.com/blog
 the whole gain came from the harness they built around it. That surrounding machinery is the part
 you control, and it is what this repo is about.
 
-**Who it is for:** technical teams. You need to be comfortable with a terminal, git and pull
-requests. You do not need any experience with agents.
+**Who it is for:** technical teams, and anyone who wants to learn this properly. You need to be
+comfortable with a terminal and git. You do not need any experience with agents.
 
 **What it asks of you:** nothing. The Main Flow below is what we usually do, and nobody is signed
 up to it. Skills are tools: reach for the ones that help and leave the rest.
