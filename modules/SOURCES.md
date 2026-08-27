@@ -52,10 +52,8 @@ been measured" trace back here.
   and debugging workflows for agents; test-first and verification-before-completion in
   executable form. Backs: *Verifying agent work*.
 - [Matt Pocock](https://github.com/mattpocock/skills) - a working practitioner teaching agentic
-  coding as an engineering discipline. Most of the skills in this repo began as his
-  ([ATTRIBUTION.md](../ATTRIBUTION.md) has the detail), and his
-  [AI Coding Crash Course](https://www.aihero.dev/workshops/ai-coding-crash-course) covers this
-  ground from a practitioner's side.
+  coding as an engineering discipline. A lot of the skills in this repo began as his, and some are
+  our own ([ATTRIBUTION.md](../ATTRIBUTION.md) has the detail).
 - [Google - engineering practices for code review](https://google.github.io/eng-practices/review/) -
   the review-culture baseline most teams start from. Backs: *Working as a team*.
 
