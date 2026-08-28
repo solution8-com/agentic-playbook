@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Check that skill references across the repo point at skills this plugin ships.
 
-CATALOG.md names this as the bug class to watch on every refresh: a reference to a skill that
-does not exist. It bites hardest on a rename, where the old name survives in prose nobody
-re-reads.
+The bug class this watches for on every refresh: a reference to a skill that does not exist.
+It bites hardest on a rename, where the old name survives in prose nobody re-reads.
 
 Two passes, because this repo references skills in two shapes:
 
@@ -15,9 +14,6 @@ Two passes, because this repo references skills in two shapes:
            name can also be an ordinary English word, and matching it in plain prose would fire
            on almost every file. The slash form needs no special handling here - a retired skill
            is not shipped, so its slash form is already unresolved under pass A.
-
-CATALOG.md is exempt from both. It is the historical record: it names upstream skills the
-plugin never shipped and skills that have since left the set, on purpose.
 
 Exit 0 when everything resolves, 1 when it does not.
 """
@@ -40,7 +36,7 @@ EXTERNAL = {
     "design",                                       # ships with Claude Code; the router points at it
 }
 
-# Skills that have left this plugin. A mention outside CATALOG.md is a leftover from a rename
+# Skills that have left this plugin. A mention of one is a leftover from a rename
 # or a removal. Add a name here in the same commit that retires the skill.
 RETIRED = {
     "setup-dev-repo",  # renamed to setup-repo 2026-08-25
@@ -51,13 +47,11 @@ RETIRED = {
 # excluded by the pattern itself; these two are not, so they are named.
 NOT_COMMANDS = {"settings", "tmp"}
 
-# Matched against the repo-relative path, not the bare filename: a skill of its own could
-# carry a CATALOG.md, and that one is not the historical record.
+# Matched against the repo-relative path, not the bare filename.
 #
-# CATALOG.md      - the historical record; it names upstream skills we never shipped, on purpose.
-# onboarding      - its job is talking about skills the plugin does not ship but the user owns.
-#                   it also names skills the plugin does not ship, which is the point.
-EXEMPT = {"CATALOG.md", "skills/onboarding/SKILL.md"}
+# onboarding - its job is talking about skills the plugin does not ship but the user owns.
+#              it also names skills the plugin does not ship, which is the point.
+EXEMPT = {"skills/onboarding/SKILL.md"}
 
 # A slash invocation is written one of two ways and no others: inside backticks, or alone at
 # the start of a line. Matching a bare '/word' anywhere would drag in every URL path, route

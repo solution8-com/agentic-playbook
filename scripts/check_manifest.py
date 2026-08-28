@@ -2,8 +2,8 @@
 """Check that the plugin manifest and the skills directories agree, both ways.
 
 The manifest is the only file that decides what a fresh install ships. On 2026-08-20 a commit
-moved skills around and correctly updated README, CATALOG and ATTRIBUTION - the three files a
-human reads - while missing the manifest. The repo described a skill set it would not have
+moved skills around and correctly updated README and ATTRIBUTION - the files a human reads -
+while missing the manifest. The repo described a skill set it would not have
 shipped, and nothing looked at it. This looks at it.
 
 Exit 0 when they agree, 1 when they do not.

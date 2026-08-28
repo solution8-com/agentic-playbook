@@ -12,8 +12,9 @@ Skills marked **verbatim** below are byte-identical to upstream. The one
 set-wide exception: Matt ships Codex sidecar YAMLs in some skills' `agents/`
 directories, which we do not adopt and strip on vendoring.
 
-Exactly what changed in each tweaked skill is recorded in
-[CATALOG.md](CATALOG.md), along with the upstream commit we are pinned to.
+We are pinned to `mattpocock/skills` v1.2.3, commit `8b78b53`, 2026-08-13, MIT. We do not
+track it continuously, and refresh deliberately instead. What changed in each tweaked skill is
+recorded internally rather than here.
 
 ## Sources
 

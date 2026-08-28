@@ -38,7 +38,7 @@ research, and practitioners working in the open - and distil it against our own 
 [SOURCES.md](./modules/SOURCES.md) lists the reading behind the modules and why each source is worth
 trusting. Some of the skills began as [Matt Pocock's](https://github.com/mattpocock/skills) and have
 been developed further; others are our own. [ATTRIBUTION.md](./ATTRIBUTION.md) says which is which,
-and [CATALOG.md](./CATALOG.md) records what we changed and why.
+and names the upstream version we vendored from.
 
 ## Install
 
