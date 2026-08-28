@@ -124,7 +124,7 @@ you are not using it.
 
 ### Status line (`statusline.sh`)
 
-> Ships in this repo. The context gauge the modules tell you to keep visible.
+> An example you can use as it is. The context gauge the modules tell you to keep visible.
 
 [`statusline.sh`](./statusline.sh) prints the model, the repo and branch, your usage windows, and a
 context bar that names the zone it is in: SMART, DUMB, DANGER, COMPACT. Its thresholds are the ones

@@ -69,11 +69,13 @@ have and walks you through the rest.
 The repo is private for now, so this works once you have been given access to it. Installing ties
 you to this repo - no reinstall, no version pinning.
 
-**It keeps itself up to date.** New skills and fixes arrive without anyone running a command; to
-pull one immediately, `/plugin marketplace update solution8`. What an update cannot do is reach a
-session that is already open - skills attach when a session starts, so restart or run
-`/reload-plugins` to pick one up. And treat the reload's own summary as decoration: it has been
-seen reporting "0 skills" while attaching one. Check the skill list, not the message.
+**It keeps itself up to date.** New skills and fixes arrive without anyone running a command. To
+pull one immediately, `/plugin marketplace update solution8`.
+
+**What an update cannot do is reach a session that is already open.** Skills attach when a session
+starts, so restart or run `/reload-plugins` to pick one up. And treat the reload's own summary as
+decoration: it has been seen reporting "0 skills" while attaching one. Check the skill list, not
+the message.
 
 ## Getting started
 

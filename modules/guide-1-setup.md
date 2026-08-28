@@ -51,12 +51,9 @@ it from real corrections; [`setup-repo`](../skills/setup-repo/SKILL.md) seeds a 
 
 ## The status line - your context gauge
 
-Run `/statusline` and have it show at least the **model** and **context usage**. The context
-gauge is the one instrument you should always see ([*The context window*](m1-the-context-window.md):
-sessions get worse before they get full). Config lands in `~/.claude/settings.json` under
-`statusLine`.
-
-Something like this is enough:
+The context gauge is the one instrument you should always see
+([*The context window*](m1-the-context-window.md): sessions get worse before they get full). Show at
+least the **model** and **context usage**. Something like this is enough:
 
 ```
 Opus 5 | myproject:main | ctx 138k/1.0M 13%
@@ -65,9 +62,9 @@ Opus 5 | myproject:main | ctx 138k/1.0M 13%
 The raw pair matters more than the percentage. `138k/1.0M` tells you which model's window you are
 spending, and those differ by a factor of five between models.
 
-If you would rather not build one, this repo ships the status line we use:
-[`tools/statusline.sh`](../tools/statusline.sh). Hand the file to Claude and ask it to wire it up.
-Its zones are the ones in the module.
+This repo ships an example you can use as it is: [`tools/statusline.sh`](../tools/statusline.sh).
+Hand the file to Claude and ask it to wire it up. Its zones are the ones in the module. Config
+lands in `~/.claude/settings.json` under `statusLine`.
 
 ## Hooks
 
