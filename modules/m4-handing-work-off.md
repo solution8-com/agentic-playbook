@@ -16,9 +16,10 @@ way. The helper agent works on its own and reports back to you.
 
 **The helper works in its own memory. Only the answer comes back to yours.**
 
-Handing a task to a helper agent looks like hiring temps: more agents, more output. That picture
-leads to bad decisions, because the real gain is a quieter one. The helper can open thirty files
-and read a wall of test output; what lands in your session is one paragraph.
+Handing a task to a helper agent looks like hiring temps: more agents, more output. That is the
+wrong picture. The gain is not volume and it is not speed. The gain is that the reading happens
+somewhere else. The helper opens thirty files and reads a wall of test output. One paragraph comes
+back to you, and your own window stays clear.
 
 ```mermaid
 flowchart LR
@@ -91,6 +92,9 @@ helper also reports back into your session, so enough of them refill your memory
 
 - **Read the brief back before you send it.** If it says "figure out what makes sense", you're
   handing off a decision you haven't made. Keep that one.
+- **Test the brief on the main agent first.** Ask it what the brief still leaves open, then answer
+  those questions before you dispatch. This is the cheapest place to find a gap. It is not free:
+  each round spends your own window, so keep it short.
 - **Name the shape of the answer.** "A list of file paths, one per line, nothing else" beats
   "report your findings", and it makes a thin answer easy to spot.
 - **Hand off the reading first**, the safest place to start. [`research`](../skills/research/SKILL.md) sends a reading job

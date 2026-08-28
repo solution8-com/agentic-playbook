@@ -10,22 +10,24 @@ importance. It starts from nothing each session, so those three are all it has.
 - What decides the result: the material and the tools you hand over
 - The three surfaces it reads: your instruction file, your code, your checks
 - Why a check beats a written rule for the expensive mistakes
+- How to tell which of your rules have quietly expired
 
 ## Equipping the agent
 
-**Clever wording was a workaround for weak models. The material you hand over decides the result
+**Clever wording was a workaround for weak models. What you hand the agent decides the result
 now.**
 
-Phrasing once carried the result, because models were weak enough that the wrapper mattered. That
-advice has expired. You equip the model instead: the most relevant information you have, and tools
-to find the rest.
+Prompt engineering mattered when models were weak enough that the wrapper carried the answer. That
+advice has expired. Today's models are good enough that how you phrase the request barely moves the
+result. Two things move it: how much relevant material you put in front of the agent, and how much
+it can reach on its own.
 
-Give the agent a way to run the app or query the database, and it checks its answer. Without that
-access, the same model guesses in the same confident voice. Fit matters more than quantity: every
-tool takes room in the context window, used or not. Prefer the tools that show the agent the real
-system.
+Give the agent a way to run the app or query the database, and it checks its answer. Take that
+access away and the same model guesses, in the same confident voice. Fit matters more than quantity:
+every tool takes room in the context window, used or not. Prefer the tools that show the agent the
+real system.
 
-In plain terms: better material moves the result, not better wording.
+In plain terms: better material moves the result. Better wording does not.
 
 ## Three surfaces the agent reads
 
@@ -40,23 +42,34 @@ flowchart LR
     P --> O[The code it writes]
 ```
 
-**Instruction files** are the standing brief. In Claude Code that file is `CLAUDE.md`, read at the
-start of every session. That makes it the most valuable text you own, and the most expensive place
-to be wrong. A good line pays back every day, a stale line costs every day, and every line takes
-room the agent needs.
+**Instruction files** are the standing brief. In Claude Code that is `CLAUDE.md`, read at the start
+of every session. A good line pays back every day. A stale line costs every day, and nothing errors
+when it goes stale.
 
-This has been measured. A repository instructions file did not generally improve task success, and
-it added over 20% to the cost of every run. The agent followed the instructions well, but the
-repository *overview* did not help, because the agent can see the folder layout by looking. So keep
-what stays true and what the code does not show: the non-standard convention, the reason behind an
-odd-looking decision. Cut the tour. In our experience one screen is a good target, re-read monthly,
-because nothing errors when a line goes stale.
+This has been measured: a repository instructions file did not generally improve task success, and
+it added over 20% to the cost of every run. The agent followed the instructions well. The folder
+*tour* was the wasted part, because the agent can see the layout by looking.
 
-This is also why a generated file is a bad start. A generator writes down everything it can see -
-the folder tour, the obvious conventions, the file list - which is precisely the material the
-measurement found unhelpful, and you pay for every line of it on every run afterwards. Start nearly
-empty and grow the file from real corrections: the times the agent got something wrong that a
-sentence would have prevented.
+So keep what stays true and what the code does not show: the non-standard convention, the reason
+behind an odd-looking decision. In our experience one screen is a good target, re-read monthly. And
+do not let a generator write it. A generator produces exactly the tour the measurement found
+unhelpful, and you pay for it on every run afterwards. Start nearly empty. Grow the file from real
+corrections: the times the agent got something wrong that one sentence would have prevented.
+
+**When you re-read it, most of what you cut will be a rule that expired.** For years the rule was:
+change your password every 90 days. It made sense once. Then it started backfiring, because people
+just added a digit. The standards bodies dropped the advice. Plenty of companies still enforce it.
+
+AI rules age the same way, and faster. Almost every one exists because a model could not be trusted
+with something, and models change every few months. A stale rule does not look stale. It looks like
+discipline, and you pay for it on every task.
+
+One question sorts them: **what would have to be true for this rule to be pointless?** If you can
+answer that, go and look, because it may already have happened. If you cannot answer it, the rule
+was probably never doing anything. Two guards keep this honest. Split the rule before you judge it,
+because the claim behind it usually outlives the specific wording it was written as. And never run
+the question over secrets, production data or anything sent outward: judge those by the worst case,
+because a better model does not shrink a worst case.
 
 ## The codebase is the loudest of the three
 
@@ -66,6 +79,10 @@ You can write "always handle errors properly" in the instruction file. If the su
 swallows errors, you get one more file that swallows errors. The agent reads far more code than
 instructions, and the code shows how the work is done here. Names and folder structure count too:
 the same filename in `tests/` and in `src/core/` means two different things.
+
+[`improve-codebase-architecture`](../skills/improve-codebase-architecture/SKILL.md) works on this
+surface directly: it reads the codebase for the patterns the agent will copy, and proposes the ones
+worth deepening.
 
 So the old disciplines are worth more now. Clear boundaries, small pieces with obvious jobs, one
 consistent way of working, runnable tests: each is also a message the agent copies forward. In a

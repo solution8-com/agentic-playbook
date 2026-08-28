@@ -122,6 +122,24 @@ The endpoint moves, so take it from Miro's own MCP documentation.
 Command-line tools. Claude drives a terminal well, and unlike an MCP a CLI costs nothing while
 you are not using it.
 
+### Status line (`statusline.sh`)
+
+> Ships in this repo. The context gauge the modules tell you to keep visible.
+
+[`statusline.sh`](./statusline.sh) prints the model, the repo and branch, your usage windows, and a
+context bar that names the zone it is in: SMART, DUMB, DANGER, COMPACT. Its thresholds are the ones
+in [*The context window*](../modules/m1-the-context-window.md), at 40, 60 and 80 percent, so the bar
+and the module say the same thing.
+
+Hand the file to Claude and ask it to wire it up, or point `statusLine.command` at it yourself in
+`~/.claude/settings.json`. It needs [`jq`](#jq). The usage-window segments appear on Pro and Max
+plans only.
+
+### jq
+
+Reads JSON on the command line. Worth having on its own, and the status line above will not run
+without it. `brew install jq`.
+
 ### GitHub (`gh`)
 
 > The one to install first. Several skills stop working without it.

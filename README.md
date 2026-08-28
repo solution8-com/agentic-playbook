@@ -1,10 +1,10 @@
 # S8 Agentic Playbook
 
-> Solution8's curated setup for building software with coding agents.
+> Solution8's curated setup for building with coding agents.
 
 ## What this is
 
-A working setup for building software with coding agents: a set of Claude Code skills, a short list
+A working setup for building with coding agents: a set of Claude Code skills, a short list
 of tools worth having, and modules that teach the thinking behind both.
 
 It exists because the tool is the easy part. Claude Code installs in a minute. What takes months is
@@ -22,16 +22,16 @@ you control, and it is what this repo is about.
 **Who it is for:** technical teams, and anyone who wants to learn this properly. You need to be
 comfortable with a terminal and git. You do not need any experience with agents.
 
-**What it asks of you:** nothing. The Main Flow below is what we usually do, and nobody is signed
-up to it. Skills are tools: reach for the ones that help and leave the rest.
+**What it asks of you:** nothing. The Main Flow below is the one that makes sense most of the
+time, and nobody is signed up to it. Skills are tools: reach for the ones that help and leave the rest.
 
 ## What is in it
 
 | Part | Where | What it gives you |
 |---|---|---|
-| **Skills** | [`skills/`](./skills/) | 23 ready-made ways of working, installed as one plugin and updated in place |
+| **Skills** | [`skills/`](./skills/) | 23 ready-made ways of working, installed as one plugin that keeps itself up to date |
 | **Tools** | [`tools/`](./tools/README.md) | The CLIs and MCP servers worth having, with setup notes. None of it is required |
-| **Modules** | [`modules/`](./modules/) | Ten lessons on the principles, plus two hands-on guides. Read these to understand why the skills are shaped the way they are |
+| **Modules** | [`modules/`](./modules/) | Nine lessons on the principles, plus two hands-on guides. Read these to understand why the skills are shaped the way they are |
 
 We gather from a wide range of verified sources - Anthropic's own engineering writing, independent
 research, and practitioners working in the open - and distil it against our own experience.
@@ -59,43 +59,21 @@ Claude runs the install itself. You type one thing, `/reload-plugins`, when it a
 attach at that point, so nothing works until you do. Onboarding then looks at what you already
 have and walks you through the rest.
 
-You do not need to know what a marketplace is to use this.
-
 ### By hand
-
-The repo is private, so installing needs GitHub auth that can clone it. Two paths:
-
-**With SSH keys set up** (the reliable path - Claude Code clones `owner/repo` over SSH):
 
 ```
 /plugin marketplace add solution8-com/agentic-playbook
 /plugin install s8-playbook@solution8
 ```
 
-**With HTTPS credentials only** (`gh auth login`), give the full URL instead:
+The repo is private for now, so this works once you have been given access to it. Installing ties
+you to this repo - no reinstall, no version pinning.
 
-```
-/plugin marketplace add https://github.com/solution8-com/agentic-playbook.git
-/plugin install s8-playbook@solution8
-```
-
-Installing ties you to this repo - no reinstall, no version pinning. To pull the latest skills
-after a change is announced:
-
-```
-/plugin marketplace update solution8
-```
-
-Then restart, or run `/reload-plugins`. Skills attach when a session starts, so an update made
-inside a running session reaches nothing until one of those happens.
-
-**Nothing here updates on its own.** It updates when somebody runs the two commands above. A copy
-nobody has updated is a stale claim about what is running - this plugin sat five days behind
-without anyone noticing. And treat the reload's own summary as decoration: it has been seen
-reporting "0 skills" while attaching one. Check the skill list, not the message.
-
-Much of the flow runs through GitHub, so `gh auth login` is worth doing before you start.
-`onboarding` checks it for you, and so does `suggest`.
+**It keeps itself up to date.** New skills and fixes arrive without anyone running a command; to
+pull one immediately, `/plugin marketplace update solution8`. What an update cannot do is reach a
+session that is already open - skills attach when a session starts, so restart or run
+`/reload-plugins` to pick one up. And treat the reload's own summary as decoration: it has been
+seen reporting "0 skills" while attaching one. Check the skill list, not the message.
 
 ## Getting started
 
@@ -116,12 +94,15 @@ Once the plugin is in:
    The first routes you - a new product runs for weeks, so `wayfinder` rather than `grill-me`.
    The second is not a routing question at all, and it says so: it answers from the modules
    instead, because most work needs no skill.
-3. **Read [`m0-the-agentic-loop`](./modules/m0-the-agentic-loop.md).** Ten minutes, and the rest of
+3. **Run `gh auth login` if you have not.** Seven skills drive GitHub directly - issues,
+   branches and pull requests - so `pickup-issue`, `wayfinder`, `review-suite` and
+   `verify-feature` need it to do their job. `onboarding` and `suggest` both check it for you.
+4. **Read [`m0-the-agentic-loop`](./modules/m0-the-agentic-loop.md).** Ten minutes, and the rest of
    the set makes sense afterwards.
-4. **Run one real piece of work through the Main Flow.** Pick something small you were going to do
+5. **Run one real piece of work through the Main Flow.** Pick something small you were going to do
    anyway. The flow pays off more on the second run than the first, because by then you have
    stopped reading it and started recognising it.
-5. **Wire a project up properly when you want to.** `setup-repo` handles code and non-code repos
+6. **Wire a project up properly when you want to.** `setup-repo` handles code and non-code repos
    alike - on a code project it sets up the stack, the commit gate and CI, then proves the gate
    blocks.
 
@@ -241,15 +222,16 @@ behind them.
 
 - **[`start`](./skills/start/SKILL.md)** - the read side, and the one you use most. Opens a session by reading the handoff,
   the ledger and any domain glossary before doing anything else, so a fresh session picks up where
-  the last one stopped. It reads both destinations below, so it works whichever of the two wrote
-  last.
-- **[`handoff`](./skills/handoff/SKILL.md)** - the write side **on a repo with code**. Compacts the session into a note a fresh
-  one can pick up from, written to a temp file rather than into the repo: the tracker and the git
-  history are already the project's memory, and this covers only what they do not hold.
-- **[`update-docs`](./skills/update-docs/SKILL.md)** - the write side **on a docs, training or planning repo**, where nothing else
-  holds the state. There is no tracker and no git history carrying the decisions, so it writes
-  durable ones: a ledger entry, `docs/handoff.md`, and only those project docs the work actually
-  drifted from.
+  the last one stopped. It reads all of them, in parallel, every time - nothing here is
+  last-writer-wins.
+- **[`update-docs`](./skills/update-docs/SKILL.md)** - the write side **on a docs, training or planning repo**, where the thinking
+  is the deliverable and nothing else holds the state. There is no tracker and no git history
+  carrying the decisions, so it writes durable ones: a ledger entry, `docs/handoff.md`, and only
+  those project docs the work actually drifted from.
+- **[`handoff`](./skills/handoff/SKILL.md)** - the write side **on a repo with code**, for when a decision gets made in one
+  session and has to be picked up in another. Compacts the session into a note a fresh one can pick
+  up from, written to a temp file rather than into the repo: the tracker and the git history are
+  already the project's memory, and this covers only what they do not hold.
 
 Which write side you want is decided by the repo, not by preference - a stack manifest present
 means code. `suggest` reads it the same way.
@@ -266,7 +248,7 @@ that folder to `.gitignore`.
 
 > The teaching layer: the principles behind the skills, one lesson doc per concept.
 
-Ten lesson docs in [`modules/`](./modules), ordered the way the agentic loop runs - context,
+Nine lesson docs in [`modules/`](./modules), ordered the way the agentic loop runs - context,
 action, verification - then the operating topics. Each one teaches a single concept in plain words:
 why it matters, and what you can do about it. These are fresh drafts and still under review.
 [SOURCES.md](./modules/SOURCES.md) collects the reading behind all of them.
@@ -279,8 +261,7 @@ why it matters, and what you can do about it. These are fresh drafts and still u
 6. [Verifying agent work](./modules/m5-verifying-agent-work.md) - the three gates between "done" and done.
 7. [Working unattended](./modules/m6-working-unattended.md) - containment beats supervision; when work can safely run alone.
 8. [Working as a team](./modules/m7-teams.md) - a shared setup beats everyone improvising.
-9. [When rules expire](./modules/m8-when-rules-expire.md) - the expiry test, and why rules die a layer at a time.
-10. [Many agents on one job](./modules/m9-many-agents-on-one-job.md) - rounds, lanes, and why a report has to carry its evidence.
+9. [Many agents on one job](./modules/m8-many-agents-on-one-job.md) - rounds, lanes, and why a report has to carry its evidence.
 
 Two hands-on guides sit alongside them, both dated on purpose because the tooling moves under
 them:

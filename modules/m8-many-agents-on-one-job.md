@@ -41,6 +41,12 @@ flowchart LR
 - **The planner's memory is the asset.** It stays clean because it never builds, which is what
   leaves room for judgment at the end of a long day.
 
+**The two sessions can pass the work between themselves.** The planner cuts the job into tickets
+and sends them over. The builder opens one helper per ticket, collects what comes back, and reports
+to the planner. You read the round, not every message inside it. What you give up is the chance to
+catch a wrong turn while it is happening, so keep rounds short enough that a bad one is cheap to
+throw away.
+
 **Say what and done, not how.** Name the goal, the boundaries and what finished looks like, then
 let the work find its own route. A technical plan written before anyone has opened the files is a
 guess, and handing an agent a detailed guess replaces an implementation it could have found with
@@ -52,10 +58,8 @@ In plain terms: brief a contractor on the room you want, not on where each screw
 
 **The session that made the work is the worst one to ask whether it is good.**
 
-*Verifying agent work* says an author is a poor judge of their own work. That holds for agents, and for the
-same reason: the check runs against the same understanding that produced the mistake. A session
-that has spent two hours getting something working has watched itself solve every problem, and
-it reports accordingly.
+*Verifying agent work* says an author is a poor judge of their own work. That holds for agents, for the
+same reason: the check runs against the understanding that produced the mistake.
 
 - **Keep the maker and the judge in separate memories.** The judge should see the work without
   the conversation that produced it - which is what it gets if it never took part.
@@ -73,10 +77,9 @@ Traditional development settled this a long time ago: you do not approve your ow
 **A report you cannot check is a claim.**
 
 *Handing work off* promises you the conclusion, and for one handoff that is fine. It stops being fine
-here, because you are accepting work you did not watch several times a day, and each acceptance
-becomes the ground the next round is built on. Prose drifts toward the stronger claim as it goes:
-"mostly working" becomes "working" by the time it reaches a summary. Nothing is lying -
-summarising rounds up, and it rounds up again at every hop.
+here. You accept work you did not watch several times a day, and each acceptance becomes the ground
+the next round builds on. Summarising rounds up: "mostly working" becomes "working" by the time it
+reaches you, and it rounds up again at every hop.
 
 So the rule that makes it safe: **every claim arrives with the raw output that proves it, pasted
 in.** "The suite is green" is a verdict. Sixty lines of test output is evidence. A bare verdict
@@ -125,8 +128,6 @@ flowchart LR
 - **Check the tickets are still true before dispatching.** A ticket written a month ago describes
   a codebase that has moved. Verifying the premise is cheap; a builder faithfully implementing a
   stale one is not.
-- **Fanning out costs, and rounds multiply it.** *Handing work off* has the measured numbers for
-  one round; a job run over several has to be worth that again.
 
 In our flow, [`to-issues`](../skills/to-issues/SKILL.md) writes tickets carrying their own blocking edges, so the order lives on
 the tickets rather than in your head, and [`pickup-issue`](../skills/pickup-issue/SKILL.md) re-checks one against the live code

@@ -1,7 +1,8 @@
 # Setup guide - your machine and your repos
 
 The modules say *why*. This says *how*, with the actual commands and file names. It is dated on
-purpose - tools change, and this page changes with them ([*When rules expire*](m8-when-rules-expire.md)).
+purpose - tools change, and this page changes with them ([*What the agent reads*](m2-what-the-agent-reads.md):
+rules expire, and a stale one still looks like discipline).
 Written Aug 2026 against Claude Code as it is now.
 
 ## The whole flow in one picture
@@ -55,6 +56,19 @@ gauge is the one instrument you should always see ([*The context window*](m1-the
 sessions get worse before they get full). Config lands in `~/.claude/settings.json` under
 `statusLine`.
 
+Something like this is enough:
+
+```
+Opus 5 | myproject:main | ctx 138k/1.0M 13%
+```
+
+The raw pair matters more than the percentage. `138k/1.0M` tells you which model's window you are
+spending, and those differ by a factor of five between models.
+
+If you would rather not build one, this repo ships the status line we use:
+[`tools/statusline.sh`](../tools/statusline.sh). Hand the file to Claude and ask it to wire it up.
+Its zones are the ones in the module.
+
 ## Hooks
 
 A hook is a small program that runs automatically on every action
@@ -94,13 +108,18 @@ Cycle modes with Shift+Tab. The sane default day
 
 ## Worktrees - a room per agent
 
+Think of one workshop with several benches. Everyone draws from the same stock of materials, but
+each person works at their own bench, so nobody knocks over somebody else's half-finished piece.
+A worktree is the bench.
+
 Two sessions working in one checkout corrupt each other - they share one working state, and the
-failures are ugly. A worktree gives each session its own folder and its own branch. Two ways to get
-one ([*Working unattended*](m6-working-unattended.md)):
+failures are ugly. A worktree gives each session its own folder and its own branch. The shared
+stock is everything it does not separate: the same database, the same ports, the same running
+services. Two ways to get one ([*Working unattended*](m6-working-unattended.md)):
 
 - `claude --worktree` (or `-w`) starts the session in a fresh worktree with its own branch.
 - In the flow, [`pickup-issue`](../skills/pickup-issue/SKILL.md) sets one up per issue - you don't
-  have to think about it. Its own notes carry the limits: a worktree isolates *files only*.
+  have to think about it.
 
 ## Tools
 

@@ -48,6 +48,11 @@ the food while cooking and catches mistakes early. An agent works the same way: 
 fix, try again. Each automated check is a wall the agent cannot talk its way past. Run the
 tests on every change, and nothing merges red.
 
+Test-driven development makes this gate close to free ([`tdd`](../skills/tdd/SKILL.md)). Write the
+test first and there is always something to run, on every change, with no decision about what to
+check. It does not cover everything. A test catches what somebody thought to write as a test, so a
+green pipeline is not proof that the work is right. That is what gate 3 is for.
+
 **Gate 3 - a person, when it matters.** The first two gates answer one question: does it
 work? Gate 3 answers another: **is it what was asked?** You asked for a CSV export for the
 accountant. You got a fully tested JSON export. Gates one and two passed, and the work is
@@ -58,8 +63,15 @@ while you plan ([`grill-me`](../skills/grill-me/SKILL.md), [`to-spec`](../skills
 also catches goal-shrinking, where an agent delivers a smaller thing and calls it the whole
 thing.
 
-[`verify-feature`](../skills/verify-feature/SKILL.md) produces the proof for gate 3. The agent drives the real app and brings back
-screenshots and data.
+Two skills carry the gate 3 work, and they answer different questions:
+
+- `review-suite` is the fresh pair of eyes. It reads the change without the conversation behind it
+  and reports what it found. Run it when the change is big enough that you would ask a colleague to
+  look, and run it before you merge.
+- [`verify-feature`](../skills/verify-feature/SKILL.md) is the proof. The agent drives the real app
+  and brings back screenshots and data. Run it when the change touched something a person uses: a
+  screen, an endpoint, the database. [`implement`](../skills/implement/SKILL.md) starts it for you in
+  those cases, in the same session.
 
 |  | Gate 1: the agent | Gate 2: the machines | Gate 3: a person |
 |---|---|---|---|
@@ -89,7 +101,7 @@ load-bearing walls, where failure is expensive.
   run, the app clicked through, a number checked in the database.
 - **Agree what "done" means before building.** Which checks must pass, what a user must be
   able to do afterwards, where the work would break - written into the task (`grill-me`,
-  `to-spec`; [`tdd`](../skills/tdd/SKILL.md) turns the risky spots into checks written first).
+  `to-spec`; `tdd` turns the risky spots into checks written first).
 - **Keep gate 1 light.** In our experience a self-review of the diff is enough
   (`/code-review low`).
 - **Let machines hold gate 2.** Tests in a CI pipeline, run on every change. Nothing merges

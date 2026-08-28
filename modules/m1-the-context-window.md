@@ -41,11 +41,11 @@ flowchart LR
     E(["the window is only full here"]) -.-> D
 ```
 
-- Half-relevant leftovers do the most damage. The agent ignores unrelated material, but it pulls
-  back material that is *nearly* right - the abandoned approach, the older version of the
-  function. This has been measured too.
-- Mechanical repetition holds up better than a session full of decisions and reversals. Short
-  tasks stay well below these levels.
+- **Half-relevant leftovers do the most damage.** The agent ignores material that has nothing to
+  do with the task. It pulls back material that is *nearly* right: the approach you abandoned, the
+  old version of the function. This has been measured too.
+- **Decisions fill the board faster than repetition.** Renames and formatting stay sharp for a
+  long time. Design work does not.
 
 ## Make the spend visible
 
@@ -62,16 +62,16 @@ raw numbers (60k of 200k) and the name of the zone.
 | 60-80% | Drift: two tasks mix together, finished work gets redone | Mechanical follow-through | Write the notes now |
 | Over 80% | The tool compresses its own history to make room | Very little | Hand over and start fresh |
 
-We break the zones at 40, 60 and 80, and advise wrapping up around 40%. The honest part:
-**nobody measured that number.** You'll also hear 60 in the field, or raw amounts like "I stop
-at 100k", and nobody measured those either. The idea is solid; the digit is folklore. We keep
-ours because a shared habit beats each person improvising. Treat any threshold as a default,
-ours included: wrap up earlier if your work degrades earlier.
+**Nobody measured these numbers.** Not our 40, not the 60 you will hear elsewhere, not "I stop at
+100k". The decline is real; the digit is folklore. We keep ours because a shared habit beats each
+person improvising. Wrap up earlier if your own work degrades earlier.
 
 ## Which model you spend it with
 
 **A bigger model holds more of the task in view. A smaller one is cheaper and faster, and worse at
-judgment.** Same budget, different worker.
+judgment.** Different worker, and often a different budget: some models run to a million tokens,
+others stop at two hundred thousand. The same task is comfortable on one and cramped on the other,
+so check the window you actually have before you plan around a percentage.
 
 The menu changes every few months, so the names below will date. The logic will not:
 
@@ -92,13 +92,14 @@ expensive part, and never worth it when the work needs more thinking.
 Why an approach failed, what the client said on the call, which corner of the code is fragile.
 Ending it feels like losing all of that, so tired sessions get pushed further. The fix is to
 make the knowledge outlive the session: notes in the repo, the decision in the ticket, a
-handover for tomorrow.
+handover for tomorrow. Not all of it. Write down what the next session needs to continue from,
+and let the rest go.
 
 ```mermaid
 flowchart LR
     F["Fresh session<br><i>starts sharp</i>"] --> W["Work<br><i>decisions, findings, dead ends</i>"]
     W --> Z["Window fills<br><i>quality slipping</i>"]
-    Z --> N["Write it down<br><i>notes, tickets, docs</i>"]
+    Z --> N["Write down what the<br>next session needs<br><i>notes, tickets, docs</i>"]
     N --> X["Session discarded<br><i>costs nothing</i>"]
     N --> R[("The written record<br><i>outlives the session</i>")]
     R --> F
@@ -138,5 +139,5 @@ same either way; only the amount you have to write yourself changes.
 - Quality falls before the window is full, and half-relevant leftovers do the most damage.
 - Make it visible. A gauge turns "am I out of context?" into "which zone am I in?"
 - Our 40% is a shared habit that nobody measured. Your own observation beats it.
-- A session is throwaway. Write down what it learned, read it back at the start of the next
-  one, and starting a new one costs nothing.
+- A session is throwaway. Write down what the next session needs to continue from, read it back
+  when you start, and starting a new one costs nothing.

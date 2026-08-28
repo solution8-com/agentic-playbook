@@ -61,6 +61,11 @@ flowchart LR
 - **Context.** The agent builds a picture before it works. It searches the codebase, reads
   your files and instructions, pulls up documentation, and runs a command to see what
   happens. It knows only what it has read.
+
+  **The tools you give it decide how much it can read.** Each tool opens a new place to look.
+  The GitHub CLI lets it read your issues and pull requests. A documentation server lets it
+  check the current docs instead of remembering them. If a tool is missing, the agent does not
+  forget that material. It never saw it.
 - **Action.** It edits files, runs commands, and installs what is missing. Every action
   gives it a result it can read.
 - **Verification.** It checks what happened. It runs the tests, then reads the output and any

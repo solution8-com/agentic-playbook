@@ -10,8 +10,7 @@ has to be readable by the agents, and every agent arrives new each morning.
 - What the team shares, and what stays on your own machine
 - Why one shared way of working beats several private ones
 - How one person's lesson becomes the whole team's
-- Why checking became the tightest constraint
-- What we honestly do not know yet
+- Why checking became the tightest constraint, and what fast clean work stopped proving
 
 ## What the team shares, and what stays yours
 
@@ -32,6 +31,10 @@ A chat session holds one person and one agent, and it ends when they stop. So th
 shared home as well. Use one issue per piece of work, write decisions into it as you make them, and
 anyone can pick it up cold ([`to-issues`](../skills/to-issues/SKILL.md)).
 
+[`setup-repo`](../skills/setup-repo/SKILL.md) is what puts the middle row in place: a `CLAUDE.md`,
+the issue labels, and the checks that run on every change. Every project gets one, not only the
+ones with code.
+
 In plain terms: if you would have to explain it to a new colleague, write it where the agent reads.
 
 ## One shared way of working, instead of several private ones
@@ -39,14 +42,13 @@ In plain terms: if you would have to explain it to a new colleague, write it whe
 **Left alone, each person invents a different process, and the differences cost the team.**
 
 Give six developers the same agent and no shared setup, and you get six methods. One opens a pull
-request for every change. Another commits straight to main. One asks the agent for tests, one skips
-them. Each method works for the person who chose it, and together they leave a codebase that reads
-as though six teams built it.
+request for every change. Another commits straight to main. One asks for tests, one skips them.
+Each works for the person who chose it. Together they leave a codebase that reads as though six
+teams built it.
 
-That costs the team twice. A reviewer has to work out which method produced a change before judging
-it, and a new colleague has no house way to be taught. One shared setup removes the guessing: the
-same skills, checks and definition of done for everyone, so a new person inherits the process
-rather than a colleague's habits.
+That costs twice. A reviewer has to work out which method produced a change before judging it, and
+a new colleague has no house way to be taught. One shared setup removes the guessing: the same
+skills, checks and definition of done for everyone.
 
 In plain terms: one way that everyone follows beats six good ones that nobody shares.
 
@@ -74,8 +76,8 @@ flowchart LR
   the agents get worse, go and read what you wrote.
 
 We have not measured whether this improves team outcomes. The alternative is five people
-improvising five setups that end with the session. The tracker and the commit history already carry
-most of what a session learned, and [`handoff`](../skills/handoff/SKILL.md) catches the decisions that were only said out loud.
+improvising five setups that end with the session. [`handoff`](../skills/handoff/SKILL.md) catches the decisions that were
+only said out loud; the tracker and the commits already hold the rest.
 
 ## Checking is now the constraint
 
@@ -98,21 +100,12 @@ delegated to your colleagues rather than to an agent. They could have prompted o
 our flow [`implement`](../skills/implement/SKILL.md) stops at the commit and hands the branch to a person, unless the ticket
 carries an `afk` label saying it may merge on green.
 
-## The signals that used to prove understanding
-
-**Clean work delivered fast no longer proves that anyone understood it.**
-
-Teams read signals: tidy code, quick turnaround, a hard problem handled without help. Those were
-difficult to fake, because producing them required understanding. An agent produces all three in
-seconds, so the signals stopped meaning what they meant while our instincts kept trusting them.
-
-The rule that travels best is a self-check: **do not hand in code above your own comprehension
-level.** Around it, ask people to explain. "Walk me through why it works this way" tells you more
-than reading the diff.
-
-Be straight about the limit here. Whether this builds juniors or hollows them out has not been
-studied: no cohort tracked over time, no before and after. What we can say is narrower. Merging
-code nobody can explain is how a team stops having juniors who learn.
+**And fast clean output no longer proves understanding.** Tidy code and a quick turnaround used to
+be hard to fake, because producing them took understanding. An agent produces both in seconds. So
+the self-check that travels best is this: do not hand in code above your own comprehension level.
+Ask people to explain rather than reading the diff at them. Whether this builds juniors or hollows
+them out has not been studied. What we can say is narrower: merging code nobody can explain is how
+a team stops having juniors who learn.
 
 ## What you can do
 

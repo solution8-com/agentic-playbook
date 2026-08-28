@@ -2,7 +2,7 @@
 
 The modules say *why*; this says *what to actually watch and do* while working. Dated on
 purpose - written Aug 2026 against Claude Code as it is now
-([*When rules expire*](m8-when-rules-expire.md)).
+([*What the agent reads*](m2-what-the-agent-reads.md): rules expire).
 
 ## The context gauge
 
@@ -55,7 +55,7 @@ Each of these means stop and steer, not "hope it works out":
 
 | What you see | What it usually means | What to do |
 |---|---|---|
-| The change is far bigger than the task - a "small fix" arrives as 400 changed lines | It's doing more than asked: uninvited refactoring, scope creep | Stop. Ask for the *minimal* change; put the extra ideas in a ticket comment ([*Deciding before building*](m3-deciding-before-building.md)) |
+| The change is far bigger than the task - a "small fix" arrives as 400 changed lines | It's doing more than asked: uninvited refactoring, scope creep | Stop. Ask for the *minimal* change ([*Deciding before building*](m3-deciding-before-building.md)) |
 | "Everything works as expected", no evidence | A claim, not a check | Ask for the check that could have failed: the test run, the output ([*Verifying agent work*](m5-verifying-agent-work.md)) |
 | It repeats work, forgets instructions, contradicts itself | Context rot - the session is past its best | Wrap up, write the handoff, start fresh ([*The context window*](m1-the-context-window.md)) |
 | It delivered something quietly smaller than what was asked | Goal-shrinking under difficulty | Compare against the ticket, not against what got built ([*Verifying agent work*](m5-verifying-agent-work.md), Gate 3) |
@@ -86,6 +86,11 @@ wall). Whichever path: green only counts if the checks ran on the exact version 
 the branch as it looked ten minutes ago ([*Verifying agent work*](m5-verifying-agent-work.md)).
 
 ## When to watch and when to walk away
+
+[`to-issues`](../skills/to-issues/SKILL.md) puts labels on every ticket it writes, across three
+axes: what the work is, how bad it is if it breaks, and how much of it can run without you. That
+last one is the pair you act on daily. `hitl` means a person stays in the loop and is the default,
+so work only runs unattended when somebody said so on purpose. `afk` says the opposite, in advance.
 
 Marked the work `hitl`? Stay close and interrupt freely. Marked it `afk`? Let it run and
 judge the result at the end instead - interrupting unattended work defeats the point of

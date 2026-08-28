@@ -26,7 +26,7 @@ been measured" trace back here.
   containment instead of click-to-approve supervision. Backs: *Working unattended*.
 - [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) -
   running agents beyond a sitting, and why harness rules go stale as models improve. Backs:
-  *Working unattended*, *When rules expire*, *Many agents on one job*.
+  *Working unattended*, *What the agent reads*, *Many agents on one job*.
 
 ## Independent research
 
