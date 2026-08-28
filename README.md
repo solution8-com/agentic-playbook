@@ -19,16 +19,16 @@ benchmark, [without changing the model at all](https://developer.nvidia.com/blog
 the whole gain came from the harness they built around it. That surrounding machinery is the part
 you control, and it is what this repo is about.
 
-**<u>Where this runs.</u>** Claude Code, in a terminal. Claude Code is not the Claude chat app: it reads
+<ins>**Where this runs.**</ins> Claude Code, in a terminal. Claude Code is not the Claude chat app: it reads
 your files, runs your commands and works in a loop, which is what everything here assumes. We use
 the terminal version because that is where the harness is most open to you. Hooks, settings files,
 skills, the CLI tools it reaches for, a worktree per agent, the status line. That is the half you
 own, and this repo is almost entirely about shaping it.
 
-**<u>Who it is for:</u>** technical teams, and anyone who wants to learn this properly. You need to be
+<ins>**Who it is for:**</ins> technical teams, and anyone who wants to learn this properly. You need to be
 comfortable with a terminal and git. You do not need any experience with agents.
 
-**<u>What it asks of you:</u>** nothing. The Main Flow below is the one that makes sense most of the
+<ins>**What it asks of you:**</ins> nothing. The Main Flow below is the one that makes sense most of the
 time, and nobody is signed up to it. Skills are tools: reach for the ones that help and leave the rest.
 
 ## What is in it
