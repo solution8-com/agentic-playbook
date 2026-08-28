@@ -30,7 +30,7 @@ time, and nobody is signed up to it. Skills are tools: reach for the ones that h
 | Part | Where | What it gives you |
 |---|---|---|
 | **Skills** | [`skills/`](./skills/) | 23 ready-made ways of working, installed as one plugin that keeps itself up to date |
-| **Tools** | [`tools/`](./tools/README.md) | The CLIs and MCP servers worth having, with setup notes. None of it is required |
+| **Tools** | [`tools/`](./tools/README.md) | The CLIs and MCP servers worth having, with setup notes, plus a status line you can adopt as your own. None of it is required |
 | **Modules** | [`modules/`](./modules/) | Nine lessons on the principles, plus two hands-on guides. Read these to understand why the skills are shaped the way they are |
 
 We gather from a wide range of verified sources - Anthropic's own engineering writing, independent
