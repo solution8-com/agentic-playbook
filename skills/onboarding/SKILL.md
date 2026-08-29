@@ -49,9 +49,12 @@ The five that actually come up:
 
 - **Two skills with the same name.** Say which one wins and what the other one did. This is the
   most common one and the most confusing when it bites.
-- **A hardcoded workflow in their global `CLAUDE.md`.** Something like "always write tests first,
-  then open a PR". It is not wrong - it is *theirs* - but it will steer every skill in the set.
-  Show it, say what it will do, and leave the decision alone.
+- **A hardcoded workflow in their global `CLAUDE.md`.** Two kinds, and they get different
+  treatment. A **habit** - "always write tests first, then open a PR" - names no skill and no
+  plugin, and cannot go stale. It is theirs: report it if it steers something, then leave it
+  alone. A **hardcoded chain** - one that names specific skills or a plugin to route work
+  through - goes stale the day the tools change. Recommend removing it, and **put nothing in its
+  place**: the agent finds skills from their descriptions, so the chain adds nothing.
 - **Another plugin covering the same ground.** Name both and let them pick.
 - **A plugin that claims precedence.** Some plugins instruct the model, every session, to always
   use their own skills first - occasionally in capitals, phrased as non-negotiable. This is a
@@ -70,14 +73,23 @@ checked".
 Each suggestion is its own yes or no. Bundling them means one reluctant yes carries four changes
 nobody read.
 
+**Only surface what they can judge, and never decide in silence.** If you cannot state the cost
+and the benefit in one sentence they could weigh, do not make it a question. Take the sensible
+default, then **say in one line what you took and why**.
+
+Size is not the test. **Reversibility is.** Anything hard to undo stays a question, however small
+it looks: a deletion, or a change to a file they own.
+
 **Back the file up before the first edit** - `CLAUDE.md` to `CLAUDE.md.bak-<date>`. There is no
 git in most people's `~/.claude/`, so this is the only undo there is. It is what makes saying yes
 cheap.
 
-**Where a plugin claims precedence, the fix is one line in their own `CLAUDE.md`.** Their standing
-instructions outrank anything a plugin injects, so a single line settles it - and the plugin stays
-installed, untouched, still updating. Offer turning the other plugin off as an option, but never
-recommend it: it costs them everything else that plugin does, to solve one sentence.
+**Where a plugin claims precedence, there are two fixes and they are not equal.** One line in
+their own `CLAUDE.md` outranks anything a plugin injects and the plugin keeps updating, but the
+injected text is still there and still loud. Removing the plugin ends it completely. Match the fix
+to what they have asked for: someone who has said they want **one way** gets removal recommended,
+with the price named in the same breath - the skills they lose that this set has no equivalent
+for.
 
 Declining is a normal outcome. Move to the next one without arguing, and never re-raise it later
 in the session.
@@ -122,9 +134,25 @@ Only mention what they actually have.
 >
 > **And you can skip all of it.** Most small jobs need none of this.
 
+**Say this, never write it.** The five steps are spoken, not saved to a file. A hardcoded chain in
+a `CLAUDE.md` is read every session and goes stale the day the set changes, which is the
+same fault this skill recommends removing above. Writing ours in after taking theirs out swaps one
+stale rule for another.
+
 Steps 2 to 4 assume GitHub issues. If `gh auth status` came back signed out, say so here and give
 them `gh auth login`. If they use a different tracker, `setup-repo` records it per project and the
 skills read it.
+
+### Where to get answers after today
+
+This skill runs once. End by pointing at the two things that stay.
+
+- **`suggest`** - for "I do not know what to reach for". It takes a description of the work and
+  names the skill.
+- **The modules, on their own disk.** They ship with the plugin, under its `modules/` directory:
+  nine lessons on why the set is shaped this way, plus two guides, with `guide-2-daily.md` holding
+  the everyday rules. Say they can ask Claude to read one - *"read me module 5"* - because nobody
+  guesses a plugin put lessons on their machine.
 
 ## Register
 
@@ -145,3 +173,6 @@ repo you are working in and I will suggest where to start"*.
 - [ ] They know the five steps, that the flow is joined anywhere, and that it is all optional
 - [ ] They know Claude now reaches for these on its own
 - [ ] They know to run `setup-repo` on their other projects
+- [ ] Any hardcoded chain got a removal recommendation, with nothing offered in its place - or
+      there was none
+- [ ] They know `suggest` exists, and that the modules are on their disk and readable on request

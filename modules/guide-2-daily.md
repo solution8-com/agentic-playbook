@@ -34,6 +34,25 @@ it's full ([*The context window*](m1-the-context-window.md)). So:
 - **Esc** stops the agent mid-action (Ctrl+C if Esc is ignoring you). Interrupt early - a
   wrong direction gets more expensive every minute you let it run.
 
+## Building more than one ticket at a time
+
+One ticket at a time is safe and slow. The set is built to go wider, and the thing that makes it
+safe is not the agent, it is the **worktree** - a second full copy of the repo on its own branch.
+Two sessions in one folder share a git index and corrupt each other.
+
+1. **Ask which tickets are free.** [`to-issues`](../skills/to-issues/SKILL.md) already recorded
+   what blocks what. The batch is the tickets with no blocker left that do not touch the same
+   files. Two jobs on one file cannot run at the same time
+   ([*Many agents on one job*](m8-many-agents-on-one-job.md)).
+2. **One agent per ticket**, each running [`pickup-issue`](../skills/pickup-issue/SKILL.md) then
+   [`implement`](../skills/implement/SKILL.md). `pickup-issue` makes the worktree and the branch.
+   Ask the main session to start them, or open one terminal per worktree and run them yourself.
+3. **The main session holds the map** and collects the branches as they come back.
+4. **You review and merge.** Then the next batch.
+
+**The reviewer is the limit, not the machine.** More agents at once sends more work to the same
+person ([*Working as a team*](m7-teams.md)). Two or three is usually the honest number.
+
 ## Choosing a model
 
 The menu changes every few months - as of Aug 2026 it runs from Fable 5 at the top through

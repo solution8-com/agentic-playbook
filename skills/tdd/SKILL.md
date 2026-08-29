@@ -36,3 +36,20 @@ When the shape of that interface is itself in question — how deep the module i
 - **Red before green.** Write the failing test first, then only enough code to pass it. Don't anticipate future tests or add speculative features.
 - **One slice at a time.** One seam, one test, one minimal implementation per cycle.
 - **Refactoring is not part of the loop.** It belongs to the review stage (Claude Code's built-in `/code-review`), not the red → green implementation cycle.
+
+## Code that has no test yet
+
+Sometimes the code being changed has no test. The loop still applies, and it does not need
+anything else covered first.
+
+**New code:** the ordinary red then green loop. The untested code around it does not matter.
+
+**Changing code that has no test:** first write a test that pins what the code does today and
+confirm it passes now. Then make the change. If that test goes red and you did not expect it, you
+were about to break something. If it goes red because the behavior was meant to change, update it
+in the same commit - and name the pins you expect to flip before you start, so an intended update
+is not mistaken for gaming the check.
+
+**Only the slice, and not all of it.** Pin what the change touches, never the module around it.
+The seams rule still holds: a pin belongs where a mistake would be expensive, not on every line
+you edit.

@@ -121,6 +121,15 @@ evidence.
 If a formatter, linter or test gate is missing, propose adding it - but **match what is already
 there** rather than imposing a different stack on someone else's codebase.
 
+**A missing test runner and missing tests are two different findings.** Installing a runner is
+cheap and changes no application code, so propose it: without one, the next slice that wants a
+test has nowhere to put it. **On an existing codebase, never write a trivial passing test to make
+the gate look armed.** An empty suite reporting green reads as coverage over real code, which is
+worse than no suite. Where the runner fails on an empty suite, pass the flag that permits one.
+
+Uncovered code is a **finding for the report**, not a job. Do not open a coverage project, and do
+not write tests outside the slice someone is changing.
+
 ## The commit gate (code projects, both paths)
 
 Skip this entirely where there is no code. There is nothing for a gate to check, and a linter
@@ -141,6 +150,10 @@ on every commit, block on failure, and auto-format so all output meets the proje
    **This step is load-bearing, not hygiene.** Work merges once its checks are
    green, so CI is the last thing standing between a change and trunk. A project whose CI
    runs nothing will merge anything.
+
+   **On an existing repo, never edit a running CI workflow on your own.** Breaking one costs a
+   failed release, not a failed check. Read it, say what it covers, and propose the missing steps
+   as a diff the user approves. Add a new workflow only where none exists.
 
 ### Prove it blocks
 
@@ -219,6 +232,12 @@ user cannot diagnose.
 Say what was wired, what the checks returned, and what a human still needs to handle - secrets,
 deploy targets, anything requiring an account you do not have.
 
+**Say what is not covered, and say what happens next.** Name the size of the untested code and the
+paths where a mistake would be expensive: money, auth, data loss. Then answer the question that
+finding creates. **Nothing needs to happen today**, and coverage is not a project: the next time
+work changes one of those files, `tdd` pins the current behaviour first, and `verify-feature`
+proves behaviour by driving the real app while the suite is still thin.
+
 End by pointing at the next stage, sized to the project: on a bigger project - weeks of work,
 many sessions - suggest **wayfinder**, since at that size there is fog you cannot chart yet. On
 a smaller one, or when the user already knows the shape, suggest **grill-me**. Suggest, do not
@@ -237,7 +256,8 @@ Every project:
 Projects with code, additionally:
 
 - [ ] A fresh clone can install everything without manual fixes
-- [ ] The format, lint/type-check and test commands exist and were **run**, not read
+- [ ] The format and lint/type-check commands were **run**, not read; the test command too, or
+      the report states there is no suite and which paths that leaves unproven
 - [ ] The commit gate was seen blocking a bad commit and passing a clean one
 - [ ] CI runs the same checks as the gate
 - [ ] `CLAUDE.md` records the stack, the verified commands and the gate
