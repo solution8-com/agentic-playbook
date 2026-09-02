@@ -37,6 +37,11 @@ every session whether you touch them or not, so a long list of live MCPs makes e
 more expensive before you have typed anything. Install what looks useful, leave most of it off,
 and switch one on for the project that needs it.
 
+**Scope it to the project that needs it.** `claude mcp add` defaults to `--scope local`, which
+means this project and you alone. Use `--scope project` to write a `.mcp.json` the whole team
+gets. Save `--scope user` for the two or three you want everywhere, because a user-scoped MCP
+you added once for one job is in every session after it.
+
 ### Context7
 
 > Stops Claude writing confident code against an API that changed six months ago.

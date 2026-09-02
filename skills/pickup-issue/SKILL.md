@@ -33,16 +33,28 @@ week's: the paths, counts and code references it states go stale between writing
 an issue drafted by an agent without repo access mixes verified fact and confident guess in prose
 that reads identically - the verified parts check out, so the guessed parts get trusted too.
 
+The check is greps and file reads, dozens of them, and this session needs only the verdicts.
+**List the claims yourself, then dispatch the check to one `Explore` agent, and audit its
+receipt.** Extracting the claims is judgment, so it stays here. Its prompt carries:
+
+1. The claims, one per line, in the ticket's own words.
+2. The repo root and the worktree path if one exists.
+3. The rule below, and the receipt shape: one row per claim, its state, and its evidence.
+
 Resolve every claim to one of three states, and never quietly promote one:
 
 - **Confirmed** - with the `file:line` that shows it.
 - **Contradicted** - with the `file:line` of what is actually there instead.
-- **Unknown** - with the search terms you tried. An unknown left standing as an unknown is a good
+- **Unknown** - with the search terms tried. An unknown left standing as an unknown is a good
   outcome. An unknown rounded up to confirmed is how the wrong thing gets built.
 
 **Claims of absence are the hardest and the most often wrong** - "there is no X", "nothing handles
-Y". Confirming absence takes positive search evidence, so record what you searched rather than only
-that you found nothing.
+Y". Confirming absence takes positive search evidence, so the receipt records what was searched
+rather than only that nothing was found.
+
+Audit the receipt before you trust it. Open one Confirmed `file:line` and one Contradicted one.
+An Unknown with no search terms listed is a finding, so send it back with `SendMessage` rather
+than re-running. **Already a subagent?** Run the check yourself.
 
 Then trace each contradiction forward. A wrong claim rarely stays local: name the acceptance
 criteria, scope statements and design decisions that rested on it. Surface all of it and let the

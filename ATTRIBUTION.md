@@ -31,7 +31,7 @@ recorded internally rather than here.
 | `to-spec` | mattpocock/skills (`to-spec`), tweaked |
 | `to-issues` | mattpocock/skills (`to-tickets`), renamed and tweaked |
 | `pickup-issue` | Solution8 original |
-| `implement` | mattpocock/skills (`implement`), tweaked |
+| `implement` | mattpocock/skills (`implement`), rewritten around a build subagent, his build steps kept inside the procedure |
 | `wayfinder` | mattpocock/skills (`wayfinder`), tweaked |
 | `prototype` | mattpocock/skills (`prototype`), verbatim |
 | `research` | mattpocock/skills (`research`), verbatim |

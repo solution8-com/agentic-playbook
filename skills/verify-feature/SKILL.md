@@ -5,196 +5,62 @@ description: Live runtime verification of a diff — drive the real app through 
 
 # Verify Feature
 
-End a feature with proof: make the running dev stack match the code under verification, drive
-every changed surface — UI, API, database, behavior — and hand over one skimmable HTML file
-where every claim carries evidence. Division of labour: assert through accessibility snapshots
-and query results (machine-checkable), screenshot for the human — the report carries the pixels
-and the tables.
+A verification run drives browsers, restarts stacks and reads logs. That is hundreds of tool
+results this session never needs. **Dispatch the run to a subagent, then audit its receipt.** The
+procedure lives in [`references/procedure.md`](references/procedure.md), for the subagent to read.
 
-This skill is strictly runtime verification. Pair with `/code-review` for static analysis; do
-not fold a review pass in here.
+**Already a subagent?** Read `references/procedure.md` and run the verification yourself.
 
-## 0. Wait for CI — only when asked, or when the point is verifying a fresh push
+This skill is strictly runtime verification. Pair with `/code-review` for static analysis; do not
+fold a review pass in here. It reports, it does not fix - building belongs to `implement`.
 
-`gh pr checks --watch` (or `gh run watch <id>`) until conclusive. Green → continue. Red → stop
-and report the failing job with a link; a verification report of a broken build helps nobody.
-Long waits are fine — that's the "monitor, then report" ask.
+## 1. Brief
 
-## 1. Resolve the target
+The agent cannot read this conversation, so the brief is the run. Every answer below is one cheap
+command or already in context:
 
-The argument works like `/code-review`'s: a commit, a range, a branch, or an issue number
-(resolve the issue to its branch/commits). With no argument: the current branch's diff against
-its **merge base with the trunk** — or the session's own edits if the tree is dirty.
+- **Repo root** and **current branch**.
+- **Target and trunk.** The argument works like `/code-review`'s: a commit, a range, a branch, or
+  an issue number. With no argument the target is the branch's diff against its merge base with
+  the trunk, or this session's own edits when the tree is dirty. Say which, and say what named
+  the trunk, so a wrong guess is visible instead of silent.
+- **Report path**: `.claude/reports/<YYYY-MM-DD>-verify-<slug>.html`.
 
-Trunk resolution order: the project's `verify-recipe` memory → the branch's `@{upstream}` → the
-repo's default branch. State the resolved target and trunk (and which source named the trunk) in
-the report summary, so a wrong guess is visible instead of silent.
+Dispatch one `general-purpose` agent, because the run needs the Playwright MCP tools, Bash and
+file writes. Its prompt carries:
 
-## 2. Load or discover the recipe
+1. Read `<absolute path to this skill>/references/procedure.md` first, and follow it.
+2. The resolved facts above.
+3. **Intent**, what the diff is for, in your words. The agent reads the diff; the conversation
+   that produced it is yours alone.
+4. **Known-accepted deferrals** ruled on in this session, so the agent marks them `accepted`
+   rather than failing them.
+5. The project memory directory, for the `verify-recipe` memory.
+6. Any scope the user set: surfaces to skip, fixtures to use, an environment already running.
 
-Verification needs project facts no generic procedure can know. Check project memory for a
-**`verify-recipe`** entry. If it exists, trust-but-verify the load-bearing parts (is the server
-actually on that port?). If not, discover the facts once and **write the memory before
-finishing** — that is what makes the second run in any repo cheap:
+## 2. Audit the receipt
 
-1. Frontend URL + dev login credentials
-2. API base + how to authenticate a scripted call (token endpoint, header shape)
-3. Database engine + path/DSN, and how to query it directly
-4. How to restart the backend, and whether migrations run at startup
-5. Trunk branch for merge-base
-6. Screenshot-root or tooling quirks — the Playwright MCP may only write inside its allowed
-   roots, often `<repo>/.playwright-mcp`; check them, and note the dir is usually git-ignored
-7. Safe test fixtures: users, items, or records that may be mutated and cleaned up
+The receipt claims a verdict per category, plus fails, blocked and accepted checks, State left
+behind, and any memory written. Audit it against evidence outside the agent's own words. **Done
+when every receipt claim is either confirmed or named as unverified in your report.**
 
-A fact you cannot discover marks its dependent checks **blocked** in the report with the reason —
-never silently skipped, and never guessed.
+- `git status --short` shows a clean tree. Unexpected dirt means the cleanup ledger leaked.
+- The report file exists, at a plausible size.
+- All four categories are present. A missing category is a silent skip, which the procedure forbids.
+- Spot-check one `pass` against its evidence block. A verdict with nothing behind it is a finding.
 
-## 3. Preflight
+The report embeds base64 screenshots, so reading it costs more context than the run you
+dispatched. Leave it on disk for the human and audit from the receipt. Correct the agent with
+`SendMessage` rather than re-running - its context is intact, so a correction is cheaper than a
+second run.
 
-Run the project's *existing* build/typecheck commands (from the recipe or project docs — never
-introduce new tooling). Broken build → stop, report everything as blocked; verifying code that
-doesn't compile is noise. Passing → one summary row in the report, noting known pre-existing
-failures so they aren't rediscovered every run (e.g. "67 errors, all in known stale test files,
-0 new").
+## 3. Report
 
-## 4. Plan the checks
+Verdict first: the report path, one line per category, every fail and blocked check, State left
+behind, and anything your audit contradicted.
 
-Derive the applicable categories from the diff. The report always shows all four — a category the
-diff doesn't touch gets an explicit "n/a — nothing in this diff touches it" row, because a
-silently missing section is indistinguishable from a forgotten one.
+## Related skills
 
-| Category | What proves it |
-|---|---|
-| **UI flows** | Drive the changed surfaces like a user; assert via accessibility snapshots; screenshot each state worth showing |
-| **Endpoints** | Scripted calls (curl + recipe auth) against every new/changed route — routes are proven by their responses, not by reading the router file |
-| **Database** | Direct queries: migrations applied, backfills correct, rows shaped as designed. When the diff contains a migration/backfill, run the **double-restart idempotency check**: snapshot → restart → snapshot → diff must be empty on the second run — that is exactly the bug class that only shows the second time |
-| **Behavioral** | Server-side effects driven through API/UI and verified at the persistence layer (before/after) |
-
-Frontend route changes are UI flows (navigate to the route in both states); backend route changes
-are endpoint checks. There is no separate "routes" category.
-
-**Behavioral archetypes** — scan the diff for these; each one present becomes an assertion:
-
-1. Rows/records **created** as a side effect (prove the row, with its typed fields)
-2. Rows **suppressed** (prove the absence: before/after count with the suppressing condition on)
-3. **Gates/flags** (feature switch, kill switch — prove both states, and whether the flip needs a restart)
-4. **Permission boundaries** (403/404 for the wrong user, 200 for the right one)
-5. **Cascades/cleanup on delete** (dependent rows actually go away)
-6. **Idempotency** (repeat the operation; nothing duplicates)
-
-**Negative cases are required where applicable**: each endpoint/behavioral section shows at least
-one negative case (authz rejection, validation rejection, flag-off, suppression) or states why
-none applies. Positive-only verification is where "it works" lies live.
-
-## 5. Make the stack match the code
-
-Verify what is actually running first (which process, which build, since when) — then restart the
-dev stack so it runs the code under verification. Do this autonomously; asking before each restart
-would defeat the point of the run. Two guardrails, no exceptions:
-
-- Check the evidence supports the restart before killing anything (right process tree, right port).
-- Every state change — restarts, DB writes, flag flips, config edits — goes into the artifact
-  ledger (step 7) and surfaces in the report's **State left behind** section.
-
-Watch the startup log for migration output and errors; a restart that fails is a finding, not an
-inconvenience.
-
-## 6. Drive and capture
-
-Create a fresh working dir under the OS temp directory (`$TMPDIR`, falling back to `/tmp`, or
-`%TEMP%` on Windows): `<tmpdir>/verify-feature-<slug>/`. Screenshots go wherever the browser
-tooling's allowed roots dictate (recipe field 6).
-
-Per UI flow, with the Playwright MCP: interact like a user, assert with `browser_snapshot`
-(present/absent/labelled, and still-there-after-reload for persistence claims),
-`browser_take_screenshot` each state worth showing (numbered: `01-...png`),
-`browser_console_messages` once per flow — errors belong in the report even when the flow passed.
-For large pages, save snapshots to file and grep them rather than pulling full trees into context.
-
-Endpoints: capture status + the response shape that matters. Database: read-only queries wherever
-possible. Behavioral: record the actual rows/counts — when a raw row *is* the proof (a typed
-notification row, a 0-count after suppression), it goes in the report verbatim as an evidence
-block.
-
-Evidence is **curated**, not transcribed: the report is for a human skimming for confidence; the
-full transcript lives in the session. Every planned check appears with a verdict — **pass**,
-**fail** (what broke, screenshot the broken state), or **blocked** (why).
-
-## 7. Cleanup contract — hard rule
-
-Behavioral checks require creating data, so track an artifact ledger as you go: every comment,
-row, preference change, flag flip, restart — each with how to revert it. Before building the
-report, walk the ledger and revert everything: delete test records via the same APIs where
-possible, restore changed settings, confirm baselines (e.g. max-id back to its pre-test value).
-Deliberate leftovers (a feature flag intentionally left on) are allowed but must be listed in
-**State left behind** — the section exists so the next person knows exactly what this run changed
-about their environment.
-
-## 8. Build the report
-
-Write `manifest.json` in the working dir, then run the bundled builder — it embeds every
-screenshot as base64 so the report is a single self-contained file:
-
-```
-python3 "<absolute path to this skill>/scripts/build_report.py" "<workdir>/manifest.json" ".claude/reports/<YYYY-MM-DD>-verify-<slug>.html"
-```
-
-Print the absolute path of the report, then try to open it: `open` on macOS, `xdg-open` on Linux,
-`start ""` on Windows. If opening fails, say so and move on - the path is the deliverable, not the
-window.
-
-**Fixed skeleton, always this order** (the builder renders whatever it's given — the order is this
-skill's contract, so every report reads the same way):
-
-1. Summary (verdict + target + trunk + preflight row)
-2. UI flows (with screenshots)
-3. Endpoints
-4. Database
-5. Behavioral
-6. Observations — non-blocking findings discovered along the way (wrong status codes, missing admin UI, pre-existing quirks)
-7. State left behind
-
-### Manifest schema
-
-```json
-{
-  "title": "Task notifications #6796 — live verification",
-  "repo": "platform (apps/cloud)", "branch": "6796-tasks-now", "commit": "bda3d63",
-  "base_url": "http://localhost:3000", "date": "2026-08-17",
-  "summary": "One short paragraph: what was verified, against which trunk, and the overall verdict. Raw HTML allowed.",
-  "flows": [
-    {
-      "name": "Kill switch OFF — task UI disappears",
-      "status": "pass",
-      "notes": "What was done and what was asserted (plain text, escaped).",
-      "console": "Console errors observed, or empty string.",
-      "shots": [ { "path": "/abs/path/01-home-disabled.png", "caption": "What the human should notice." } ]
-    }
-  ],
-  "sections": [
-    {
-      "name": "Endpoint results",
-      "status": "pass",
-      "notes": "Intro sentence. Raw HTML allowed here and in table cells: <code>, <span class=\"ok\">, <span class=\"warn\">.",
-      "blocks": [
-        { "type": "table", "headers": ["Call", "Expected", "Result"], "rows": [["<code>GET /api/x</code>", "403", "<span class=\"ok\">403</span> — message"]] },
-        { "type": "evidence", "text": "raw rows / log lines that ARE the proof (escaped, mono)" },
-        { "type": "notes", "html": "a follow-up paragraph" }
-      ]
-    }
-  ]
-}
-```
-
-`status` is `pass` | `fail` | `blocked` | `na` | `notes` (use `notes` for Observations, `na` for
-untouched categories). Flows are for screenshot-bearing UI checks; sections for everything else.
-
-Styling comes from the plugin's shared `assets/report.css`, inlined by the builder — so this
-report, `review-suite` and `visual-spec` all read as one set.
-
-## 9. Clean up and hand over
-
-Delete the working dir and screenshots (the report embeds its own copies), close the browser, stop
-anything you started that the user doesn't need running. If the recipe was discovered this run,
-write the `verify-recipe` memory now. Completion: the report file is the only artifact left, and
-the final message gives its path plus a one-line verdict per category.
+- **implement** - runs this for you when the diff touched UI, an endpoint or the database.
+- **review-suite** - the static counterpart, for quality sweeps rather than runtime proof.
+- **visual-spec** - the same report styling, for a spec rather than a verification.

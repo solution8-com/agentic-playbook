@@ -3,30 +3,69 @@ name: implement
 description: "Implement a piece of work based on a spec or set of tickets. Use when work arrives from /pickup-issue, or when the user asks to implement or build something already specced in a ticket."
 ---
 
-Implement the work described by the user in the spec or tickets.
+# Implement
 
-Use /tdd where possible, at pre-agreed seams.
+A build runs tests, typechecks and reads their output over and over. That is hundreds of tool
+results this session never needs. **Dispatch the build to a subagent, then audit its receipt.**
+The build procedure lives in [`references/procedure.md`](references/procedure.md), for the
+subagent to read.
 
-Run typechecking regularly, single test files regularly, and the full test suite once at the end.
+**Already a subagent?** Read `references/procedure.md` and build it yourself.
 
-Once done, use `/code-review low` to check the work does what the ticket asked - and name
-the target explicitly: the branch or worktree path where this work actually lives. Review
-sub-agents inherit the session's working directory, not the builder's worktree, so an
-untargeted review can pass without ever seeing the diff. A review that saw no diff is not a
-review.
+Two steps stay here, because the subagent cannot do them: the review, and the audit.
 
-Do not run a deep review here. An agent reviewing code it just wrote is biased toward its own solution, so the deep pass belongs in a fresh session against a fixed point.
+## 1. Brief
 
-Then check what the diff touched. **If it touched UI, an endpoint or the database, run
-`/verify-feature`** here in this session, naming the branch or worktree path where the work lives.
-Report the path of the report it writes; do not summarise its verdict in place of it.
+The subagent cannot read this conversation, so the brief is the plan. Dispatch one
+`general-purpose` agent. Its prompt carries:
 
-You built this code, so you already believe it works. Pick the flows and the assertions from the
-ticket and the diff, not from what you remember intending - and where a check fails, report the
-failure rather than adjusting the check.
+1. Read `<absolute path to this skill>/references/procedure.md` first, and follow it.
+2. **The plan in full**, written out rather than referenced: the ticket, the spec, or what this
+   conversation agreed. Include the decisions already settled and the alternatives already
+   rejected, so the subagent builds them rather than reopening them.
+3. What `pickup-issue` confirmed and contradicted against the live tree, with the `file:line`
+   for each.
+4. Repo root, current branch, the worktree path where the work lives, and the trunk.
+5. The gate command, when this session already knows it.
+6. The project memory directory.
+7. Any scope the user set: files to leave alone, surfaces to skip.
 
-**Where the diff touched none of those three, skip it and say so in one line.** A pure refactor
-produces a report of nothing-applicable rows, and an artifact per commit that proves nothing
-trains people to stop opening them.
+## 2. Relay the review
 
-Commit your work to the current branch, then stop: report the branch and hand it to the user to review and merge. Do not merge it yourself unless the user has said to for this work - an issue labelled `afk` counts as that permission.
+The subagent commits, reports the SHA and the seams it tested, and stops.
+
+Run `/code-review low` and name the target explicitly: the branch or worktree path where the
+work lives. Review subagents inherit the session's working directory, not the builder's
+worktree, so an untargeted review can pass without ever seeing the diff. A review that saw no
+diff is not a review.
+
+Do not run a deep review here. An agent reviewing code it just wrote is biased toward its own
+solution, so the deep pass belongs in a fresh session against a fixed point.
+
+Relay the findings with `SendMessage`. The subagent's context is intact, so it fixes them in
+place, re-runs the gate, runs the verification, and returns its receipt.
+
+## 3. Audit the receipt
+
+Audit it against evidence outside the subagent's own words. **Done when every receipt claim is
+either confirmed or named as unverified in your report.**
+
+- `git log --oneline <trunk>..HEAD` matches the commits it claims.
+- `git diff --stat <trunk>..HEAD` stayed inside the plan's boundary. A file well outside it is a
+  finding for the user.
+- `git status --short` shows a clean tree.
+- Re-run the gate yourself and confirm exit 0.
+- The new tests exist and cover the seams the subagent named before it started.
+- Where the diff touched UI, an endpoint or the database, the `verify-feature` report exists at
+  the path the receipt names. Do not read the report, it embeds screenshots. Audit from the receipt.
+
+Correct the subagent with `SendMessage` rather than starting a second run.
+
+## 4. Report
+
+The branch first, then the commits, the gate command and its exit code, what the review fixed,
+and the `verify-feature` report path where there is one. Then anything your audit contradicted,
+and anything the subagent left out.
+
+Then stop: hand the branch to the user to review and merge. Do not merge it yourself unless the
+user has said to for this work. An issue labelled `afk` counts as that permission.

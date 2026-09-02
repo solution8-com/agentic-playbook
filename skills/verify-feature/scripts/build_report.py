@@ -74,6 +74,7 @@ STATUS = {
     "pass": ("PASS", "ok"),
     "fail": ("FAIL", "bad"),
     "blocked": ("BLOCKED", "muted"),
+    "accepted": ("ACCEPTED", "muted"),
     "na": ("N/A", "na"),
     "notes": ("NOTES", "muted"),
 }

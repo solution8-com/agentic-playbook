@@ -71,7 +71,7 @@ Two skills carry the gate 3 work, and they answer different questions:
 - [`verify-feature`](../skills/verify-feature/SKILL.md) is the proof. The agent drives the real app
   and brings back screenshots and data. Run it when the change touched something a person uses: a
   screen, an endpoint, the database. [`implement`](../skills/implement/SKILL.md) starts it for you in
-  those cases, in the same session.
+  those cases.
 
 |  | Gate 1: the agent | Gate 2: the machines | Gate 3: a person |
 |---|---|---|---|
