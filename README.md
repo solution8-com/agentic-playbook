@@ -165,9 +165,10 @@ work already says where you are.
 - **[`to-issues`](./skills/to-issues/SKILL.md)** - break a spec into tracer-bullet vertical slices, published as GitHub issues with
   their blocking edges and an `afk` (safe to run unattended) / `hitl` (human in the loop - the
   default) label.
-- **[`pickup-issue`](./skills/pickup-issue/SKILL.md)** - read one issue and its comments, check its claims against the live tree,
-  sort out the worktree, then work out whether the issue is settled enough to build or needs a
-  grill first. Writes no code and no plan of its own.
+- **[`pickup-issue`](./skills/pickup-issue/SKILL.md)** - read one issue and its comments, brief you in plain language before it
+  touches the code, check the issue's claims against the live tree, sort out the worktree, then
+  work out whether the issue is settled enough to build or needs a grill first. Writes no code and
+  no plan of its own.
 - **[`implement`](./skills/implement/SKILL.md)** - build what was already decided. It never reopens the plan, which is what
   separates it from typing "build this" at a fresh agent.
 
@@ -208,7 +209,9 @@ two or three variants built to compare.
 - **[`wait-what`](./skills/wait-what/SKILL.md)** - re-pitch the last message in plain language when it did not land.
 - **[`verify-feature`](./skills/verify-feature/SKILL.md)** - drive the real app through the diff: UI flows, endpoints, database and
   behavioral side effects, handed back as one self-contained HTML report with screenshots.
-  `implement` runs it for you when the diff touched UI, an endpoint or the database.
+  `implement` runs it for you when the diff touched UI, an endpoint or the database. Ask for an
+  adversarial run when a whole feature wraps up, and it walks the state, permission and input
+  matrices instead of the happy path.
 - **[`review-suite`](./skills/review-suite/SKILL.md)** - seven quality passes (dead code, duplication, security, authz, docs drift,
   error handling, over-engineering) run in parallel, merged into one triage board with issue export.
   Run it when a big feature or branch wraps up.
